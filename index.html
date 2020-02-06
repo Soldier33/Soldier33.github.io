@@ -77,13 +77,15 @@
 		<nav class="header-nav">
 			<div class="social">
 				
-					<a class="github" target="_blank" href="#" title="github"><i class="icon-github"></i></a>
+					<a class="github" target="_blank" href="https://github.com/Soldier33" title="github"><i class="icon-github"></i></a>
 		        
 					<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
 		        
 					<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
 		        
 					<a class="zhihu" target="_blank" href="#" title="zhihu"><i class="icon-zhihu"></i></a>
+		        
+					<a class="mail" target="_blank" href="/1013258920@qq.com" title="mail"><i class="icon-mail"></i></a>
 		        
 			</div>
 		</nav>
@@ -118,13 +120,15 @@
 			<nav class="header-nav">
 				<div class="social">
 					
-						<a class="github" target="_blank" href="#" title="github"><i class="icon-github"></i></a>
+						<a class="github" target="_blank" href="https://github.com/Soldier33" title="github"><i class="icon-github"></i></a>
 			        
 						<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
 			        
 						<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
 			        
 						<a class="zhihu" target="_blank" href="#" title="zhihu"><i class="icon-zhihu"></i></a>
+			        
+						<a class="mail" target="_blank" href="/1013258920@qq.com" title="mail"><i class="icon-mail"></i></a>
 			        
 				</div>
 			</nav>
@@ -165,30 +169,42 @@
 
         
         <a href="/2020/02/06/vue-axios/" class="archive-article-date">
-  	<time datetime="2020-02-06T13:29:26.281Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-06</time>
+  	<time datetime="2020-02-06T13:52:38.971Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-06</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="axios传值"><a href="#axios传值" class="headerlink" title="axios传值"></a>axios传值</h2><p><a href="https://github.com/axios/axios#browser" target="_blank" rel="noopener">https://github.com/axios/axios#browser</a></p>
-<h3 id="get"><a href="#get" class="headerlink" title="get"></a>get</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">axios.get(<span class="string">`http://qcpj.bnuz.edu.cn/yjsp/api/app/recipe/getFoodPicure/schoolId/<span class="subst">$&#123;<span class="keyword">this</span>.schoolId&#125;</span>/classId/<span class="subst">$&#123;<span class="keyword">this</span>.classId&#125;</span>`</span>)</span><br></pre></td></tr></table></figure>
+        <h2 id="1-axios的github网址"><a href="#1-axios的github网址" class="headerlink" title="1.axios的github网址"></a>1.axios的github网址</h2><p><a href="https://github.com/axios/axios#browser" target="_blank" rel="noopener">https://github.com/axios/axios#browser</a></p>
+<h2 id="2-axios特点"><a href="#2-axios特点" class="headerlink" title="2.axios特点"></a>2.axios特点</h2><ol>
+<li>基本promise的异步ajax请求库</li>
+<li>浏览器端/node端都可以使用</li>
+<li>支持请求/响应拦截器</li>
+<li>支持请求取消</li>
+<li>请求/响应数据转换</li>
+<li>批量发送多个请求</li>
+</ol>
+<h2 id="3-axios传值方式"><a href="#3-axios传值方式" class="headerlink" title="3.axios传值方式"></a>3.axios传值方式</h2><h3 id="get"><a href="#get" class="headerlink" title="get"></a>get</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">axios.get(<span class="string">`http://qcpj.bnuz.edu.cn/schoolId/<span class="subst">$&#123;<span class="keyword">this</span>.schoolId&#125;</span>/classId/<span class="subst">$&#123;<span class="keyword">this</span>.classId&#125;</span>`</span>)</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">axios.get(<span class="string">'/api/app/recipe/getMealType'</span>,&#123;<span class="attr">params</span>: &#123;<span class="attr">schoolId</span>: <span class="keyword">this</span>.babySchoolId&#125;&#125;)</span><br></pre></td></tr></table></figure>
 
+<h3 id="post"><a href="#post" class="headerlink" title="post"></a>post</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">test () &#123;</span><br><span class="line">      <span class="keyword">var</span> qs = <span class="built_in">require</span>(<span class="string">'querystring'</span>)</span><br><span class="line">       <span class="keyword">var</span> data =&#123;</span><br><span class="line">          schoolId: <span class="keyword">this</span>.schoolId,</span><br><span class="line">          classId: <span class="keyword">this</span>.classId,</span><br><span class="line">      &#125;</span><br><span class="line">      axios.post(<span class="string">'/api/app/recipe/getRecipe'</span>,qs.stringify(data)</span><br><span class="line">        ,&#123;</span><br><span class="line">          emulataJSON: <span class="literal">true</span></span><br><span class="line">        &#125;).then(<span class="function">(<span class="params">res</span>) =&gt;</span> &#123;     </span><br><span class="line">        <span class="built_in">console</span>.log(res.data)  </span><br><span class="line">        &#125;).catch(<span class="function">(<span class="params">err</span>) =&gt;</span> &#123;</span><br><span class="line">          <span class="built_in">console</span>.log(err)</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 
 
 
-
-<h3 id="post"><a href="#post" class="headerlink" title="post"></a>post</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">test () &#123;</span><br><span class="line">      <span class="keyword">var</span> qs = <span class="built_in">require</span>(<span class="string">'querystring'</span>)</span><br><span class="line">       <span class="keyword">var</span> data =&#123;</span><br><span class="line">          schoolId: <span class="keyword">this</span>.schoolId,</span><br><span class="line">          classId: <span class="keyword">this</span>.classId,</span><br><span class="line">          termNum: <span class="number">1</span>,</span><br><span class="line">          weekId: <span class="number">1</span> </span><br><span class="line">      &#125;</span><br><span class="line">      axios.post(<span class="string">'/api/app/recipe/getRecipe'</span>,qs.stringify(data)</span><br><span class="line">        ,&#123;</span><br><span class="line">          emulataJSON: <span class="literal">true</span></span><br><span class="line">        &#125;).then(<span class="function">(<span class="params">res</span>) =&gt;</span> &#123;</span><br><span class="line">          <span class="comment">//显示状态码</span></span><br><span class="line">        <span class="built_in">console</span>.log(res.data.code)     </span><br><span class="line">        <span class="built_in">console</span>.log(res.data);</span><br><span class="line">        </span><br><span class="line">        &#125;).catch(<span class="function">(<span class="params">err</span>) =&gt;</span> &#123;</span><br><span class="line">          <span class="built_in">console</span>.log(err)</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<p><img src="C:%5CUsers%5C10132%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1578708703366.png" alt="1578708703366"></p>
-<p><img src="C:%5CUsers%5C10132%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1578796707351.png" alt="1578796707351"></p>
+<h2 id="4-一般http请求与ajax请求的区别"><a href="#4-一般http请求与ajax请求的区别" class="headerlink" title="4.一般http请求与ajax请求的区别"></a>4.一般http请求与ajax请求的区别</h2><ol>
+<li><p>ajax请求是一种特别的http请求</p>
+</li>
+<li><p>对服务端来说，没有任何区别，区别在浏览器端</p>
+</li>
+<li><p>浏览器端发请求：只有XHR或fetch发出的才是ajax请求，其他所有的都是非ajax请求</p>
+</li>
+<li><p>浏览器端接收到响应</p>
+<p>（1）一般请求：浏览器一般会直接显示响应体数据，也就是刷新/跳转页面</p>
+<p>（2）ajax请求：浏览器不会对页面进行任何更新操作，只是调用监视的回调函数并传入响应相关数据</p>
+</li>
+</ol>
 
       
 
@@ -231,28 +247,31 @@
 
 
   
-    <article id="post-test" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-vue-v-for中key的作用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/02/06/test/">543534534</a>
+      <a class="article-title" href="/2020/02/06/vue-v-for%E4%B8%ADkey%E7%9A%84%E4%BD%9C%E7%94%A8/">vue-v-for中key的作用</a>
     </h1>
   
 
         
-        <a href="/2020/02/06/test/" class="archive-article-date">
-  	<time datetime="2020-02-06T13:28:17.070Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-06</time>
+        <a href="/2020/02/06/vue-v-for%E4%B8%ADkey%E7%9A%84%E4%BD%9C%E7%94%A8/" class="archive-article-date">
+  	<time datetime="2020-02-06T13:52:35.851Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-06</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <hr>
-<p>534534</p>
+        <h2 id="v-for绑定和非绑定key的区别"><a href="#v-for绑定和非绑定key的区别" class="headerlink" title="v-for绑定和非绑定key的区别"></a>v-for绑定和非绑定key的区别</h2><p> 加上key之后，能够更好的复用，减少资源的消耗。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;li v-for&#x3D;&quot;item in list&quot; :key&#x3D;&quot;item&quot;&gt;&#123;&#123;item&#125;&#125;&lt;&#x2F;li&gt;</span><br></pre></td></tr></table></figure>
+
+<p><strong>没加key之前，如果向数组中间添加一个元素，要依次替换数组元素，</strong></p>
+<p><strong>加上key之后，可以直接在数组中间插入这个元素。</strong></p>
 
       
 
@@ -265,7 +284,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/02/06/test/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/02/06/vue-v-for%E4%B8%ADkey%E7%9A%84%E4%BD%9C%E7%94%A8/">展开全文 >></a>
         </p>
       
 
