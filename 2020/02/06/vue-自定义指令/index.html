@@ -6,13 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2020/2 | Ed&#39;s Blog</title>
+  <title>vue-自定义指令 | Ed&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Ed&#39;s Blog">
-<meta property="og:url" content="http://yoursite.com/archives/2020/02/index.html">
+  <meta name="description" content="自定义指令官网详解：https:&#x2F;&#x2F;cn.vuejs.org&#x2F;v2&#x2F;guide&#x2F;custom-directive.html 1.钩子函数bind:只触发一次 inserted:只触发一次 update : 可能触发多次 componentUpdated unbind 2.钩子函数参数el binding: ​    【属性：name  ,  value , expression ,  oldVal">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vue-自定义指令">
+<meta property="og:url" content="http://yoursite.com/2020/02/06/vue-%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8C%87%E4%BB%A4/index.html">
 <meta property="og:site_name" content="Ed&#39;s Blog">
+<meta property="og:description" content="自定义指令官网详解：https:&#x2F;&#x2F;cn.vuejs.org&#x2F;v2&#x2F;guide&#x2F;custom-directive.html 1.钩子函数bind:只触发一次 inserted:只触发一次 update : 可能触发多次 componentUpdated unbind 2.钩子函数参数el binding: ​    【属性：name  ,  value , expression ,  oldVal">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-02-06T14:18:06.247Z">
+<meta property="article:modified_time" content="2020-02-06T14:18:06.248Z">
 <meta property="article:author" content="Ed">
 <meta name="twitter:card" content="summary">
   
@@ -136,295 +140,197 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-vue-自定义指令" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      vue-自定义指令
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/06/vue-%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8C%87%E4%BB%A4/" class="archive-article-date">
+
+        
+        <a href="/2020/02/06/vue-%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8C%87%E4%BB%A4/" class="archive-article-date">
   	<time datetime="2020-02-06T14:18:06.247Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-06</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/06/vue-%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8C%87%E4%BB%A4/">vue-自定义指令</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="自定义指令"><a href="#自定义指令" class="headerlink" title="自定义指令"></a>自定义指令</h2><p>官网详解：<a href="https://cn.vuejs.org/v2/guide/custom-directive.html" target="_blank" rel="noopener">https://cn.vuejs.org/v2/guide/custom-directive.html</a></p>
+<h3 id="1-钩子函数"><a href="#1-钩子函数" class="headerlink" title="1.钩子函数"></a>1.钩子函数</h3><p>bind:只触发一次</p>
+<p>inserted:只触发一次</p>
+<p>update : 可能触发多次</p>
+<p>componentUpdated</p>
+<p>unbind</p>
+<h3 id="2-钩子函数参数"><a href="#2-钩子函数参数" class="headerlink" title="2.钩子函数参数"></a>2.钩子函数参数</h3><p>el</p>
+<p>binding:</p>
+<p>​    【属性：name  ,  value , expression ,  oldValue ,  arg  ,  modifiers 】</p>
+<p>vnode</p>
+<p>oldVnode</p>
+<h3 id="3-钩子区别"><a href="#3-钩子区别" class="headerlink" title="3.钩子区别"></a>3.钩子区别</h3><p>参考：<a href="https://segmentfault.com/a/1190000019651831" target="_blank" rel="noopener">https://segmentfault.com/a/1190000019651831</a></p>
+<p>bind 和 inserted</p>
+<ul>
+<li>共同点： dom插入都会调用，bind在inserted之前</li>
+<li>不同点：<ul>
+<li>bind 时父节点为 null</li>
+<li>inserted 时父节点存在。</li>
+<li>bind是在dom树绘制前调用，inserted在dom树绘制后调用</li>
+<li>bind写样式，inserted写行为</li>
+</ul>
+</li>
+</ul>
+<p>update 和 componentUpdated</p>
+<ul>
+<li>共同点：组件更新都会调用，update在componentUpdated之前</li>
+<li>不同点：<ul>
+<li>update 组件更新前的状态</li>
+<li>componentUpdated 组件更新后的状态</li>
+</ul>
+</li>
+</ul>
+<p>场景：点击事件，div的内容追加 ！；</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">update(el, binding,vnode,oldVnode)&#123;</span><br><span class="line">       <span class="built_in">console</span>.log(el.innerHTML);       <span class="comment">// &lt;div&gt;！&lt;/div&gt;</span></span><br><span class="line">   &#125;</span><br><span class="line">   </span><br><span class="line">   componentUpdated(el, binding,vnode,oldVnode)&#123;</span><br><span class="line">       <span class="built_in">console</span>.log(el.innerHTML);       <span class="comment">// //&lt;div&gt;！！&lt;/div&gt;</span></span><br><span class="line">   &#125;</span><br><span class="line">   </span><br><span class="line">   <span class="comment">// 注意： 区别是div里面的！数量</span></span><br></pre></td></tr></table></figure>
 
-        <div class="article-info info-on-right">
-          
-          
 
+
+<h3 id="4-代码实例"><a href="#4-代码实例" class="headerlink" title="4.代码实例"></a>4.代码实例</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"demo"</span>&gt;</span><br><span class="line">    &lt;input type=<span class="string">"text"</span> v-focus v-color=<span class="string">"'blue'"</span>&gt;</span><br><span class="line">    &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"drag"</span> v-drag&gt;<span class="xml"><span class="tag">&lt;<span class="name">p</span> <span class="attr">v-fontsize</span>=<span class="string">"'55'"</span>&gt;</span>可拖拽<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span>&lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">  &lt;/</span>div&gt;</span><br><span class="line">&lt;<span class="regexp">/template&gt;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">&lt;script&gt;</span></span><br><span class="line"><span class="regexp">export default &#123;</span></span><br><span class="line"><span class="regexp">  name: 'Drag',</span></span><br><span class="line"><span class="regexp">  directives: &#123;</span></span><br><span class="line"><span class="regexp">    /</span><span class="regexp">/简写,相当于写了bind和update</span></span><br><span class="line"><span class="regexp">    'fontsize': (el, binding) =&gt; &#123;</span></span><br><span class="line"><span class="regexp">      el.style.fontSize = parseInt(binding.value) + 'px'</span></span><br><span class="line"><span class="regexp">    &#125;,</span></span><br><span class="line"><span class="regexp">    /</span><span class="regexp">/自动获取焦点</span></span><br><span class="line"><span class="regexp">    focus: &#123;</span></span><br><span class="line"><span class="regexp">      inserted: (el) =&gt; &#123;</span></span><br><span class="line"><span class="regexp">        el.focus()</span></span><br><span class="line"><span class="regexp">      &#125;</span></span><br><span class="line"><span class="regexp">    &#125;,</span></span><br><span class="line"><span class="regexp">    /</span><span class="regexp">/颜色</span></span><br><span class="line"><span class="regexp">    color: &#123;</span></span><br><span class="line"><span class="regexp">      bind: (el, binding) =&gt; &#123;</span></span><br><span class="line"><span class="regexp">        el.style.color = binding.value</span></span><br><span class="line"><span class="regexp">      &#125;  </span></span><br><span class="line"><span class="regexp">    &#125;,</span></span><br><span class="line"><span class="regexp">    /</span><span class="regexp">/拖拽</span></span><br><span class="line"><span class="regexp">    drag: &#123;</span></span><br><span class="line"><span class="regexp">      inserted: (el) =&gt; &#123;</span></span><br><span class="line"><span class="regexp">        const fnDown = (ev) =&gt; &#123;</span></span><br><span class="line"><span class="regexp">          let currentX = el.offsetLeft</span></span><br><span class="line"><span class="regexp">          let currentY = el.offsetTop</span></span><br><span class="line"><span class="regexp">          let downX = ev.clientX</span></span><br><span class="line"><span class="regexp">          let downY = ev.clientY</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">          const fnMove = (ev) =&gt; &#123;</span></span><br><span class="line"><span class="regexp">            let left = ev.clientX - downX + currentX</span></span><br><span class="line"><span class="regexp">            let top = ev.clientY - downY + currentY</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">            el.style.left = left + 'px'</span></span><br><span class="line"><span class="regexp">            el.style.top = top + 'px'</span></span><br><span class="line"><span class="regexp">          &#125;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">          const fnUp = () =&gt; &#123;</span></span><br><span class="line"><span class="regexp">            document.removeEventListener('mousemove', fnMove, false)</span></span><br><span class="line"><span class="regexp">            document.removeEventListener('mouseup', fnUp, false)</span></span><br><span class="line"><span class="regexp">          &#125;</span></span><br><span class="line"><span class="regexp">          document.addEventListener('mousemove', fnMove, false)</span></span><br><span class="line"><span class="regexp">          document.addEventListener('mouseup', fnUp, false)</span></span><br><span class="line"><span class="regexp">          return false</span></span><br><span class="line"><span class="regexp">        &#125;</span></span><br><span class="line"><span class="regexp">        el.addEventListener('mousedown', fnDown, false)</span></span><br><span class="line"><span class="regexp">      &#125;</span></span><br><span class="line"><span class="regexp">    &#125;</span></span><br><span class="line"><span class="regexp">  &#125;</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br><span class="line"><span class="regexp">&lt;/</span>script&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;style scoped&gt;</span><br><span class="line">  .drag &#123;</span><br><span class="line">    position: absolute;</span><br><span class="line">    width: <span class="number">400</span>px;</span><br><span class="line">    height: <span class="number">300</span>px;</span><br><span class="line">    background: yellow;</span><br><span class="line">  &#125;</span><br><span class="line">&lt;<span class="regexp">/style&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>目录：D:\webTest\vue\vue-cli-test\my-cli\src\components\Drag.vue</p>
+<p>需要注意的点就是：</p>
+<p>文本框在还没插入dom时，是没办法获取焦点的，插入之后才能获取焦点。</p>
+<p>而属性是与插不插入dom无关的</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/02/06/vue-%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8C%87%E4%BB%A4/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/06/js-%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BD%AC%E6%95%B0%E5%AD%97/" class="archive-article-date">
-  	<time datetime="2020-02-06T14:17:09.977Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-06</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/02/06/js-%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BD%AC%E6%95%B0%E5%AD%97/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">js-字符串转数字</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/06/js-%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BD%AC%E6%95%B0%E5%AD%97/">js-字符串转数字</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/06/js-%E9%95%BF%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%8D%A2%E8%A1%8C/" class="archive-article-date">
-  	<time datetime="2020-02-06T14:17:00.961Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-06</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/06/js-%E9%95%BF%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%8D%A2%E8%A1%8C/">js-长字符串换行</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/06/js-%E6%94%B9%E5%8F%98%E5%8E%9F%E6%95%B0%E7%BB%84%E6%96%B9%E6%B3%95/" class="archive-article-date">
-  	<time datetime="2020-02-06T14:16:08.163Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-06</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/06/js-%E6%94%B9%E5%8F%98%E5%8E%9F%E6%95%B0%E7%BB%84%E6%96%B9%E6%B3%95/">js-改变原数组方法</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/06/js-%E7%82%B9%E8%BF%90%E7%AE%97%E7%AC%A6%E5%92%8C%E6%96%B9%E6%8B%AC%E5%8F%B7%E8%BF%90%E7%AE%97%E7%AC%A6/" class="archive-article-date">
-  	<time datetime="2020-02-06T14:15:53.952Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-06</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/06/js-%E7%82%B9%E8%BF%90%E7%AE%97%E7%AC%A6%E5%92%8C%E6%96%B9%E6%8B%AC%E5%8F%B7%E8%BF%90%E7%AE%97%E7%AC%A6/">js-点运算符和方括号运算符</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/06/js-typeof/" class="archive-article-date">
-  	<time datetime="2020-02-06T14:15:35.632Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-06</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/06/js-typeof/">js-typeof</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/06/js-delete%E5%92%8Cin/" class="archive-article-date">
-  	<time datetime="2020-02-06T14:15:16.666Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-06</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/06/js-delete%E5%92%8Cin/">js-delete和in</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/06/jq-%E7%82%B9%E5%87%BB%E4%BA%8B%E4%BB%B6/" class="archive-article-date">
-  	<time datetime="2020-02-06T14:14:59.810Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-06</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/06/jq-%E7%82%B9%E5%87%BB%E4%BA%8B%E4%BB%B6/">jq-点击事件</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/06/vue-axios/" class="archive-article-date">
-  	<time datetime="2020-02-06T13:52:38.971Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-06</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/06/vue-axios/">vue-axios</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/06/vue-v-for%E4%B8%ADkey%E7%9A%84%E4%BD%9C%E7%94%A8/" class="archive-article-date">
-  	<time datetime="2020-02-06T13:52:35.851Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-06</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/06/vue-v-for%E4%B8%ADkey%E7%9A%84%E4%BD%9C%E7%94%A8/">vue-v-for中key的作用</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/2020/02/page/2/">2</a><a class="extend next" rel="next" href="/archives/2020/02/page/2/">Next &amp;raquo;</a>
-    </nav>
   
 
 
@@ -448,8 +354,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

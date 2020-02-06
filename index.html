@@ -43,7 +43,7 @@
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
-			<img src="" class="js-avatar">
+			<img src="/img/ed.jpg" class="js-avatar">
 		</a>
 		<hgroup>
 		  <h1 class="header-author"><a href="/">Ed</a></h1>
@@ -55,18 +55,12 @@
 			
 				<li><a href="/">主页</a></li>
 	        
-				<li><a href="/tags/%E9%9A%8F%E7%AC%94/">随笔</a></li>
-	        
 			</ul>
 		</nav>
 		<nav class="header-smart-menu">
     		
     			
     			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
-    			
-            
-    			
-    			<a q-on="click: openSlider(e, 'friends')" href="javascript:void(0)">友链</a>
     			
             
     			
@@ -79,13 +73,9 @@
 				
 					<a class="github" target="_blank" href="https://github.com/Soldier33" title="github"><i class="icon-github"></i></a>
 		        
-					<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
+					<a class="weixin" target="_blank" href="/15989730079" title="weixin"><i class="icon-weixin"></i></a>
 		        
-					<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
-		        
-					<a class="zhihu" target="_blank" href="#" title="zhihu"><i class="icon-zhihu"></i></a>
-		        
-					<a class="mail" target="_blank" href="/1013258920@qq.com" title="mail"><i class="icon-mail"></i></a>
+					<a class="mail" target="_blank" href="mailto:1013258920@qq.com" title="mail"><i class="icon-mail"></i></a>
 		        
 			</div>
 		</nav>
@@ -103,15 +93,13 @@
 	<div class="intrude-less">
 		<header id="header" class="inner">
 			<div class="profilepic">
-				<img src="" class="js-avatar">
+				<img src="/img/ed.jpg" class="js-avatar">
 			</div>
 			<hgroup>
 			  <h1 class="header-author js-header-author">Ed</h1>
 			</hgroup>
 			
 			
-			
-				
 			
 				
 			
@@ -122,13 +110,9 @@
 					
 						<a class="github" target="_blank" href="https://github.com/Soldier33" title="github"><i class="icon-github"></i></a>
 			        
-						<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
+						<a class="weixin" target="_blank" href="/15989730079" title="weixin"><i class="icon-weixin"></i></a>
 			        
-						<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
-			        
-						<a class="zhihu" target="_blank" href="#" title="zhihu"><i class="icon-zhihu"></i></a>
-			        
-						<a class="mail" target="_blank" href="/1013258920@qq.com" title="mail"><i class="icon-mail"></i></a>
+						<a class="mail" target="_blank" href="mailto:1013258920@qq.com" title="mail"><i class="icon-mail"></i></a>
 			        
 				</div>
 			</nav>
@@ -137,9 +121,7 @@
 				<ul style="width: 50%">
 				
 				
-					<li style="width: 50%"><a href="/">主页</a></li>
-		        
-					<li style="width: 50%"><a href="/tags/%E9%9A%8F%E7%AC%94/">随笔</a></li>
+					<li style="width: 100%"><a href="/">主页</a></li>
 		        
 				</ul>
 			</nav>
@@ -155,6 +137,631 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-vue-自定义指令" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/02/06/vue-%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8C%87%E4%BB%A4/">vue-自定义指令</a>
+    </h1>
+  
+
+        
+        <a href="/2020/02/06/vue-%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8C%87%E4%BB%A4/" class="archive-article-date">
+  	<time datetime="2020-02-06T14:18:06.247Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-06</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="自定义指令"><a href="#自定义指令" class="headerlink" title="自定义指令"></a>自定义指令</h2><p>官网详解：<a href="https://cn.vuejs.org/v2/guide/custom-directive.html" target="_blank" rel="noopener">https://cn.vuejs.org/v2/guide/custom-directive.html</a></p>
+<h3 id="1-钩子函数"><a href="#1-钩子函数" class="headerlink" title="1.钩子函数"></a>1.钩子函数</h3><p>bind:只触发一次</p>
+<p>inserted:只触发一次</p>
+<p>update : 可能触发多次</p>
+<p>componentUpdated</p>
+<p>unbind</p>
+<h3 id="2-钩子函数参数"><a href="#2-钩子函数参数" class="headerlink" title="2.钩子函数参数"></a>2.钩子函数参数</h3><p>el</p>
+<p>binding:</p>
+<p>​    【属性：name  ,  value , expression ,  oldValue ,  arg  ,  modifiers 】</p>
+<p>vnode</p>
+<p>oldVnode</p>
+<h3 id="3-钩子区别"><a href="#3-钩子区别" class="headerlink" title="3.钩子区别"></a>3.钩子区别</h3><p>参考：<a href="https://segmentfault.com/a/1190000019651831" target="_blank" rel="noopener">https://segmentfault.com/a/1190000019651831</a></p>
+<p>bind 和 inserted</p>
+<ul>
+<li>共同点： dom插入都会调用，bind在inserted之前</li>
+<li>不同点：<ul>
+<li>bind 时父节点为 null</li>
+<li>inserted 时父节点存在。</li>
+<li>bind是在dom树绘制前调用，inserted在dom树绘制后调用</li>
+<li>bind写样式，inserted写行为</li>
+</ul>
+</li>
+</ul>
+<p>update 和 componentUpdated</p>
+<ul>
+<li>共同点：组件更新都会调用，update在componentUpdated之前</li>
+<li>不同点：<ul>
+<li>update 组件更新前的状态</li>
+<li>componentUpdated 组件更新后的状态</li>
+</ul>
+</li>
+</ul>
+<p>场景：点击事件，div的内容追加 ！；</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">update(el, binding,vnode,oldVnode)&#123;</span><br><span class="line">       <span class="built_in">console</span>.log(el.innerHTML);       <span class="comment">// &lt;div&gt;！&lt;/div&gt;</span></span><br><span class="line">   &#125;</span><br><span class="line">   </span><br><span class="line">   componentUpdated(el, binding,vnode,oldVnode)&#123;</span><br><span class="line">       <span class="built_in">console</span>.log(el.innerHTML);       <span class="comment">// //&lt;div&gt;！！&lt;/div&gt;</span></span><br><span class="line">   &#125;</span><br><span class="line">   </span><br><span class="line">   <span class="comment">// 注意： 区别是div里面的！数量</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="4-代码实例"><a href="#4-代码实例" class="headerlink" title="4.代码实例"></a>4.代码实例</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"demo"</span>&gt;</span><br><span class="line">    &lt;input type=<span class="string">"text"</span> v-focus v-color=<span class="string">"'blue'"</span>&gt;</span><br><span class="line">    &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"drag"</span> v-drag&gt;<span class="xml"><span class="tag">&lt;<span class="name">p</span> <span class="attr">v-fontsize</span>=<span class="string">"'55'"</span>&gt;</span>可拖拽<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span>&lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">  &lt;/</span>div&gt;</span><br><span class="line">&lt;<span class="regexp">/template&gt;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">&lt;script&gt;</span></span><br><span class="line"><span class="regexp">export default &#123;</span></span><br><span class="line"><span class="regexp">  name: 'Drag',</span></span><br><span class="line"><span class="regexp">  directives: &#123;</span></span><br><span class="line"><span class="regexp">    /</span><span class="regexp">/简写,相当于写了bind和update</span></span><br><span class="line"><span class="regexp">    'fontsize': (el, binding) =&gt; &#123;</span></span><br><span class="line"><span class="regexp">      el.style.fontSize = parseInt(binding.value) + 'px'</span></span><br><span class="line"><span class="regexp">    &#125;,</span></span><br><span class="line"><span class="regexp">    /</span><span class="regexp">/自动获取焦点</span></span><br><span class="line"><span class="regexp">    focus: &#123;</span></span><br><span class="line"><span class="regexp">      inserted: (el) =&gt; &#123;</span></span><br><span class="line"><span class="regexp">        el.focus()</span></span><br><span class="line"><span class="regexp">      &#125;</span></span><br><span class="line"><span class="regexp">    &#125;,</span></span><br><span class="line"><span class="regexp">    /</span><span class="regexp">/颜色</span></span><br><span class="line"><span class="regexp">    color: &#123;</span></span><br><span class="line"><span class="regexp">      bind: (el, binding) =&gt; &#123;</span></span><br><span class="line"><span class="regexp">        el.style.color = binding.value</span></span><br><span class="line"><span class="regexp">      &#125;  </span></span><br><span class="line"><span class="regexp">    &#125;,</span></span><br><span class="line"><span class="regexp">    /</span><span class="regexp">/拖拽</span></span><br><span class="line"><span class="regexp">    drag: &#123;</span></span><br><span class="line"><span class="regexp">      inserted: (el) =&gt; &#123;</span></span><br><span class="line"><span class="regexp">        const fnDown = (ev) =&gt; &#123;</span></span><br><span class="line"><span class="regexp">          let currentX = el.offsetLeft</span></span><br><span class="line"><span class="regexp">          let currentY = el.offsetTop</span></span><br><span class="line"><span class="regexp">          let downX = ev.clientX</span></span><br><span class="line"><span class="regexp">          let downY = ev.clientY</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">          const fnMove = (ev) =&gt; &#123;</span></span><br><span class="line"><span class="regexp">            let left = ev.clientX - downX + currentX</span></span><br><span class="line"><span class="regexp">            let top = ev.clientY - downY + currentY</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">            el.style.left = left + 'px'</span></span><br><span class="line"><span class="regexp">            el.style.top = top + 'px'</span></span><br><span class="line"><span class="regexp">          &#125;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">          const fnUp = () =&gt; &#123;</span></span><br><span class="line"><span class="regexp">            document.removeEventListener('mousemove', fnMove, false)</span></span><br><span class="line"><span class="regexp">            document.removeEventListener('mouseup', fnUp, false)</span></span><br><span class="line"><span class="regexp">          &#125;</span></span><br><span class="line"><span class="regexp">          document.addEventListener('mousemove', fnMove, false)</span></span><br><span class="line"><span class="regexp">          document.addEventListener('mouseup', fnUp, false)</span></span><br><span class="line"><span class="regexp">          return false</span></span><br><span class="line"><span class="regexp">        &#125;</span></span><br><span class="line"><span class="regexp">        el.addEventListener('mousedown', fnDown, false)</span></span><br><span class="line"><span class="regexp">      &#125;</span></span><br><span class="line"><span class="regexp">    &#125;</span></span><br><span class="line"><span class="regexp">  &#125;</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br><span class="line"><span class="regexp">&lt;/</span>script&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;style scoped&gt;</span><br><span class="line">  .drag &#123;</span><br><span class="line">    position: absolute;</span><br><span class="line">    width: <span class="number">400</span>px;</span><br><span class="line">    height: <span class="number">300</span>px;</span><br><span class="line">    background: yellow;</span><br><span class="line">  &#125;</span><br><span class="line">&lt;<span class="regexp">/style&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>目录：D:\webTest\vue\vue-cli-test\my-cli\src\components\Drag.vue</p>
+<p>需要注意的点就是：</p>
+<p>文本框在还没插入dom时，是没办法获取焦点的，插入之后才能获取焦点。</p>
+<p>而属性是与插不插入dom无关的</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/02/06/vue-%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8C%87%E4%BB%A4/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-js-字符串转数字" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/02/06/js-%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BD%AC%E6%95%B0%E5%AD%97/">js-字符串转数字</a>
+    </h1>
+  
+
+        
+        <a href="/2020/02/06/js-%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BD%AC%E6%95%B0%E5%AD%97/" class="archive-article-date">
+  	<time datetime="2020-02-06T14:17:09.977Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-06</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>参考：<a href="https://blog.fundebug.com/2018/07/07/string-to-number/" target="_blank" rel="noopener">https://blog.fundebug.com/2018/07/07/string-to-number/</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">1.</span><br><span class="line">parseInt(&quot;1&quot;); &#x2F;&#x2F; 默认方式 (没有基数)</span><br><span class="line">parseInt(num, 8); &#x2F;&#x2F; 传入基数 (八进制)</span><br><span class="line">parseInt(num, 10); &#x2F;&#x2F; 传入基数 (十进制)</span><br><span class="line">parseInt(num, 16); &#x2F;&#x2F; 传入基数 (十六位数)</span><br><span class="line"></span><br><span class="line">陷阱</span><br><span class="line">parseInt(&quot;08&quot;); &#x2F;&#x2F; returns 0 部分老浏览器.</span><br><span class="line">parseInt(&quot;44.jpg&quot;); &#x2F;&#x2F; returns 44</span><br><span class="line"></span><br><span class="line">2.</span><br><span class="line">parseFloat(num); &#x2F;&#x2F; 浮点数</span><br><span class="line"></span><br><span class="line">陷阱：</span><br><span class="line">十六进制数</span><br><span class="line"></span><br><span class="line">3.</span><br><span class="line">Number(num); &#x2F;&#x2F; Number 构造器</span><br><span class="line"></span><br><span class="line">陷阱</span><br><span class="line">Number 也是 JsPerf 中最慢的之一。几乎不用它。</span><br><span class="line"></span><br><span class="line">4.</span><br><span class="line">~~num; &#x2F;&#x2F;按位非</span><br><span class="line"></span><br><span class="line">陷阱</span><br><span class="line">按位非：用它确保输入中没有字符，仅用于整数。</span><br><span class="line"></span><br><span class="line">5.</span><br><span class="line">&quot;1&quot; - 0  &#x2F;&#x2F; 减去0</span><br><span class="line">&quot;1&quot; &#x2F; 1; &#x2F;&#x2F; 除一个数</span><br><span class="line">&quot;1&quot; * 1; &#x2F;&#x2F; 乘一个数</span><br></pre></td></tr></table></figure>
+
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/02/06/js-%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BD%AC%E6%95%B0%E5%AD%97/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-js-长字符串换行" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/02/06/js-%E9%95%BF%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%8D%A2%E8%A1%8C/">js-长字符串换行</a>
+    </h1>
+  
+
+        
+        <a href="/2020/02/06/js-%E9%95%BF%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%8D%A2%E8%A1%8C/" class="archive-article-date">
+  	<time datetime="2020-02-06T14:17:00.961Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-06</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;方法1（坑人语法），但是使用不小心会出bug，记得反斜杠的后面必须是换行符，而不能有其他字符（比如空格），否则会报错，不信，你可以试一下</span><br><span class="line">var s1 &#x3D; &#39;12345\</span><br><span class="line">67890&#39;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;方法2（好读语法）</span><br><span class="line">var s2 &#x3D; &#39;12345&#39;+</span><br><span class="line">&#39;67890&#39;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;方法3（ES6新出的），使用反引号（1左边的符号）</span><br><span class="line">var s3 &#x3D; &#96;12345</span><br><span class="line">67890&#96;</span><br><span class="line">s3.length &#x2F;&#x2F;11,会包含回车</span><br></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/02/06/js-%E9%95%BF%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%8D%A2%E8%A1%8C/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-js-改变原数组方法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/02/06/js-%E6%94%B9%E5%8F%98%E5%8E%9F%E6%95%B0%E7%BB%84%E6%96%B9%E6%B3%95/">js-改变原数组方法</a>
+    </h1>
+  
+
+        
+        <a href="/2020/02/06/js-%E6%94%B9%E5%8F%98%E5%8E%9F%E6%95%B0%E7%BB%84%E6%96%B9%E6%B3%95/" class="archive-article-date">
+  	<time datetime="2020-02-06T14:16:08.163Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-06</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a = [<span class="string">'a'</span>,<span class="string">'b'</span>, <span class="string">'c'</span>]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">delete</span> a[<span class="number">0</span>] <span class="comment">////不会改变数组的长度</span></span><br><span class="line"><span class="built_in">console</span>.log(a.length)  <span class="comment">//3</span></span><br><span class="line"><span class="built_in">console</span>.log(a) <span class="comment">//[ &lt;1 empty item&gt;, 'b', 'c' ]</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">a.pop()  <span class="comment">//会改变数组的长度</span></span><br><span class="line"><span class="built_in">console</span>.log(a.length)  <span class="comment">//2</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>原文链接：<a href="https://blog.csdn.net/qq_41999617/article/details/82979718" target="_blank" rel="noopener">https://blog.csdn.net/qq_41999617/article/details/82979718</a></p>
+<p>Array对象常用方法：</p>
+<p>不改变原数组：<br>1、concat()   连接两个或多个数组，并将新的数组返回，不改变原数组，返回新的数组</p>
+<p>2、join()   把数组中所有元素放入一个字符串，将数组转换为字符串，不改变原数组，返回字符串</p>
+<p>3、slice()  从已有的数组中返回选定的元素，提取部分元素，放到新数组中，参数解释：1：截取开始的位置的索引，包含开始索引；2：截取结束的位置的索引，不包含结束索引。不改变原数组，返回一个新数组</p>
+<p>4、toString()   把数组转为字符串，不改变原数组，返回数组的字符串形式</p>
+<p>改变原数组：<br>5、pop()  删除数组最后一个元素，如果数组为空，则不改变数组，返回undefined，改变原数组，返回被删除的元素</p>
+<p>6、push()   向数组末尾添加一个或多个元素，改变原数组，返回新数组的长度</p>
+<p>7、reverse()   颠倒数组中元素的顺序，改变原数组，返回该数组</p>
+<p>8、shift()   把数组的第一个元素删除，若空数组，不进行任何操作，返回undefined,改变原数组，返回第一个元素的值</p>
+<p>9、sort()   对数组元素进行排序，改变原数组，返回该数组</p>
+<p>10、splice()   从数组中添加/删除项目，改变原数组，返回被删除的元素</p>
+<p>11、unshift()   向数组的开头添加一个或多个元素，改变原数组，返回新数组的长度</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/02/06/js-%E6%94%B9%E5%8F%98%E5%8E%9F%E6%95%B0%E7%BB%84%E6%96%B9%E6%B3%95/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-js-点运算符和方括号运算符" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/02/06/js-%E7%82%B9%E8%BF%90%E7%AE%97%E7%AC%A6%E5%92%8C%E6%96%B9%E6%8B%AC%E5%8F%B7%E8%BF%90%E7%AE%97%E7%AC%A6/">js-点运算符和方括号运算符</a>
+    </h1>
+  
+
+        
+        <a href="/2020/02/06/js-%E7%82%B9%E8%BF%90%E7%AE%97%E7%AC%A6%E5%92%8C%E6%96%B9%E6%8B%AC%E5%8F%B7%E8%BF%90%E7%AE%97%E7%AC%A6/" class="archive-article-date">
+  	<time datetime="2020-02-06T14:15:53.952Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-06</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="点运算符和方括号运算符的区别"><a href="#点运算符和方括号运算符的区别" class="headerlink" title="点运算符和方括号运算符的区别"></a>点运算符和方括号运算符的区别</h1><p><a href="https://blog.csdn.net/a654540233/article/details/85993674" target="_blank" rel="noopener">https://blog.csdn.net/a654540233/article/details/85993674</a></p>
+<p><strong>1、点操作符: 静态的。右侧必须是一个以属性名称命名的简单标识符。属性名用一个标识符来表示。标识符必须直接出现再js程序中，它们不是数据类型，因此程序无法修改它们。</strong></p>
+<p><strong>2、中括号操作符: 动态的。方括号里必须是一个计算结果为字符串的表达式，属性名通过字符串表示。字符串是js的数据类型再程序运行时可以修改和创建它们。</strong></p>
+<h2 id="主要有以下区别："><a href="#主要有以下区别：" class="headerlink" title="主要有以下区别："></a>主要有以下区别：</h2><h4 id="1、-中括号法–可以用变量作为属性名或访问-而点方法不可以"><a href="#1、-中括号法–可以用变量作为属性名或访问-而点方法不可以" class="headerlink" title="1、[]中括号法–可以用变量作为属性名或访问,而点方法不可以;"></a>1、[]中括号法–可以用变量作为属性名或访问,而点方法不可以;</h4><p><a href="https://www.cnblogs.com/lpp-11-15/p/11284278.html" target="_blank" rel="noopener">https://www.cnblogs.com/lpp-11-15/p/11284278.html</a></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> foo = <span class="string">'name'</span></span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">    foo:<span class="string">'恭迎夷陵老祖'</span>,</span><br><span class="line">    name:<span class="string">'魏无羡'</span></span><br><span class="line">&#125;</span><br><span class="line">obj.foo <span class="comment">//恭迎夷陵老祖</span></span><br><span class="line">obj[<span class="string">'foo'</span>] <span class="comment">//恭迎夷陵老祖</span></span><br><span class="line">obj[foo] <span class="comment">//魏无羡</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">Object</span>.keys(obj) <span class="comment">// ['foo','name']</span></span><br></pre></td></tr></table></figure>
+
+<p>点运算符 和方括号运算符 都可以获取对象的属性值。不同的是 方括号运算符 在获取对象的属性值时要加引号，如果不加引号 会被当做变量处理。</p>
+<h4 id="2、-中括号法–可以用数字作为属性名-而点语法不可以"><a href="#2、-中括号法–可以用数字作为属性名-而点语法不可以" class="headerlink" title="2、[]中括号法–可以用数字作为属性名,而点语法不可以;"></a>2、[]中括号法–可以用数字作为属性名,而点语法不可以;</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">    <span class="number">123</span>: <span class="string">'hello'</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(obj[<span class="number">123</span>]);</span><br><span class="line"><span class="built_in">console</span>.log(obj<span class="number">.123</span>);    报错</span><br></pre></td></tr></table></figure>
+
+<h4 id="3、-中括号法–-可以动态访问的属性名，可以在程序运行时创建和修改属性，点操作符就不行！"><a href="#3、-中括号法–-可以动态访问的属性名，可以在程序运行时创建和修改属性，点操作符就不行！" class="headerlink" title="3、 []中括号法– 可以动态访问的属性名，可以在程序运行时创建和修改属性，点操作符就不行！"></a>3、 []中括号法– 可以动态访问的属性名，可以在程序运行时创建和修改属性，点操作符就不行！</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// （ 即 []--可以动态设置和获取)</span></span><br><span class="line"><span class="keyword">var</span> customer=&#123;&#125;;</span><br><span class="line"><span class="keyword">var</span> addr=[<span class="string">'北京'</span>,<span class="string">'上海'</span>,<span class="string">'广州'</span>,<span class="string">'深圳'</span>];</span><br><span class="line"><span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;<span class="number">4</span>;i++)&#123;</span><br><span class="line">   customer[<span class="string">"address"</span>+i]=addr[i];</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(addr);</span><br><span class="line"><span class="built_in">console</span>.log(customer);</span><br><span class="line"><span class="keyword">var</span> str = <span class="string">""</span>;</span><br><span class="line"><span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;<span class="number">4</span>;i++)&#123;</span><br><span class="line">    str += customer[<span class="string">"address"</span> + i] + <span class="string">"\t"</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(str);</span><br></pre></td></tr></table></figure>
+
+<h4 id="4、如果属性名中包含会导致语法错误的字符，或者属性名是关键字或者保留字，也可以使用方括号表示法。"><a href="#4、如果属性名中包含会导致语法错误的字符，或者属性名是关键字或者保留字，也可以使用方括号表示法。" class="headerlink" title="4、如果属性名中包含会导致语法错误的字符，或者属性名是关键字或者保留字，也可以使用方括号表示法。"></a>4、如果属性名中包含会导致语法错误的字符，或者属性名是关键字或者保留字，也可以使用方括号表示法。</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">    person[<span class="string">'first name'</span>] =<span class="string">'gogo2'</span>;  <span class="comment">//first name包含一个空格</span></span><br><span class="line">    <span class="built_in">console</span>.log(person[<span class="string">'first name'</span>]);</span><br><span class="line"><span class="comment">//    console.log(person.first name)//书写都通不过</span></span><br><span class="line">    person[<span class="string">'for'</span>] =<span class="string">'gogo_for'</span>;  <span class="comment">//first name包含一个空格</span></span><br><span class="line">    person.if =<span class="string">'gogo_if'</span>;  <span class="comment">//first name包含一个空格</span></span><br><span class="line">    <span class="built_in">console</span>.log(person[<span class="string">'for'</span>]);<span class="comment">//gogo_for</span></span><br><span class="line">    <span class="built_in">console</span>.log(person.for);<span class="comment">//gogo_for</span></span><br><span class="line">    <span class="built_in">console</span>.log(person[<span class="string">'if'</span>]);<span class="comment">//gogo_if</span></span><br><span class="line">    <span class="built_in">console</span>.log(person.if);<span class="comment">//gogo_if</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<p>//简单利用：在数组原型链上增加一个去重得的方法，并能实现链式写法。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">    <span class="built_in">Array</span>.prototype.myDistinct=<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> obj=&#123;&#125;;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;<span class="keyword">this</span>.length;i++)&#123;</span><br><span class="line">            <span class="keyword">var</span> cur=<span class="keyword">this</span>[i];</span><br><span class="line">            <span class="keyword">if</span>(obj[cur]==cur)&#123;<span class="comment">//对象的属性名不能重复，重复就是修改；让对象的属性名和属性值相同，借以保存不重复的数组元素</span></span><br><span class="line">                <span class="keyword">this</span>[i]=<span class="keyword">this</span>[<span class="keyword">this</span>.length<span class="number">-1</span>];</span><br><span class="line">                <span class="keyword">this</span>.length--;</span><br><span class="line">                i--;</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            obj[cur]=cur;</span><br><span class="line">        &#125;</span><br><span class="line"><span class="comment">//        console.log(obj);//&#123;2: 2, 3: 3, 4: 4, 5: 5&#125;</span></span><br><span class="line">        obj=<span class="literal">null</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>;</span><br><span class="line"> </span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">var</span> arr=[<span class="number">5</span>,<span class="number">3</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">4</span>,<span class="number">2</span>];</span><br><span class="line">    arr.myDistinct().sort().pop();</span><br><span class="line">    <span class="built_in">console</span>.log(arr);<span class="comment">//[2, 3, 4]</span></span><br><span class="line">    <span class="keyword">var</span> arr1=[<span class="number">3</span>,<span class="string">'a'</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">4</span>,<span class="string">'b'</span>,<span class="string">'a'</span>];</span><br><span class="line">    <span class="built_in">console</span>.log(arr1.myDistinct());<span class="comment">//[3, "a", 4, 5, "b"]</span></span><br></pre></td></tr></table></figure>
+
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/02/06/js-%E7%82%B9%E8%BF%90%E7%AE%97%E7%AC%A6%E5%92%8C%E6%96%B9%E6%8B%AC%E5%8F%B7%E8%BF%90%E7%AE%97%E7%AC%A6/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-js-typeof" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/02/06/js-typeof/">js-typeof</a>
+    </h1>
+  
+
+        
+        <a href="/2020/02/06/js-typeof/" class="archive-article-date">
+  	<time datetime="2020-02-06T14:15:35.632Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-06</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">typeof 123 &#x2F;&#x2F;&quot;number&quot;</span><br><span class="line">typeof &quot;123&quot; &#x2F;&#x2F;&quot;string&quot;</span><br><span class="line">typeof true &#x2F;&#x2F;&quot;boolean&quot;</span><br><span class="line">typeof undefined &#x2F;&#x2F;&quot;undefined&quot;</span><br><span class="line">typeof null &#x2F;&#x2F;&quot;object&quot;</span><br><span class="line">typeof function f()&#123;&#125; &#x2F;&#x2F;&quot;function&quot;</span><br><span class="line">typeof [] &#x2F;&#x2F;&quot;object&quot;</span><br><span class="line">typeof &#123;&#125; &#x2F;&#x2F;&quot;object&quot;</span><br></pre></td></tr></table></figure>
+
+<h2 id="JS的Bug小汇总"><a href="#JS的Bug小汇总" class="headerlink" title="JS的Bug小汇总"></a>JS的Bug小汇总</h2><ul>
+<li><p>typeof null //“object”</p>
+</li>
+<li><p>typeof function f(){} //“function”</p>
+</li>
+</ul>
+<p>null的类型是object，这是由于历史原因造成的。1995年的 JavaScript 语言第一版，只设计了五种数据类型（对象、整数、浮点数、字符串和布尔值），没考虑null，只把它当作object的一种特殊值。后来null独立出来，作为一种单独的数据类型，为了兼容以前的代码，typeof null返回object就没法改变了</p>
+<p>参考：<a href="https://zhuanlan.zhihu.com/p/49282662" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/49282662</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/02/06/js-typeof/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-js-delete和in" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/02/06/js-delete%E5%92%8Cin/">js-delete和in</a>
+    </h1>
+  
+
+        
+        <a href="/2020/02/06/js-delete%E5%92%8Cin/" class="archive-article-date">
+  	<time datetime="2020-02-06T14:15:16.666Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-06</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>属性的查看：Object.keys（）方法。</strong></p>
+<p><strong>属性的删除：delete</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123; </span><br><span class="line">     p: <span class="number">1</span> </span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">Object</span>.keys(obj) <span class="comment">// ["p"]</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">delete</span> obj.p <span class="comment">// true</span></span><br><span class="line">obj.p <span class="comment">// undefined</span></span><br><span class="line"><span class="built_in">Object</span>.keys(obj) <span class="comment">// []</span></span><br></pre></td></tr></table></figure>
+
+<p>delete 删除对象的属性，删除成功后返回true。如果删除一个不存在的属性，不会报错，返回true。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj =&#123;&#125;</span><br><span class="line"></span><br><span class="line">deleter obj.p <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+
+<p>只有当该属性存在，且不得删除时才返回false，另外，</p>
+<p>delete只能删除自身的属性，不能删除继承的属性，但是仍然会返回true，只是不能删除。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;&#125;;</span><br><span class="line"><span class="keyword">delete</span> obj.toString <span class="comment">// true</span></span><br><span class="line">obj.toString <span class="comment">// function toString() &#123; [native code] &#125;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>属性是否存在 ：in运算符</strong></p>
+<p><code>in</code>运算符用于检查对象是否包含某个属性（注意，检查的是键名，不是键值），如果包含就返回<code>true</code>，否则返回<code>false</code>。它的左边是一个字符串（要用引号包裹），表示属性名，右边是一个对象。</p>
+<p>它不能识别哪些属性是对象自身的，哪些属性是继承的。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">    p:<span class="string">'123'</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="string">'p'</span> <span class="keyword">in</span> obj  <span class="comment">//true</span></span><br><span class="line"><span class="string">'toString'</span> <span class="keyword">in</span> obj <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>hasOwnProperty 可以识别哪些属性是自身的</strong> </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">obj.hasOwnProperty(<span class="string">'toString'</span>)  <span class="comment">// false</span></span><br><span class="line">obj.hasOwnProperty(<span class="string">'p'</span>) <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>  <code>for...in</code>遍历时与  <code>hasOwnProperty</code>方法结合，判断它是否是自身的属性。</p>
+ <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = &#123;</span><br><span class="line">    name:<span class="string">'魏无羡'</span>,</span><br><span class="line">    age: <span class="string">'22'</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> p <span class="keyword">in</span> person)&#123;</span><br><span class="line">    <span class="keyword">if</span>(person.hasOwnProperty(p))&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(p+<span class="string">":"</span>+person[p])</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/02/06/js-delete%E5%92%8Cin/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-jq-点击事件" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/02/06/jq-%E7%82%B9%E5%87%BB%E4%BA%8B%E4%BB%B6/">jq-点击事件</a>
+    </h1>
+  
+
+        
+        <a href="/2020/02/06/jq-%E7%82%B9%E5%87%BB%E4%BA%8B%E4%BB%B6/" class="archive-article-date">
+  	<time datetime="2020-02-06T14:14:59.810Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-06</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="动态添加的元素"><a href="#动态添加的元素" class="headerlink" title="动态添加的元素"></a>动态添加的元素</h2><p>$(document).on(“click”,’.fa-plus’,function(){</p>
+<p>})</p>
+<h2 id="静态元素"><a href="#静态元素" class="headerlink" title="静态元素"></a>静态元素</h2><p>$(‘.fa-share’).click(function(){</p>
+<p>  var cname = $(this).parent().prev().text()</p>
+<p>  console.log(cname);</p>
+<p>})</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/02/06/jq-%E7%82%B9%E5%87%BB%E4%BA%8B%E4%BB%B6/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
   
     <article id="post-vue-axios" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -194,16 +801,10 @@
 
 
 <h2 id="4-一般http请求与ajax请求的区别"><a href="#4-一般http请求与ajax请求的区别" class="headerlink" title="4.一般http请求与ajax请求的区别"></a>4.一般http请求与ajax请求的区别</h2><ol>
-<li><p>ajax请求是一种特别的http请求</p>
-</li>
-<li><p>对服务端来说，没有任何区别，区别在浏览器端</p>
-</li>
-<li><p>浏览器端发请求：只有XHR或fetch发出的才是ajax请求，其他所有的都是非ajax请求</p>
-</li>
-<li><p>浏览器端接收到响应</p>
-<p>（1）一般请求：浏览器一般会直接显示响应体数据，也就是刷新/跳转页面</p>
-<p>（2）ajax请求：浏览器不会对页面进行任何更新操作，只是调用监视的回调函数并传入响应相关数据</p>
-</li>
+<li>ajax请求是一种特别的http请求</li>
+<li>对服务端来说，没有任何区别，区别在浏览器端</li>
+<li>浏览器端发请求：只有XHR或fetch发出的才是ajax请求，其他所有的都是非ajax请求</li>
+<li>浏览器端接收到响应<br>（1）一般请求：浏览器一般会直接显示响应体数据，也就是刷新/跳转页面<br>（2）ajax请求：浏览器不会对页面进行任何更新操作，只是调用监视的回调函数并传入响应相关数据</li>
 </ol>
 
       
@@ -267,7 +868,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="v-for绑定和非绑定key的区别"><a href="#v-for绑定和非绑定key的区别" class="headerlink" title="v-for绑定和非绑定key的区别"></a>v-for绑定和非绑定key的区别</h2><p> 加上key之后，能够更好的复用，减少资源的消耗。</p>
+        <p> 加上key之后，能够更好的复用，减少资源的消耗。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;li v-for&#x3D;&quot;item in list&quot; :key&#x3D;&quot;item&quot;&gt;&#123;&#123;item&#125;&#125;&lt;&#x2F;li&gt;</span><br></pre></td></tr></table></figure>
 
 <p><strong>没加key之前，如果向数组中间添加一个元素，要依次替换数组元素，</strong></p>
@@ -314,70 +915,10 @@
 
 
   
-    <article id="post-vue-为什么组件中的data必需是函数" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/02/06/vue-%E4%B8%BA%E4%BB%80%E4%B9%88%E7%BB%84%E4%BB%B6%E4%B8%AD%E7%9A%84data%E5%BF%85%E9%9C%80%E6%98%AF%E5%87%BD%E6%95%B0/">为什么组件中的data必需是函数</a>
-    </h1>
-  
-
-        
-        <a href="/2020/02/06/vue-%E4%B8%BA%E4%BB%80%E4%B9%88%E7%BB%84%E4%BB%B6%E4%B8%AD%E7%9A%84data%E5%BF%85%E9%9C%80%E6%98%AF%E5%87%BD%E6%95%B0/" class="archive-article-date">
-  	<time datetime="2020-02-06T09:59:55.220Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-06</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <hr>
-<p>因为组件是要重复使用的，当data是函数并且在多次调用的时候，<br>所占的内存块不一样，所以data中的数据互不影响。<br>反过来，如果data不是用函数的话，在多次调用组件的时候，这里面的数据相互影响。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/02/06/vue-%E4%B8%BA%E4%BB%80%E4%B9%88%E7%BB%84%E4%BB%B6%E4%B8%AD%E7%9A%84data%E5%BF%85%E9%9C%80%E6%98%AF%E5%87%BD%E6%95%B0/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
+    <nav id="page-nav">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
+    </nav>
   
 
 
@@ -432,25 +973,17 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
       
       
     
-      
-      
-      
-    
     
 
     <ul style="width: 70%">
     
     
       
-      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有文章</a></li>
+      <li style="width: 50%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有文章</a></li>
       
         
       
-      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'friends')"><a href="javascript:void(0)" q-class="active:friends">友链</a></li>
-      
-        
-      
-      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">关于我</a></li>
+      <li style="width: 50%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">关于我</a></li>
       
         
     </ul>
@@ -513,38 +1046,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     	</section>
     
 
-    
-    	<section class="tools-section tools-section-friends" q-show="friends">
-  		
-        <ul class="search-ul">
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接1</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接2</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接3</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接4</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接5</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接6</a>
-            </li>
-          
-        </ul>
-  		
-    	</section>
     
 
     
