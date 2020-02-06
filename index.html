@@ -6,17 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Hexo</title>
+  <title>Ed&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
+<meta property="og:title" content="Ed&#39;s Blog">
 <meta property="og:url" content="http://yoursite.com/index.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:site_name" content="Ed&#39;s Blog">
 <meta property="og:locale" content="en_US">
 <meta property="article:author" content="Ed">
 <meta name="twitter:card" content="summary">
   
-    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="Ed&#39;s Blog" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -152,39 +152,43 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-vue-axios" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/02/06/hello-world/">Hello World</a>
+      <a class="article-title" href="/2020/02/06/vue-axios/">vue-axios</a>
     </h1>
   
 
         
-        <a href="/2020/02/06/hello-world/" class="archive-article-date">
-  	<time datetime="2020-02-06T09:59:55.220Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-06</time>
+        <a href="/2020/02/06/vue-axios/" class="archive-article-date">
+  	<time datetime="2020-02-06T13:29:26.281Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-06</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+        <h2 id="axios传值"><a href="#axios传值" class="headerlink" title="axios传值"></a>axios传值</h2><p><a href="https://github.com/axios/axios#browser" target="_blank" rel="noopener">https://github.com/axios/axios#browser</a></p>
+<h3 id="get"><a href="#get" class="headerlink" title="get"></a>get</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">axios.get(<span class="string">`http://qcpj.bnuz.edu.cn/yjsp/api/app/recipe/getFoodPicure/schoolId/<span class="subst">$&#123;<span class="keyword">this</span>.schoolId&#125;</span>/classId/<span class="subst">$&#123;<span class="keyword">this</span>.classId&#125;</span>`</span>)</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">axios.get(<span class="string">'/api/app/recipe/getMealType'</span>,&#123;<span class="attr">params</span>: &#123;<span class="attr">schoolId</span>: <span class="keyword">this</span>.babySchoolId&#125;&#125;)</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+
+
+<h3 id="post"><a href="#post" class="headerlink" title="post"></a>post</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">test () &#123;</span><br><span class="line">      <span class="keyword">var</span> qs = <span class="built_in">require</span>(<span class="string">'querystring'</span>)</span><br><span class="line">       <span class="keyword">var</span> data =&#123;</span><br><span class="line">          schoolId: <span class="keyword">this</span>.schoolId,</span><br><span class="line">          classId: <span class="keyword">this</span>.classId,</span><br><span class="line">          termNum: <span class="number">1</span>,</span><br><span class="line">          weekId: <span class="number">1</span> </span><br><span class="line">      &#125;</span><br><span class="line">      axios.post(<span class="string">'/api/app/recipe/getRecipe'</span>,qs.stringify(data)</span><br><span class="line">        ,&#123;</span><br><span class="line">          emulataJSON: <span class="literal">true</span></span><br><span class="line">        &#125;).then(<span class="function">(<span class="params">res</span>) =&gt;</span> &#123;</span><br><span class="line">          <span class="comment">//显示状态码</span></span><br><span class="line">        <span class="built_in">console</span>.log(res.data.code)     </span><br><span class="line">        <span class="built_in">console</span>.log(res.data);</span><br><span class="line">        </span><br><span class="line">        &#125;).catch(<span class="function">(<span class="params">err</span>) =&gt;</span> &#123;</span><br><span class="line">          <span class="built_in">console</span>.log(err)</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<p><img src="C:%5CUsers%5C10132%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1578708703366.png" alt="1578708703366"></p>
+<p><img src="C:%5CUsers%5C10132%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1578796707351.png" alt="1578796707351"></p>
 
       
 
@@ -197,7 +201,135 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/02/06/hello-world/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/02/06/vue-axios/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-test" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/02/06/test/">543534534</a>
+    </h1>
+  
+
+        
+        <a href="/2020/02/06/test/" class="archive-article-date">
+  	<time datetime="2020-02-06T13:28:17.070Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-06</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<p>534534</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/02/06/test/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-vue-为什么组件中的data必需是函数" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/02/06/vue-%E4%B8%BA%E4%BB%80%E4%B9%88%E7%BB%84%E4%BB%B6%E4%B8%AD%E7%9A%84data%E5%BF%85%E9%9C%80%E6%98%AF%E5%87%BD%E6%95%B0/">为什么组件中的data必需是函数</a>
+    </h1>
+  
+
+        
+        <a href="/2020/02/06/vue-%E4%B8%BA%E4%BB%80%E4%B9%88%E7%BB%84%E4%BB%B6%E4%B8%AD%E7%9A%84data%E5%BF%85%E9%9C%80%E6%98%AF%E5%87%BD%E6%95%B0/" class="archive-article-date">
+  	<time datetime="2020-02-06T09:59:55.220Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-06</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<p>因为组件是要重复使用的，当data是函数并且在多次调用的时候，<br>所占的内存块不一样，所以data中的数据互不影响。<br>反过来，如果data不是用函数的话，在多次调用组件的时候，这里面的数据相互影响。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/02/06/vue-%E4%B8%BA%E4%BB%80%E4%B9%88%E7%BB%84%E4%BB%B6%E4%B8%AD%E7%9A%84data%E5%BF%85%E9%9C%80%E6%98%AF%E5%87%BD%E6%95%B0/">展开全文 >></a>
         </p>
       
 
