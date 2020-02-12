@@ -138,6 +138,194 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-初探koa" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/02/13/%E5%88%9D%E6%8E%A2koa/">初探koa</a>
+    </h1>
+  
+
+        
+        <a href="/2020/02/13/%E5%88%9D%E6%8E%A2koa/" class="archive-article-date">
+  	<time datetime="2020-02-12T16:30:44.335Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> koa = <span class="built_in">require</span>(<span class="string">'koa'</span>)</span><br><span class="line"><span class="comment">//注意引入方式</span></span><br><span class="line"><span class="comment">// 方式一</span></span><br><span class="line"><span class="keyword">const</span> router = <span class="built_in">require</span>(<span class="string">'koa-router'</span>)() </span><br><span class="line"><span class="comment">// 方式二</span></span><br><span class="line"><span class="comment">// const Router = require('koa-router')</span></span><br><span class="line"><span class="comment">// const router = new Router()</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> render = <span class="built_in">require</span>(<span class="string">'koa-art-template'</span>)</span><br><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>)</span><br><span class="line"><span class="keyword">const</span> bodyParser = <span class="built_in">require</span>(<span class="string">'koa-bodyparser'</span>)</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">static</span> = <span class="built_in">require</span>(<span class="string">'koa-static'</span>)</span><br><span class="line"><span class="keyword">const</span> session = <span class="built_in">require</span>(<span class="string">'koa-session'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> app = <span class="keyword">new</span> koa()</span><br><span class="line"></span><br><span class="line"><span class="comment">// 路由级中间件</span></span><br><span class="line">router.get(<span class="string">'/test1'</span>,<span class="keyword">async</span> (ctx, next) =&gt; &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'mmmm'</span>)</span><br><span class="line">     <span class="comment">//koa中cookies无法直接设置中文</span></span><br><span class="line">    <span class="comment">// ctx.cookies.set('cookieTest', '中文')  </span></span><br><span class="line">    <span class="keyword">var</span> cookieTest = <span class="keyword">new</span> Buffer.from(<span class="string">'中文'</span>).toString(<span class="string">'base64'</span>)</span><br><span class="line">    ctx.cookies.set(<span class="string">'cookieTest'</span>, cookieTest)  </span><br><span class="line">    ctx.session.sessionTest = <span class="string">"会话"</span> <span class="comment">//没有中文问题</span></span><br><span class="line">    <span class="keyword">await</span> next()</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">router.get(<span class="string">'/test1'</span>,<span class="keyword">async</span> (ctx) =&gt; &#123;</span><br><span class="line">    <span class="keyword">let</span> content = <span class="string">"333"</span></span><br><span class="line">    <span class="built_in">console</span>.log(ctx.query)</span><br><span class="line">    <span class="built_in">console</span>.log(ctx.state.userinfo)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">await</span> ctx.render(<span class="string">'index'</span>,&#123;</span><br><span class="line">        content,</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 动态路由</span></span><br><span class="line">router.get(<span class="string">'/test2/:id'</span>,<span class="keyword">async</span> (ctx) =&gt; &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(ctx.params)</span><br><span class="line">    <span class="keyword">var</span> data1 = ctx.cookies.get(<span class="string">'cookieTest'</span>)</span><br><span class="line">    <span class="keyword">var</span> data2 = <span class="keyword">new</span> Buffer.from(data1, <span class="string">'base64'</span>).toString()</span><br><span class="line">    <span class="built_in">console</span>.log(data2)</span><br><span class="line">    <span class="built_in">console</span>.log(ctx.session.sessionTest) </span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 登录，post请求</span></span><br><span class="line">router.get(<span class="string">'/test3'</span>, <span class="keyword">async</span> (ctx) =&gt; &#123;</span><br><span class="line">    <span class="keyword">await</span> ctx.render(<span class="string">'login'</span>)</span><br><span class="line">&#125;)</span><br><span class="line">router.post(<span class="string">'/login'</span>, <span class="keyword">async</span> (ctx) =&gt; &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(ctx.request.body)</span><br><span class="line">    ctx.body = ctx.request.body</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 配置koa-art-template</span></span><br><span class="line">render(app, &#123;</span><br><span class="line">    root: path.join(__dirname, <span class="string">'views'</span>),</span><br><span class="line">    extname: <span class="string">'.html'</span>,</span><br><span class="line">    debug: process.env.NODE_ENV !== <span class="string">'production'</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 配置session的中间件</span></span><br><span class="line">app.keys = [<span class="string">'some secret hurr'</span>];</span><br><span class="line"> </span><br><span class="line"><span class="keyword">const</span> CONFIG = &#123;</span><br><span class="line">  key: <span class="string">'koa:sess'</span>, <span class="comment">/** (string) cookie key (default is koa:sess) */</span></span><br><span class="line">  <span class="comment">/** (number || 'session') maxAge in ms (default is 1 days) */</span></span><br><span class="line">  <span class="comment">/** 'session' will result in a cookie that expires when session/browser is closed */</span></span><br><span class="line">  <span class="comment">/** Warning: If a session cookie is stolen, this cookie will never expire */</span></span><br><span class="line">  maxAge: <span class="number">86400000</span>, <span class="comment">/** 需要修改 */</span></span><br><span class="line">  autoCommit: <span class="literal">true</span>, <span class="comment">/** (boolean) automatically commit headers (default true) */</span></span><br><span class="line">  overwrite: <span class="literal">true</span>, <span class="comment">/** (boolean) can overwrite or not (default true) */</span></span><br><span class="line">  httpOnly: <span class="literal">true</span>, <span class="comment">/** (boolean) 只有服务端能访问 (default true) */</span></span><br><span class="line">  signed: <span class="literal">true</span>, <span class="comment">/** (boolean) signed or not (default true) */</span></span><br><span class="line">  rolling: <span class="literal">false</span>, <span class="comment">/** 重新发请求，重新设置session  (default is false) */</span></span><br><span class="line">  renew: <span class="literal">true</span>, <span class="comment">/** 需要修改false-&gt;true 用户有操作，重新设置session (default is false)*/</span></span><br><span class="line">  sameSite: <span class="literal">null</span>, <span class="comment">/** (string) session cookie sameSite options (default null, don't set it) */</span></span><br><span class="line">&#125;;</span><br><span class="line"> </span><br><span class="line">app.use(session(CONFIG, app));</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">app</span><br><span class="line">    .use(<span class="keyword">static</span>(<span class="string">'./static'</span>))    <span class="comment">//配置静态web服务的中间件</span></span><br><span class="line">    .use(bodyParser())      <span class="comment">//获取表单数据中间件,要写在路由前面，否则不生效</span></span><br><span class="line">    <span class="comment">// 写中间件配置公共的信息，要写在路由前面，否则不生效</span></span><br><span class="line">    .use(<span class="keyword">async</span> (ctx, next) =&gt; &#123;           </span><br><span class="line">        ctx.state.userinfo = <span class="string">'ed'</span></span><br><span class="line">        <span class="keyword">await</span> next()          </span><br><span class="line">    &#125;)</span><br><span class="line">    .use(router.routes())       <span class="comment">// 启动路由</span></span><br><span class="line">    .use(router.allowedMethods())   <span class="comment">//推荐写上此配置</span></span><br><span class="line">    </span><br><span class="line">    .use(<span class="keyword">async</span> (ctx, next) =&gt; &#123;     <span class="comment">//应用级中间件</span></span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">new</span> <span class="built_in">Date</span>())     <span class="comment">//匹配路由之前打印日期</span></span><br><span class="line">        <span class="keyword">await</span> next()    <span class="comment">//當前路由匹配完成以后继续向后匹配</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>(ctx.status === <span class="number">404</span>) &#123;    <span class="comment">//错误处理中间件</span></span><br><span class="line">            ctx.status = <span class="number">404</span></span><br><span class="line">            ctx.body = <span class="string">'404了'</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">   </span><br><span class="line">    </span><br><span class="line">app.listen(<span class="number">3000</span>, () =&gt; &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">3000</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/02/13/%E5%88%9D%E6%8E%A2koa/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-git使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/02/13/git%E4%BD%BF%E7%94%A8/">git使用</a>
+    </h1>
+  
+
+        
+        <a href="/2020/02/13/git%E4%BD%BF%E7%94%A8/" class="archive-article-date">
+  	<time datetime="2020-02-12T16:30:44.329Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="git"><a href="#git" class="headerlink" title="git"></a>git</h1><h2 id="a-提交步骤"><a href="#a-提交步骤" class="headerlink" title="a.提交步骤"></a>a.提交步骤</h2><h3 id="https-gitee-com-help-articles-4122"><a href="#https-gitee-com-help-articles-4122" class="headerlink" title="https://gitee.com/help/articles/4122"></a><a href="https://gitee.com/help/articles/4122" target="_blank" rel="noopener">https://gitee.com/help/articles/4122</a></h3><p>初始化仓库，把代码下载下来，再把代码上传上去</p>
+<p>git init</p>
+<p>git remote add origin https://…..</p>
+<p>git pull origin master</p>
+<p>git add .</p>
+<p>git commit -m “first commit”</p>
+<p>git push origin master</p>
+<h2 id="b-撤回提交到github的代码"><a href="#b-撤回提交到github的代码" class="headerlink" title="b.撤回提交到github的代码"></a>b.撤回提交到github的代码</h2><h3 id="https-zhidao-baidu-com-question-2143411903971545108-html"><a href="#https-zhidao-baidu-com-question-2143411903971545108-html" class="headerlink" title="https://zhidao.baidu.com/question/2143411903971545108.html"></a><a href="https://zhidao.baidu.com/question/2143411903971545108.html" target="_blank" rel="noopener">https://zhidao.baidu.com/question/2143411903971545108.html</a></h3><p>git log (显示信息中，commit后面的是版本号)</p>
+<p>git reset  –hard  ‘版本号’</p>
+<p>git push origin HEAD –force</p>
+<h2 id="c-命令详解"><a href="#c-命令详解" class="headerlink" title="c.命令详解"></a>c.命令详解</h2><p>  1.创建文件夹（shell同）</p>
+<p>​      mkdir test     </p>
+<p>   2.创建文件    </p>
+<p>​      touch test.js     </p>
+<p>   3.添加到暂存区<br>       git add .        </p>
+<ol start="4">
+<li><p>提交到git仓库，引号内容是描述</p>
+<p>git commit -m ‘add xxx’    </p>
+</li>
+<li><p>提交到远程仓库（github）</p>
+<p> git push origin master</p>
+<p> git push origin master -f (强制提交)</p>
+</li>
+<li><p>删除文件</p>
+<p>rm  -rf   test.js</p>
+<p>git  rm   test.js</p>
+<p>git commit -m ‘delete  xxx’    </p>
+</li>
+<li><p>查看信息</p>
+<p>git config –list</p>
+</li>
+<li><p>下载代码</p>
+<p>git clone  https:…..</p>
+</li>
+<li><p>初始化git本地版本管理仓库</p>
+<p>git init </p>
+</li>
+<li><p>显示工作目录和暂存区的状态</p>
+<p>git status</p>
+</li>
+<li><p>远程库同步到本地库</p>
+<p>git pull –rebase origin master</p>
+</li>
+<li><p>查看不同</p>
+<p>git diff</p>
+<p>git diff –cached</p>
+<p>git diff HEAD</p>
+</li>
+<li><p>查看更新描述</p>
+<p>  git log</p>
+<p>  git log –oneline（只显示一行）</p>
+<p> git log reflog (包含回退的记录) </p>
+</li>
+<li><p>回退操作</p>
+<p> git reset –hard ‘(版本号)’</p>
+<p> git reset –hard HEAD 回到没有add的状态</p>
+<p> git reset –hard HEAD^ (上一版)</p>
+<p> git reset –hard HEAD~2 (上两版)</p>
+<p> 最新的一次但不修改描述信息</p>
+<p> git commit –amend –no-edit</p>
+</li>
+</ol>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/02/13/git%E4%BD%BF%E7%94%A8/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-vue-自定义指令" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -734,158 +922,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2020/02/06/jq-%E7%82%B9%E5%87%BB%E4%BA%8B%E4%BB%B6/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-vue-axios" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/02/06/vue-axios/">vue-axios</a>
-    </h1>
-  
-
-        
-        <a href="/2020/02/06/vue-axios/" class="archive-article-date">
-  	<time datetime="2020-02-06T13:52:38.971Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-06</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="1-axios的github网址"><a href="#1-axios的github网址" class="headerlink" title="1.axios的github网址"></a>1.axios的github网址</h2><p><a href="https://github.com/axios/axios#browser" target="_blank" rel="noopener">https://github.com/axios/axios#browser</a></p>
-<h2 id="2-axios特点"><a href="#2-axios特点" class="headerlink" title="2.axios特点"></a>2.axios特点</h2><ol>
-<li>基本promise的异步ajax请求库</li>
-<li>浏览器端/node端都可以使用</li>
-<li>支持请求/响应拦截器</li>
-<li>支持请求取消</li>
-<li>请求/响应数据转换</li>
-<li>批量发送多个请求</li>
-</ol>
-<h2 id="3-axios传值方式"><a href="#3-axios传值方式" class="headerlink" title="3.axios传值方式"></a>3.axios传值方式</h2><h3 id="get"><a href="#get" class="headerlink" title="get"></a>get</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">axios.get(<span class="string">`http://qcpj.bnuz.edu.cn/schoolId/<span class="subst">$&#123;<span class="keyword">this</span>.schoolId&#125;</span>/classId/<span class="subst">$&#123;<span class="keyword">this</span>.classId&#125;</span>`</span>)</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">axios.get(<span class="string">'/api/app/recipe/getMealType'</span>,&#123;<span class="attr">params</span>: &#123;<span class="attr">schoolId</span>: <span class="keyword">this</span>.babySchoolId&#125;&#125;)</span><br></pre></td></tr></table></figure>
-
-<h3 id="post"><a href="#post" class="headerlink" title="post"></a>post</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">test () &#123;</span><br><span class="line">      <span class="keyword">var</span> qs = <span class="built_in">require</span>(<span class="string">'querystring'</span>)</span><br><span class="line">       <span class="keyword">var</span> data =&#123;</span><br><span class="line">          schoolId: <span class="keyword">this</span>.schoolId,</span><br><span class="line">          classId: <span class="keyword">this</span>.classId,</span><br><span class="line">      &#125;</span><br><span class="line">      axios.post(<span class="string">'/api/app/recipe/getRecipe'</span>,qs.stringify(data)</span><br><span class="line">        ,&#123;</span><br><span class="line">          emulataJSON: <span class="literal">true</span></span><br><span class="line">        &#125;).then(<span class="function">(<span class="params">res</span>) =&gt;</span> &#123;     </span><br><span class="line">        <span class="built_in">console</span>.log(res.data)  </span><br><span class="line">        &#125;).catch(<span class="function">(<span class="params">err</span>) =&gt;</span> &#123;</span><br><span class="line">          <span class="built_in">console</span>.log(err)</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="4-一般http请求与ajax请求的区别"><a href="#4-一般http请求与ajax请求的区别" class="headerlink" title="4.一般http请求与ajax请求的区别"></a>4.一般http请求与ajax请求的区别</h2><ol>
-<li>ajax请求是一种特别的http请求</li>
-<li>对服务端来说，没有任何区别，区别在浏览器端</li>
-<li>浏览器端发请求：只有XHR或fetch发出的才是ajax请求，其他所有的都是非ajax请求</li>
-<li>浏览器端接收到响应<br>（1）一般请求：浏览器一般会直接显示响应体数据，也就是刷新/跳转页面<br>（2）ajax请求：浏览器不会对页面进行任何更新操作，只是调用监视的回调函数并传入响应相关数据</li>
-</ol>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/02/06/vue-axios/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-vue-v-for中key的作用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/02/06/vue-v-for%E4%B8%ADkey%E7%9A%84%E4%BD%9C%E7%94%A8/">vue-v-for中key的作用</a>
-    </h1>
-  
-
-        
-        <a href="/2020/02/06/vue-v-for%E4%B8%ADkey%E7%9A%84%E4%BD%9C%E7%94%A8/" class="archive-article-date">
-  	<time datetime="2020-02-06T13:52:35.851Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-06</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p> 加上key之后，能够更好的复用，减少资源的消耗。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;li v-for&#x3D;&quot;item in list&quot; :key&#x3D;&quot;item&quot;&gt;&#123;&#123;item&#125;&#125;&lt;&#x2F;li&gt;</span><br></pre></td></tr></table></figure>
-
-<p><strong>没加key之前，如果向数组中间添加一个元素，要依次替换数组元素，</strong></p>
-<p><strong>加上key之后，可以直接在数组中间插入这个元素。</strong></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/02/06/vue-v-for%E4%B8%ADkey%E7%9A%84%E4%BD%9C%E7%94%A8/">展开全文 >></a>
         </p>
       
 
