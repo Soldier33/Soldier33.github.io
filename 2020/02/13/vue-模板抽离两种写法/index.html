@@ -8,15 +8,15 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>vue-模板抽离两种写法 | Ed&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="模板抽离两种写法 第一种（不常用）  12345&lt;script type&#x3D;&quot;text&#x2F;x-template&quot; id&#x3D;&quot;myCpm&quot;&gt;    &lt;div&gt;        &lt;h2&gt;模块分离的写法&lt;&#x2F;h2&gt;    &lt;&#x2F;div&gt;&lt;&#x2F;script&gt;     第二种  12345&lt;template id&#x3D;&quot;myCpm&quot;&gt;">
+  <meta name="description" content="第一种（不常用）12345&lt;script type&#x3D;&quot;text&#x2F;x-template&quot; id&#x3D;&quot;myCpm&quot;&gt;    &lt;div&gt;        &lt;h2&gt;模块分离的写法&lt;&#x2F;h2&gt;    &lt;&#x2F;div&gt;&lt;&#x2F;script&gt;  第二种123456&lt;templa        te id&#x3D;&quot;myCpm&quot;&gt;    &lt;div">
 <meta property="og:type" content="article">
 <meta property="og:title" content="vue-模板抽离两种写法">
 <meta property="og:url" content="http://yoursite.com/2020/02/13/vue-%E6%A8%A1%E6%9D%BF%E6%8A%BD%E7%A6%BB%E4%B8%A4%E7%A7%8D%E5%86%99%E6%B3%95/index.html">
 <meta property="og:site_name" content="Ed&#39;s Blog">
-<meta property="og:description" content="模板抽离两种写法 第一种（不常用）  12345&lt;script type&#x3D;&quot;text&#x2F;x-template&quot; id&#x3D;&quot;myCpm&quot;&gt;    &lt;div&gt;        &lt;h2&gt;模块分离的写法&lt;&#x2F;h2&gt;    &lt;&#x2F;div&gt;&lt;&#x2F;script&gt;     第二种  12345&lt;template id&#x3D;&quot;myCpm&quot;&gt;">
+<meta property="og:description" content="第一种（不常用）12345&lt;script type&#x3D;&quot;text&#x2F;x-template&quot; id&#x3D;&quot;myCpm&quot;&gt;    &lt;div&gt;        &lt;h2&gt;模块分离的写法&lt;&#x2F;h2&gt;    &lt;&#x2F;div&gt;&lt;&#x2F;script&gt;  第二种123456&lt;templa        te id&#x3D;&quot;myCpm&quot;&gt;    &lt;div">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-02-12T16:48:19.777Z">
-<meta property="article:modified_time" content="2020-02-12T16:48:04.561Z">
+<meta property="article:modified_time" content="2020-02-12T16:55:11.593Z">
 <meta property="article:author" content="Ed">
 <meta name="twitter:card" content="summary">
   
@@ -160,17 +160,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="模板抽离两种写法"><a href="#模板抽离两种写法" class="headerlink" title="模板抽离两种写法"></a>模板抽离两种写法</h2><ol>
-<li>第一种（不常用）</li>
-</ol>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/x-template"</span> <span class="attr">id</span>=<span class="string">"myCpm"</span>&gt;</span></span><br><span class="line"><span class="handlebars"><span class="xml">    <span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span></span><br><span class="line"><span class="handlebars"><span class="xml">        <span class="tag">&lt;<span class="name">h2</span>&gt;</span>模块分离的写法<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span></span></span><br><span class="line"><span class="handlebars"><span class="xml">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+        <h2 id="第一种（不常用）"><a href="#第一种（不常用）" class="headerlink" title="第一种（不常用）"></a>第一种（不常用）</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/x-template"</span> <span class="attr">id</span>=<span class="string">"myCpm"</span>&gt;</span></span><br><span class="line"><span class="handlebars"><span class="xml">    <span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span></span><br><span class="line"><span class="handlebars"><span class="xml">        <span class="tag">&lt;<span class="name">h2</span>&gt;</span>模块分离的写法<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span></span></span><br><span class="line"><span class="handlebars"><span class="xml">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-
-
-<ol start="2">
-<li>第二种</li>
-</ol>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span> <span class="attr">id</span>=<span class="string">"myCpm"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">h2</span>&gt;</span>模块分离的写法<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="第二种"><a href="#第二种" class="headerlink" title="第二种"></a>第二种</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">templa</span></span></span><br><span class="line"><span class="tag">        <span class="attr">te</span> <span class="attr">id</span>=<span class="string">"myCpm"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">h2</span>&gt;</span>模块分离的写法<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 
       
