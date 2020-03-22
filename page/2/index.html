@@ -138,6 +138,170 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-js-typeof" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/02/06/js-typeof/">js-typeof</a>
+    </h1>
+  
+
+        
+        <a href="/2020/02/06/js-typeof/" class="archive-article-date">
+  	<time datetime="2020-02-06T14:15:35.632Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-06</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">typeof 123 &#x2F;&#x2F;&quot;number&quot;</span><br><span class="line">typeof &quot;123&quot; &#x2F;&#x2F;&quot;string&quot;</span><br><span class="line">typeof true &#x2F;&#x2F;&quot;boolean&quot;</span><br><span class="line">typeof undefined &#x2F;&#x2F;&quot;undefined&quot;</span><br><span class="line">typeof null &#x2F;&#x2F;&quot;object&quot;</span><br><span class="line">typeof function f()&#123;&#125; &#x2F;&#x2F;&quot;function&quot;</span><br><span class="line">typeof [] &#x2F;&#x2F;&quot;object&quot;</span><br><span class="line">typeof &#123;&#125; &#x2F;&#x2F;&quot;object&quot;</span><br></pre></td></tr></table></figure>
+
+<h2 id="JS的Bug小汇总"><a href="#JS的Bug小汇总" class="headerlink" title="JS的Bug小汇总"></a>JS的Bug小汇总</h2><ul>
+<li><p>typeof null //“object”</p>
+</li>
+<li><p>typeof function f(){} //“function”</p>
+</li>
+</ul>
+<p>null的类型是object，这是由于历史原因造成的。1995年的 JavaScript 语言第一版，只设计了五种数据类型（对象、整数、浮点数、字符串和布尔值），没考虑null，只把它当作object的一种特殊值。后来null独立出来，作为一种单独的数据类型，为了兼容以前的代码，typeof null返回object就没法改变了</p>
+<p>参考：<a href="https://zhuanlan.zhihu.com/p/49282662" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/49282662</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/02/06/js-typeof/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-js-delete和in" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/02/06/js-delete%E5%92%8Cin/">js-delete和in</a>
+    </h1>
+  
+
+        
+        <a href="/2020/02/06/js-delete%E5%92%8Cin/" class="archive-article-date">
+  	<time datetime="2020-02-06T14:15:16.666Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-06</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>属性的查看：Object.keys（）方法。</strong></p>
+<p><strong>属性的删除：delete</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123; </span><br><span class="line">     p: <span class="number">1</span> </span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">Object</span>.keys(obj) <span class="comment">// ["p"]</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">delete</span> obj.p <span class="comment">// true</span></span><br><span class="line">obj.p <span class="comment">// undefined</span></span><br><span class="line"><span class="built_in">Object</span>.keys(obj) <span class="comment">// []</span></span><br></pre></td></tr></table></figure>
+
+<p>delete 删除对象的属性，删除成功后返回true。如果删除一个不存在的属性，不会报错，返回true。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj =&#123;&#125;</span><br><span class="line"></span><br><span class="line">deleter obj.p <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+
+<p>只有当该属性存在，且不得删除时才返回false，另外，</p>
+<p>delete只能删除自身的属性，不能删除继承的属性，但是仍然会返回true，只是不能删除。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;&#125;;</span><br><span class="line"><span class="keyword">delete</span> obj.toString <span class="comment">// true</span></span><br><span class="line">obj.toString <span class="comment">// function toString() &#123; [native code] &#125;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>属性是否存在 ：in运算符</strong></p>
+<p><code>in</code>运算符用于检查对象是否包含某个属性（注意，检查的是键名，不是键值），如果包含就返回<code>true</code>，否则返回<code>false</code>。它的左边是一个字符串（要用引号包裹），表示属性名，右边是一个对象。</p>
+<p>它不能识别哪些属性是对象自身的，哪些属性是继承的。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">    p:<span class="string">'123'</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="string">'p'</span> <span class="keyword">in</span> obj  <span class="comment">//true</span></span><br><span class="line"><span class="string">'toString'</span> <span class="keyword">in</span> obj <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>hasOwnProperty 可以识别哪些属性是自身的</strong> </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">obj.hasOwnProperty(<span class="string">'toString'</span>)  <span class="comment">// false</span></span><br><span class="line">obj.hasOwnProperty(<span class="string">'p'</span>) <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>  <code>for...in</code>遍历时与  <code>hasOwnProperty</code>方法结合，判断它是否是自身的属性。</p>
+ <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = &#123;</span><br><span class="line">    name:<span class="string">'魏无羡'</span>,</span><br><span class="line">    age: <span class="string">'22'</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> p <span class="keyword">in</span> person)&#123;</span><br><span class="line">    <span class="keyword">if</span>(person.hasOwnProperty(p))&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(p+<span class="string">":"</span>+person[p])</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/02/06/js-delete%E5%92%8Cin/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-jq-点击事件" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     

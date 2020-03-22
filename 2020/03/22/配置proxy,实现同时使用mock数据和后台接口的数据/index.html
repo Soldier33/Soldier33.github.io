@@ -6,13 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2020 | Ed&#39;s Blog</title>
+  <title>配置proxy,实现同时使用mock数据和后台接口的数据 | Ed&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Ed&#39;s Blog">
-<meta property="og:url" content="http://yoursite.com/archives/2020/index.html">
+  <meta name="description" content="配置proxy,实现同时使用mock数据和后台接口的数据前端使用vue-element-admin，但遇到后台接口还没完成的情况下， 需要同时使用mock数据和后台接口的数据，我们可以通过配置webpack的proxy， 凡是&#x2F;vue-element-admin开头的请求跳转请求mock，其他请求都请求真实的后台数据 我在写的时候参考这篇文章：https:&#x2F;&#x2F;www.cnblogs.com&#x2F;xia">
+<meta property="og:type" content="article">
+<meta property="og:title" content="配置proxy,实现同时使用mock数据和后台接口的数据">
+<meta property="og:url" content="http://yoursite.com/2020/03/22/%E9%85%8D%E7%BD%AEproxy,%E5%AE%9E%E7%8E%B0%E5%90%8C%E6%97%B6%E4%BD%BF%E7%94%A8mock%E6%95%B0%E6%8D%AE%E5%92%8C%E5%90%8E%E5%8F%B0%E6%8E%A5%E5%8F%A3%E7%9A%84%E6%95%B0%E6%8D%AE/index.html">
 <meta property="og:site_name" content="Ed&#39;s Blog">
+<meta property="og:description" content="配置proxy,实现同时使用mock数据和后台接口的数据前端使用vue-element-admin，但遇到后台接口还没完成的情况下， 需要同时使用mock数据和后台接口的数据，我们可以通过配置webpack的proxy， 凡是&#x2F;vue-element-admin开头的请求跳转请求mock，其他请求都请求真实的后台数据 我在写的时候参考这篇文章：https:&#x2F;&#x2F;www.cnblogs.com&#x2F;xia">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-03-22T02:42:11.809Z">
+<meta property="article:modified_time" content="2020-03-20T14:31:37.122Z">
 <meta property="article:author" content="Ed">
 <meta name="twitter:card" content="summary">
   
@@ -136,295 +140,204 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-配置proxy,实现同时使用mock数据和后台接口的数据" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      配置proxy,实现同时使用mock数据和后台接口的数据
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/03/22/%E9%85%8D%E7%BD%AEproxy,%E5%AE%9E%E7%8E%B0%E5%90%8C%E6%97%B6%E4%BD%BF%E7%94%A8mock%E6%95%B0%E6%8D%AE%E5%92%8C%E5%90%8E%E5%8F%B0%E6%8E%A5%E5%8F%A3%E7%9A%84%E6%95%B0%E6%8D%AE/" class="archive-article-date">
+
+        
+        <a href="/2020/03/22/%E9%85%8D%E7%BD%AEproxy,%E5%AE%9E%E7%8E%B0%E5%90%8C%E6%97%B6%E4%BD%BF%E7%94%A8mock%E6%95%B0%E6%8D%AE%E5%92%8C%E5%90%8E%E5%8F%B0%E6%8E%A5%E5%8F%A3%E7%9A%84%E6%95%B0%E6%8D%AE/" class="archive-article-date">
   	<time datetime="2020-03-22T02:42:11.809Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-22</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/22/%E9%85%8D%E7%BD%AEproxy,%E5%AE%9E%E7%8E%B0%E5%90%8C%E6%97%B6%E4%BD%BF%E7%94%A8mock%E6%95%B0%E6%8D%AE%E5%92%8C%E5%90%8E%E5%8F%B0%E6%8E%A5%E5%8F%A3%E7%9A%84%E6%95%B0%E6%8D%AE/">配置proxy,实现同时使用mock数据和后台接口的数据</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="配置proxy-实现同时使用mock数据和后台接口的数据"><a href="#配置proxy-实现同时使用mock数据和后台接口的数据" class="headerlink" title="配置proxy,实现同时使用mock数据和后台接口的数据"></a>配置proxy,实现同时使用mock数据和后台接口的数据</h1><p>前端使用vue-element-admin，但遇到后台接口还没完成的情况下，</p>
+<p>需要同时使用mock数据和后台接口的数据，我们可以通过配置webpack的proxy，</p>
+<p>凡是/vue-element-admin开头的请求跳转请求mock，其他请求都请求真实的后台数据</p>
+<p>我在写的时候参考这篇文章：<a href="https://www.cnblogs.com/xiayuscc/p/11063590.html" target="_blank" rel="noopener">https://www.cnblogs.com/xiayuscc/p/11063590.html</a></p>
+<p>但由于自己是新手，没有理解清晰，还是浪费了不少时间，</p>
+<p>毕竟不同的后台，地址不同，照搬代码并不能保证成功，在此特别指出帮助理解。</p>
+<h2 id="开始配置"><a href="#开始配置" class="headerlink" title="开始配置"></a>开始配置</h2><p>vue-cli 3的项目配置使用vue.config.js文件</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">devServer: &#123;</span><br><span class="line">  port: port,</span><br><span class="line">  open: <span class="literal">false</span>,  <span class="comment">//默认true会自动打开页面</span></span><br><span class="line">  overlay: &#123;</span><br><span class="line">    warnings: <span class="literal">false</span>,</span><br><span class="line">    errors: <span class="literal">true</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">// proxy配置参考：</span></span><br><span class="line">  <span class="comment">//https://webpack.docschina.org/configuration/dev-server/#devserver-proxy</span></span><br><span class="line">  proxy: &#123;</span><br><span class="line">    [process.env.VUE_APP_BASE_API+<span class="string">'/vue-element-admin'</span>]: &#123;</span><br><span class="line">      target: <span class="string">`http://localhost:<span class="subst">$&#123;port&#125;</span>/mock`</span>        </span><br><span class="line">      &#125;, </span><br><span class="line">  <span class="comment">//注意1：</span></span><br><span class="line">  <span class="comment">//因为这里并没有重写路径，因此VUE_APP_BASE_API(即/dev-api)会被传递</span></span><br><span class="line">  <span class="comment">//请求到 /vue-element-admin 现在会被代理到请求 http://localhost:$&#123;port&#125;/mock/dev-api </span></span><br><span class="line">    [process.env.VUE_APP_BASE_API]: &#123;</span><br><span class="line">      target: process.env.BACKGROUND_APPLICATION_URL, </span><br><span class="line">      pathRewrite: &#123;</span><br><span class="line">        [<span class="string">'^'</span> + process.env.VUE_APP_BASE_API]: <span class="string">''</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">   <span class="comment">//注意2：</span></span><br><span class="line">   <span class="comment">//这里pathRewrite重写路径，则VUE_APP_BASE_API(即/dev-api)不会被传递</span></span><br><span class="line">   <span class="comment">//其他的请求 现在会被代理到请求 BACKGROUND_APPLICATION_URL(即http://localhost:8081/) </span></span><br><span class="line">    &#125;,</span><br><span class="line">  before: <span class="built_in">require</span>(<span class="string">'./mock/mock-server.js'</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-        <div class="article-info info-on-right">
-          
-          
 
+
+<p>.env.developmen文件</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># just a flag</span><br><span class="line">ENV = <span class="string">'development'</span></span><br><span class="line"></span><br><span class="line"># base api</span><br><span class="line">VUE_APP_BASE_API = <span class="string">'/dev-api'</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">VUE_CLI_BABEL_TRANSPILE_MODULES = <span class="literal">true</span></span><br><span class="line">BACKGROUND_APPLICATION_URL = <span class="string">'http://localhost:8081/'</span></span><br></pre></td></tr></table></figure>
+
+<p>到这里就已经是成功啦。</p>
+<h2 id="连带问题"><a href="#连带问题" class="headerlink" title="连带问题"></a>连带问题</h2><p>接下来是连带的两个小问题。</p>
+<ol>
+<li><p>由于vue-element-admin封装的axios，返回状态码不是20000，就当做错误拦截下来</p>
+<p>因此，如果你的真实后台成功的返回状态码是200，只要在判断中添加<code>&amp;&amp; res.code !== 200</code>即可。</p>
+</li>
+</ol>
+<p>utils/request.js</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">response =&gt; &#123;</span><br><span class="line">    <span class="keyword">const</span> res = response.data</span><br><span class="line">    <span class="comment">// if the custom code is not 20000, it is judged as an error</span></span><br><span class="line">    <span class="keyword">if</span> (res.code !== <span class="number">20000</span> &amp;&amp; res.code !== <span class="number">200</span>) &#123;</span><br><span class="line">      Message(&#123;</span><br><span class="line">        message: res.message || <span class="string">'Error'</span>,</span><br><span class="line">        type: <span class="string">'error'</span>,</span><br><span class="line">        duration: <span class="number">5</span> * <span class="number">1000</span></span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br></pre></td></tr></table></figure>
+
+
+
+<ol start="2">
+<li><p>为什么我在本地跑是正常的，我一部署到服务器上就报错呢？</p>
+<p>因为webpack.devServer是DevDependencies，一旦打包上线，这个proxy代理就会失效。</p>
+<p>解决方案nginx反向代理，nginx基本使用也不赘述，给一个配置的小案例</p>
+</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line"><span class="meta">		#</span><span class="bash"> 监听9527端口</span></span><br><span class="line">        listen       9527;</span><br><span class="line">        server_name  localhost;</span><br><span class="line"><span class="meta">		#</span><span class="bash"> 请求到 /dev-api/api 现在会被代理到请求 http://localhost:8081/api/</span></span><br><span class="line">        location /dev-api/api &#123;</span><br><span class="line">            proxy_pass http://localhost:8081/api/;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        error_page   500 502 503 504  /50x.html;</span><br><span class="line">        location = /50x.html &#123;</span><br><span class="line">            root   html;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>记住<code>proxy_pass 地址的最后一个斜杠是关键</code></p>
+<ul>
+<li>访问 /dev-api/api时，如果代理地址最后有/，那么会转发到<a href="http://localhost:8081/api/" target="_blank" rel="noopener">http://localhost:8081/api/</a></li>
+<li>访问/dev-api/api时，如果代理地址最后没有/，那么会转发到<a href="http://localhost:8081/api/dev-api/api" target="_blank" rel="noopener">http://localhost:8081/api/dev-api/api</a></li>
+</ul>
+<p>即有/，过滤掉 /dev-api/api</p>
+<h2 id="拓展：跨域解决方案"><a href="#拓展：跨域解决方案" class="headerlink" title="拓展：跨域解决方案"></a>拓展：跨域解决方案</h2><p>前端方式：</p>
+<ol>
+<li><p>nginx反向代理</p>
+<pre><code>2. Webpack proxy(打包之后就失效了，只解决了开发环境下的跨域问题) 
+3. jsonp（相当于插入script标签，只能使用get请求）</code></pre></li>
+</ol>
+<p>后端方式： cors，后端设置，前端不用管</p>
+<p>​                    设置响应头的<code>Access-Control-Allow-Methods</code>，</p>
+<p>​                <code>Access-Control-Allow-Headers</code>，Access-Control-Allow-Origin`</p>
+<p>故推荐nginx反向代理和cors。</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/03/22/%E9%85%8D%E7%BD%AEproxy,%E5%AE%9E%E7%8E%B0%E5%90%8C%E6%97%B6%E4%BD%BF%E7%94%A8mock%E6%95%B0%E6%8D%AE%E5%92%8C%E5%90%8E%E5%8F%B0%E6%8E%A5%E5%8F%A3%E7%9A%84%E6%95%B0%E6%8D%AE/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/03/22/Vue%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E7%AE%80%E5%8D%95%E6%A6%82%E6%8B%AC/" class="archive-article-date">
-  	<time datetime="2020-03-22T02:42:11.801Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-22</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/03/22/Vue%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E7%AE%80%E5%8D%95%E6%A6%82%E6%8B%AC/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Vue常见问题简单概括</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/22/Vue%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E7%AE%80%E5%8D%95%E6%A6%82%E6%8B%AC/">Vue常见问题简单概括</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/13/vue-%E6%A8%A1%E6%9D%BF%E6%8A%BD%E7%A6%BB%E4%B8%A4%E7%A7%8D%E5%86%99%E6%B3%95/" class="archive-article-date">
-  	<time datetime="2020-02-12T16:48:19.777Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-13</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/13/vue-%E6%A8%A1%E6%9D%BF%E6%8A%BD%E7%A6%BB%E4%B8%A4%E7%A7%8D%E5%86%99%E6%B3%95/">vue-模板抽离两种写法</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/13/node-%E5%88%9D%E6%8E%A2koa/" class="archive-article-date">
-  	<time datetime="2020-02-12T16:30:44.335Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-13</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/13/node-%E5%88%9D%E6%8E%A2koa/">node-初探koa</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/13/git-%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/" class="archive-article-date">
-  	<time datetime="2020-02-12T16:30:44.329Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-13</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/13/git-%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/">git-简单使用</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/06/vue-%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8C%87%E4%BB%A4/" class="archive-article-date">
-  	<time datetime="2020-02-06T14:18:06.247Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-06</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/06/vue-%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8C%87%E4%BB%A4/">vue-自定义指令</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/06/js-%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BD%AC%E6%95%B0%E5%AD%97/" class="archive-article-date">
-  	<time datetime="2020-02-06T14:17:09.977Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-06</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/06/js-%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BD%AC%E6%95%B0%E5%AD%97/">js-字符串转数字</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/06/js-%E9%95%BF%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%8D%A2%E8%A1%8C/" class="archive-article-date">
-  	<time datetime="2020-02-06T14:17:00.961Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-06</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/06/js-%E9%95%BF%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%8D%A2%E8%A1%8C/">js-长字符串换行</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/06/js-%E6%94%B9%E5%8F%98%E5%8E%9F%E6%95%B0%E7%BB%84%E6%96%B9%E6%B3%95/" class="archive-article-date">
-  	<time datetime="2020-02-06T14:16:08.163Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-06</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/06/js-%E6%94%B9%E5%8F%98%E5%8E%9F%E6%95%B0%E7%BB%84%E6%96%B9%E6%B3%95/">js-改变原数组方法</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/06/js-%E7%82%B9%E8%BF%90%E7%AE%97%E7%AC%A6%E5%92%8C%E6%96%B9%E6%8B%AC%E5%8F%B7%E8%BF%90%E7%AE%97%E7%AC%A6/" class="archive-article-date">
-  	<time datetime="2020-02-06T14:15:53.952Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-06</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/06/js-%E7%82%B9%E8%BF%90%E7%AE%97%E7%AC%A6%E5%92%8C%E6%96%B9%E6%8B%AC%E5%8F%B7%E8%BF%90%E7%AE%97%E7%AC%A6/">js-点运算符和方括号运算符</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/2020/page/2/">2</a><a class="extend next" rel="next" href="/archives/2020/page/2/">Next &amp;raquo;</a>
-    </nav>
   
 
 
@@ -448,8 +361,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
