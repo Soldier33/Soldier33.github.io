@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+  
+    
+    <entry>
+      <title>Css-常见知识点</title>
+      <link href="/p/d0a.html"/>
+      <url>/p/d0a.html</url>
+      
+        <content type="html"><![CDATA[<h2 id="1-px-、-rem-、em"><a href="#1-px-、-rem-、em" class="headerlink" title="1. px 、 rem 、em"></a>1. px 、 rem 、em</h2><ul><li>px是相对于显示器屏幕分辨率</li><li>rem是根据根元素的字体大小定的</li><li>em是根据自身元素的字体大小定的，如果自身没有，那可以从父元素继承字体大小</li></ul><h2 id="2-伪类和伪元素"><a href="#2-伪类和伪元素" class="headerlink" title="2. 伪类和伪元素"></a>2. 伪类和伪元素</h2><p><a href="https://juejin.im/post/5ca19f176fb9a05e711b2132" target="_blank" rel="noopener">参考文章</a></p><ul><li>伪类和伪元素都是用来表示文档树以外的”元素”。</li><li>伪类和伪元素分别用单冒号<code>:</code>和双冒号<code>::</code>来表示。</li><li>伪类和伪元素的区别，最关键的点在于如果没有伪元素(或伪类)，是否需要添加元素才能达到目的，如果是则是伪元素，反之则是伪类。</li></ul><h2 id="3-css选择器"><a href="#3-css选择器" class="headerlink" title="3. css选择器"></a>3. css选择器</h2><ol><li><h3 id="基本选择器"><a href="#基本选择器" class="headerlink" title="基本选择器"></a>基本选择器</h3></li><li><h3 id="属性选择器"><a href="#属性选择器" class="headerlink" title="属性选择器"></a>属性选择器</h3></li><li><h3 id="伪类选择器"><a href="#伪类选择器" class="headerlink" title="伪类选择器"></a>伪类选择器</h3></li><li><h3 id="伪元素选择器"><a href="#伪元素选择器" class="headerlink" title="伪元素选择器"></a>伪元素选择器</h3></li><li><h3 id="组合选择器"><a href="#组合选择器" class="headerlink" title="组合选择器"></a>组合选择器</h3></li></ol><h2 id="4-margin和padding"><a href="#4-margin和padding" class="headerlink" title="4. margin和padding"></a>4. margin和padding</h2><p>margin是指从自身边框到另一个容器边框之间的距离，就是容器外距离。</p><p>padding是指自身边框到自身内部另一个容器边框之间的距离，就是容器内距离。</p><h2 id="5-margin、padding和translate百分比"><a href="#5-margin、padding和translate百分比" class="headerlink" title="5. margin、padding和translate百分比"></a>5. margin、padding和translate百分比</h2><ul><li>margin：按照父元素的宽来计算的</li><li>padding：按照父元素的宽来计算的</li><li>translate：是按照本身的宽高计算的</li></ul><h2 id="6-translate、transform、transition"><a href="#6-translate、transform、transition" class="headerlink" title="6. translate、transform、transition"></a>6. translate、transform、transition</h2><p><a href="https://www.cnblogs.com/xiaobai-y/p/10724083.html" target="_blank" rel="noopener">参考文章</a></p><p>translate:移动，transform的一个方法</p><p>transform:变形。改变</p><p>transition: 允许CSS属性值在一定的时间区间内平滑的过渡</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 前端 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Css </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>算法题</title>
+      <link href="/p/e715.html"/>
+      <url>/p/e715.html</url>
+      
+        <content type="html"><![CDATA[<h2 id="1-对应关系"><a href="#1-对应关系" class="headerlink" title="1. 对应关系"></a>1. 对应关系</h2><p>将str 转换成str1与str2的对应关系，大写对应大写，小写对应小写</p><pre class=" language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">foo</span><span class="token punctuation">(</span>str<span class="token punctuation">)</span> <span class="token punctuation">{</span>    <span class="token keyword">var</span> str1 <span class="token operator">=</span> <span class="token string">'ABCDEFGHIJKLMNOPQRSTUVWXYZ'</span>    <span class="token keyword">var</span> str2 <span class="token operator">=</span> <span class="token string">'QWERTYUIOPASDFGHJKLZXCVBNM'</span>    <span class="token keyword">var</span> res <span class="token operator">=</span> <span class="token string">''</span>    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> str<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>        <span class="token keyword">var</span> char1 <span class="token operator">=</span> str<span class="token punctuation">.</span><span class="token function">substr</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span>        <span class="token comment" spellcheck="true">// 大写，小写, 其他（空格句号）</span>        <span class="token keyword">if</span><span class="token punctuation">(</span>str1<span class="token punctuation">.</span><span class="token function">indexOf</span><span class="token punctuation">(</span>char1<span class="token punctuation">)</span> <span class="token operator">!==</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>            <span class="token keyword">var</span> char2 <span class="token operator">=</span> str1<span class="token punctuation">.</span><span class="token function">indexOf</span><span class="token punctuation">(</span>char1<span class="token punctuation">)</span>              res <span class="token operator">=</span> res<span class="token punctuation">.</span><span class="token function">concat</span><span class="token punctuation">(</span>str2<span class="token punctuation">[</span>char2<span class="token punctuation">]</span><span class="token punctuation">)</span>              <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>str1<span class="token punctuation">.</span><span class="token function">toLowerCase</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">indexOf</span><span class="token punctuation">(</span>char1<span class="token punctuation">)</span> <span class="token operator">!==</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>            <span class="token keyword">var</span> char2 <span class="token operator">=</span> str1<span class="token punctuation">.</span><span class="token function">toLowerCase</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">indexOf</span><span class="token punctuation">(</span>char1<span class="token punctuation">)</span>            res <span class="token operator">=</span> res<span class="token punctuation">.</span><span class="token function">concat</span><span class="token punctuation">(</span>str2<span class="token punctuation">[</span>char2<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">toLowerCase</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>              <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>            res <span class="token operator">=</span> res<span class="token punctuation">.</span><span class="token function">concat</span><span class="token punctuation">(</span>char1<span class="token punctuation">)</span>           <span class="token punctuation">}</span>    <span class="token punctuation">}</span>   console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>res<span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token function">foo</span><span class="token punctuation">(</span><span class="token string">"HA 5ah"</span><span class="token punctuation">)</span></code></pre><h2 id="2-正方形切割"><a href="#2-正方形切割" class="headerlink" title="2. 正方形切割"></a>2. 正方形切割</h2><p>输入矩形的长宽，切割成尽可能大的正方形</p><pre class=" language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">foo</span><span class="token punctuation">(</span>long<span class="token punctuation">,</span> width<span class="token punctuation">)</span> <span class="token punctuation">{</span>    <span class="token keyword">if</span><span class="token punctuation">(</span>long <span class="token operator">&lt;</span> width<span class="token punctuation">)</span> <span class="token punctuation">{</span>        long <span class="token operator">^</span><span class="token operator">=</span> width        width <span class="token operator">^</span><span class="token operator">=</span> long        long <span class="token operator">^</span><span class="token operator">=</span> width    <span class="token punctuation">}</span>    <span class="token keyword">while</span><span class="token punctuation">(</span>long <span class="token operator">-</span> width <span class="token operator">!==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>width<span class="token punctuation">)</span>        <span class="token keyword">var</span> temp <span class="token operator">=</span> long        long <span class="token operator">=</span>  width        width <span class="token operator">=</span> temp <span class="token operator">-</span> width    <span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token function">foo</span><span class="token punctuation">(</span><span class="token number">64</span><span class="token punctuation">,</span><span class="token number">40</span><span class="token punctuation">)</span></code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 前端 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Js </tag>
+            
+            <tag> 算法 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Nginx-开启gzip配置</title>
+      <link href="/p/921a.html"/>
+      <url>/p/921a.html</url>
+      
+        <content type="html"><![CDATA[<pre class=" language-js"><code class="language-js">http <span class="token punctuation">{</span>  include       conf<span class="token operator">/</span>mime<span class="token punctuation">.</span>types<span class="token punctuation">;</span>  gzip on<span class="token punctuation">;</span>  gzip_min_length  <span class="token number">1000</span><span class="token punctuation">;</span>  gzip_buffers     <span class="token number">4</span> 8k<span class="token punctuation">;</span>     gzip_http_version <span class="token number">1.1</span><span class="token punctuation">;</span>   gzip_types       text<span class="token operator">/</span>plain application<span class="token operator">/</span>x<span class="token operator">-</span>javascript text<span class="token operator">/</span>css application<span class="token operator">/</span>xml application<span class="token operator">/</span>javascript application<span class="token operator">/</span>json<span class="token punctuation">;</span>  <span class="token operator">...</span><span class="token operator">...</span>  <span class="token punctuation">}</span></code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 服务端 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Nginx </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Js-简要笔记</title>
+      <link href="/p/df71.html"/>
+      <url>/p/df71.html</url>
+      
+        <content type="html"><![CDATA[<ol><li><p>不改变原数组方法</p><p>concat() ，join()，slice()  ，toString()</p></li><li><p>改变原数组方法</p><p>pop()，push()，reverse() ，shift()，sort()，splice() ，unshift() ，</p><p>copyWith(), fill()</p><p>面试题：</p></li></ol><pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">let</span> a <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'a'</span><span class="token punctuation">,</span><span class="token string">'b'</span><span class="token punctuation">,</span> <span class="token string">'c'</span><span class="token punctuation">]</span><span class="token keyword">delete</span> a<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token comment" spellcheck="true">////不会改变数组的长度</span>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>a<span class="token punctuation">.</span>length<span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">//3</span>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//[ &lt;1 empty item>, 'b', 'c' ]</span>a<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">//会改变数组的长度</span>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>a<span class="token punctuation">.</span>length<span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">//2</span></code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 前端 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Js </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Js-Object属性之查看</title>
+      <link href="/p/7035.html"/>
+      <url>/p/7035.html</url>
+      
+        <content type="html"><![CDATA[<h2 id="1-属性的查看"><a href="#1-属性的查看" class="headerlink" title="1. 属性的查看"></a>1. 属性的查看</h2><h3 id="1-1-Object-keys（）"><a href="#1-1-Object-keys（）" class="headerlink" title="1.1 Object.keys（）"></a>1.1 Object.keys（）</h3><p>返回所有可枚举属性的字符串数组。</p><h3 id="1-2-Object-getOwnPropertyNames"><a href="#1-2-Object-getOwnPropertyNames" class="headerlink" title="1.2 Object.getOwnPropertyNames()"></a>1.2 Object.getOwnPropertyNames()</h3><p>返回一个由指定对象的所有自身属性的属性名（包括<code>不可枚举</code>属性但不包括Symbol值作为名称的属性）组成的数组。</p><h2 id="2-属性的删除：delete"><a href="#2-属性的删除：delete" class="headerlink" title="2. 属性的删除：delete"></a>2. 属性的删除：delete</h2><pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">var</span> obj <span class="token operator">=</span> <span class="token punctuation">{</span>      p<span class="token punctuation">:</span> <span class="token number">1</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>Object<span class="token punctuation">.</span><span class="token function">keys</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// ["p"]</span><span class="token keyword">delete</span> obj<span class="token punctuation">.</span>p <span class="token comment" spellcheck="true">// true</span>obj<span class="token punctuation">.</span>p <span class="token comment" spellcheck="true">// undefined</span>Object<span class="token punctuation">.</span><span class="token function">keys</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// []</span></code></pre><p>delete 删除对象的属性，删除成功后返回true。</p><p><strong>如果删除一个不存在的属性，不会报错，返回true。</strong></p><pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">var</span> obj <span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">}</span>deleter obj<span class="token punctuation">.</span>p <span class="token comment" spellcheck="true">//true</span></code></pre><p>只有当该属性存在，且不得删除时才返回false，另外，</p><p>delete只能删除自身的属性，不能删除继承的属性，但是仍然会返回true，只是不能删除。</p><pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">var</span> obj <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span><span class="token keyword">delete</span> obj<span class="token punctuation">.</span>toString <span class="token comment" spellcheck="true">// true</span>obj<span class="token punctuation">.</span>toString <span class="token comment" spellcheck="true">// function toString() { [native code] }</span></code></pre><h2 id="3-判断属性是否存在-：in"><a href="#3-判断属性是否存在-：in" class="headerlink" title="3. 判断属性是否存在 ：in"></a>3. 判断属性是否存在 ：in</h2><p><code>in</code>运算符用于检查对象是否包含某个属性（注意，检查的是键名，不是键值），如果包含就返回<code>true</code>，否则返回<code>false</code>。它的左边是一个字符串（要用引号包裹），表示属性名，右边是一个对象。</p><p>它不能识别哪些属性是对象自身的，哪些属性是继承的。</p><pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">var</span> obj <span class="token operator">=</span> <span class="token punctuation">{</span>    p<span class="token punctuation">:</span><span class="token string">'123'</span><span class="token punctuation">}</span><span class="token string">'p'</span> <span class="token keyword">in</span> obj  <span class="token comment" spellcheck="true">//true</span><span class="token string">'toString'</span> <span class="token keyword">in</span> obj <span class="token comment" spellcheck="true">//true</span></code></pre><h2 id="4-判断是否是自身属性-hasOwnProperty"><a href="#4-判断是否是自身属性-hasOwnProperty" class="headerlink" title="4. 判断是否是自身属性: hasOwnProperty"></a>4. 判断是否是自身属性: hasOwnProperty</h2><pre class=" language-java"><code class="language-java">obj<span class="token punctuation">.</span><span class="token function">hasOwnProperty</span><span class="token punctuation">(</span><span class="token string">'toString'</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">// false</span>obj<span class="token punctuation">.</span><span class="token function">hasOwnProperty</span><span class="token punctuation">(</span><span class="token string">'p'</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// true</span></code></pre><p>  <code>for...in</code>遍历时与  <code>hasOwnProperty</code>方法结合，判断它是否是自身的属性。</p><pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">var</span> person <span class="token operator">=</span> <span class="token punctuation">{</span>    name<span class="token punctuation">:</span><span class="token string">'魏无羡'</span><span class="token punctuation">,</span>    age<span class="token punctuation">:</span> <span class="token string">'22'</span><span class="token punctuation">}</span><span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">var</span> p <span class="token keyword">in</span> person<span class="token punctuation">)</span><span class="token punctuation">{</span>    <span class="token keyword">if</span><span class="token punctuation">(</span>person<span class="token punctuation">.</span><span class="token function">hasOwnProperty</span><span class="token punctuation">(</span>p<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>p<span class="token operator">+</span><span class="token string">":"</span><span class="token operator">+</span>person<span class="token punctuation">[</span>p<span class="token punctuation">]</span><span class="token punctuation">)</span>    <span class="token punctuation">}</span><span class="token punctuation">}</span></code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 前端 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Js </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Pm2-常用命令</title>
+      <link href="/p/8e71.html"/>
+      <url>/p/8e71.html</url>
+      
+        <content type="html"><![CDATA[<p>PM2是node进程管理工具，可以利用它来简化很多node应用管理的繁琐任务，如性能监控、自动重启、负载均衡等，而且使用非常简单。</p><h3 id="全局安装"><a href="#全局安装" class="headerlink" title="全局安装"></a>全局安装</h3><blockquote><p>npm install -g pm2</p></blockquote><h3 id="自动重启"><a href="#自动重启" class="headerlink" title="自动重启"></a>自动重启</h3><blockquote><p>pm2 start app.js –-watch</p></blockquote><h3 id="重启"><a href="#重启" class="headerlink" title="重启"></a>重启</h3><blockquote><p>pm2 restart app.js</p></blockquote><h3 id="停止"><a href="#停止" class="headerlink" title="停止"></a>停止</h3><p>停止特定的应用。可以先通过pm2 list获取应用的名字（–name指定的）或者进程id。</p><blockquote><p>pm2 stop app_name|app_id</p></blockquote><h3 id="查看进程状态"><a href="#查看进程状态" class="headerlink" title="查看进程状态"></a>查看进程状态</h3><blockquote><p>pm2 </p><p>或pm2 list</p></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> 前端 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Pm2 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Vue-常见问题简单概括</title>
+      <link href="/p/845a.html"/>
+      <url>/p/845a.html</url>
+      
+        <content type="html"><![CDATA[<h2 id="1-为什么组件中的data必需是函数"><a href="#1-为什么组件中的data必需是函数" class="headerlink" title="1. 为什么组件中的data必需是函数"></a>1. 为什么组件中的data必需是函数</h2><p>因为组件是要重复使用的，当data是函数并且在多次调用的时候，<br>所占的内存块不一样，所以data中的数据互不影响。</p><h2 id="2-v-for中key的作用"><a href="#2-v-for中key的作用" class="headerlink" title="2. v-for中key的作用"></a>2. v-for中key的作用</h2><p> 加上key之后，能够更好的复用，减少资源的消耗。</p><pre><code>&lt;li v-for=&quot;item in list&quot; :key=&quot;item&quot;&gt;{{item}}&lt;/li&gt;</code></pre><p><strong>没加key之前，如果向数组中间添加一个元素，要依次替换数组元素，</strong></p><p><strong>加上key之后，可以直接在数组中间插入这个元素。</strong></p><h2 id="3-过滤器filters获取不到data数据"><a href="#3-过滤器filters获取不到data数据" class="headerlink" title="3.过滤器filters获取不到data数据"></a>3.过滤器filters获取不到data数据</h2><p>因为获取不到this对象</p><p>尤雨溪解释：这是2.x中故意的。 过滤器应该是纯函数，不应该依赖于这个上下文。 如果您需要这个，您应该使用一个计算属性或只是一个方法。</p><p>filters一般做只处理HTML页面的数据的事；<br>computed一般做只处理data中的数据的事。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 前端 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Vue </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Node-自动生成express项目</title>
+      <link href="/p/e0a0.html"/>
+      <url>/p/e0a0.html</url>
+      
+        <content type="html"><![CDATA[<p><a href="https://www.cnblogs.com/wgl0126/p/9290157.html" target="_blank" rel="noopener">参考文章</a></p><pre class=" language-javascript"><code class="language-javascript">npm install express <span class="token operator">--</span>save <span class="token operator">-</span>gnpm install express<span class="token operator">-</span>generator <span class="token operator">--</span>save <span class="token operator">-</span>g</code></pre><p>express-generator是express应用生成器，相当于express 的骨架，进入一个web项目中后，使用express projectname命令，能快速构建projectname这个应用的目录结构。</p><pre class=" language-javascript"><code class="language-javascript">express ‘你的项目名字’npm i</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 前端 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Node </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Node-开启gzip配置</title>
+      <link href="/p/662d.html"/>
+      <url>/p/662d.html</url>
+      
+        <content type="html"><![CDATA[<p>开启gzip配置</p><p>压缩体积，传输更快</p><pre><code>npm i compressionconst compression = require(&#39;compression&#39;)app.use(compression())</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 前端 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Node </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Node-初探koa</title>
+      <link href="/p/ed87.html"/>
+      <url>/p/ed87.html</url>
+      
+        <content type="html"><![CDATA[<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">const</span> koa <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'koa'</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">//注意引入方式</span><span class="token comment" spellcheck="true">// 方式一</span><span class="token keyword">const</span> router <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'koa-router'</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 方式二</span><span class="token comment" spellcheck="true">// const Router = require('koa-router')</span><span class="token comment" spellcheck="true">// const router = new Router()</span><span class="token keyword">const</span> render <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'koa-art-template'</span><span class="token punctuation">)</span><span class="token keyword">const</span> path <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'path'</span><span class="token punctuation">)</span><span class="token keyword">const</span> bodyParser <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'koa-bodyparser'</span><span class="token punctuation">)</span><span class="token keyword">const</span> <span class="token keyword">static</span> <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'koa-static'</span><span class="token punctuation">)</span><span class="token keyword">const</span> session <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'koa-session'</span><span class="token punctuation">)</span><span class="token keyword">const</span> app <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">koa</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">// 路由级中间件</span>router<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span><span class="token string">'/test1'</span><span class="token punctuation">,</span><span class="token keyword">async</span> <span class="token punctuation">(</span>ctx<span class="token punctuation">,</span> next<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'mmmm'</span><span class="token punctuation">)</span>     <span class="token comment" spellcheck="true">//koa中cookies无法直接设置中文</span>    <span class="token comment" spellcheck="true">// ctx.cookies.set('cookieTest', '中文')  </span>    <span class="token keyword">var</span> cookieTest <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Buffer<span class="token punctuation">.</span>from</span><span class="token punctuation">(</span><span class="token string">'中文'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token string">'base64'</span><span class="token punctuation">)</span>    ctx<span class="token punctuation">.</span>cookies<span class="token punctuation">.</span><span class="token keyword">set</span><span class="token punctuation">(</span><span class="token string">'cookieTest'</span><span class="token punctuation">,</span> cookieTest<span class="token punctuation">)</span>      ctx<span class="token punctuation">.</span>session<span class="token punctuation">.</span>sessionTest <span class="token operator">=</span> <span class="token string">"会话"</span> <span class="token comment" spellcheck="true">//没有中文问题</span>    <span class="token keyword">await</span> <span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">)</span>router<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span><span class="token string">'/test1'</span><span class="token punctuation">,</span><span class="token keyword">async</span> <span class="token punctuation">(</span>ctx<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>    <span class="token keyword">let</span> content <span class="token operator">=</span> <span class="token string">"333"</span>    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>ctx<span class="token punctuation">.</span>query<span class="token punctuation">)</span>    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>ctx<span class="token punctuation">.</span>state<span class="token punctuation">.</span>userinfo<span class="token punctuation">)</span>    <span class="token keyword">await</span> ctx<span class="token punctuation">.</span><span class="token function">render</span><span class="token punctuation">(</span><span class="token string">'index'</span><span class="token punctuation">,</span><span class="token punctuation">{</span>        content<span class="token punctuation">,</span>    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">// 动态路由</span>router<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span><span class="token string">'/test2/:id'</span><span class="token punctuation">,</span><span class="token keyword">async</span> <span class="token punctuation">(</span>ctx<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>ctx<span class="token punctuation">.</span>params<span class="token punctuation">)</span>    <span class="token keyword">var</span> data1 <span class="token operator">=</span> ctx<span class="token punctuation">.</span>cookies<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span><span class="token string">'cookieTest'</span><span class="token punctuation">)</span>    <span class="token keyword">var</span> data2 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Buffer<span class="token punctuation">.</span>from</span><span class="token punctuation">(</span>data1<span class="token punctuation">,</span> <span class="token string">'base64'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span>    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>data2<span class="token punctuation">)</span>    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>ctx<span class="token punctuation">.</span>session<span class="token punctuation">.</span>sessionTest<span class="token punctuation">)</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">// 登录，post请求</span>router<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span><span class="token string">'/test3'</span><span class="token punctuation">,</span> <span class="token keyword">async</span> <span class="token punctuation">(</span>ctx<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>    <span class="token keyword">await</span> ctx<span class="token punctuation">.</span><span class="token function">render</span><span class="token punctuation">(</span><span class="token string">'login'</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">)</span>router<span class="token punctuation">.</span><span class="token function">post</span><span class="token punctuation">(</span><span class="token string">'/login'</span><span class="token punctuation">,</span> <span class="token keyword">async</span> <span class="token punctuation">(</span>ctx<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>ctx<span class="token punctuation">.</span>request<span class="token punctuation">.</span>body<span class="token punctuation">)</span>    ctx<span class="token punctuation">.</span>body <span class="token operator">=</span> ctx<span class="token punctuation">.</span>request<span class="token punctuation">.</span>body<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">// 配置koa-art-template</span><span class="token function">render</span><span class="token punctuation">(</span>app<span class="token punctuation">,</span> <span class="token punctuation">{</span>    root<span class="token punctuation">:</span> path<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span> <span class="token string">'views'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>    extname<span class="token punctuation">:</span> <span class="token string">'.html'</span><span class="token punctuation">,</span>    debug<span class="token punctuation">:</span> process<span class="token punctuation">.</span>env<span class="token punctuation">.</span>NODE_ENV <span class="token operator">!==</span> <span class="token string">'production'</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">// 配置session的中间件</span>app<span class="token punctuation">.</span>keys <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'some secret hurr'</span><span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token keyword">const</span> CONFIG <span class="token operator">=</span> <span class="token punctuation">{</span>  key<span class="token punctuation">:</span> <span class="token string">'koa:sess'</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">/** (string) cookie key (default is koa:sess) */</span>  <span class="token comment" spellcheck="true">/** (number || 'session') maxAge in ms (default is 1 days) */</span>  <span class="token comment" spellcheck="true">/** 'session' will result in a cookie that expires when session/browser is closed */</span>  <span class="token comment" spellcheck="true">/** Warning: If a session cookie is stolen, this cookie will never expire */</span>  maxAge<span class="token punctuation">:</span> <span class="token number">86400000</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">/** 需要修改 */</span>  autoCommit<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">/** (boolean) automatically commit headers (default true) */</span>  overwrite<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">/** (boolean) can overwrite or not (default true) */</span>  httpOnly<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">/** (boolean) 只有服务端能访问 (default true) */</span>  signed<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">/** (boolean) signed or not (default true) */</span>  rolling<span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">/** 重新发请求，重新设置session  (default is false) */</span>  renew<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">/** 需要修改false->true 用户有操作，重新设置session (default is false)*/</span>  sameSite<span class="token punctuation">:</span> <span class="token keyword">null</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">/** (string) session cookie sameSite options (default null, don't set it) */</span><span class="token punctuation">}</span><span class="token punctuation">;</span>app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span><span class="token function">session</span><span class="token punctuation">(</span>CONFIG<span class="token punctuation">,</span> app<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>app    <span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span><span class="token keyword">static</span><span class="token punctuation">(</span><span class="token string">'./static'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>    <span class="token comment" spellcheck="true">//配置静态web服务的中间件</span>    <span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span><span class="token function">bodyParser</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>      <span class="token comment" spellcheck="true">//获取表单数据中间件,要写在路由前面，否则不生效</span>    <span class="token comment" spellcheck="true">// 写中间件配置公共的信息，要写在路由前面，否则不生效</span>    <span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span><span class="token keyword">async</span> <span class="token punctuation">(</span>ctx<span class="token punctuation">,</span> next<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>                   ctx<span class="token punctuation">.</span>state<span class="token punctuation">.</span>userinfo <span class="token operator">=</span> <span class="token string">'ed'</span>        <span class="token keyword">await</span> <span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span>              <span class="token punctuation">}</span><span class="token punctuation">)</span>    <span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>router<span class="token punctuation">.</span><span class="token function">routes</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>       <span class="token comment" spellcheck="true">// 启动路由</span>    <span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>router<span class="token punctuation">.</span><span class="token function">allowedMethods</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>   <span class="token comment" spellcheck="true">//推荐写上此配置</span>    <span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span><span class="token keyword">async</span> <span class="token punctuation">(</span>ctx<span class="token punctuation">,</span> next<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>     <span class="token comment" spellcheck="true">//应用级中间件</span>        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>     <span class="token comment" spellcheck="true">//匹配路由之前打印日期</span>        <span class="token keyword">await</span> <span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span>    <span class="token comment" spellcheck="true">//當前路由匹配完成以后继续向后匹配</span>        <span class="token keyword">if</span><span class="token punctuation">(</span>ctx<span class="token punctuation">.</span>status <span class="token operator">===</span> <span class="token number">404</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>    <span class="token comment" spellcheck="true">//错误处理中间件</span>            ctx<span class="token punctuation">.</span>status <span class="token operator">=</span> <span class="token number">404</span>            ctx<span class="token punctuation">.</span>body <span class="token operator">=</span> <span class="token string">'404了'</span>        <span class="token punctuation">}</span>    <span class="token punctuation">}</span><span class="token punctuation">)</span>app<span class="token punctuation">.</span><span class="token function">listen</span><span class="token punctuation">(</span><span class="token number">3000</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token number">3000</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 前端 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Node </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Vue-配置proxy,实现同时使用mock数据和后台接口的数据</title>
+      <link href="/p/6074.html"/>
+      <url>/p/6074.html</url>
+      
+        <content type="html"><![CDATA[<p>前端使用vue-element-admin，但遇到后台接口还没完成的情况下，</p><p>需要同时使用mock数据和后台接口的数据，我们可以通过配置webpack的proxy，</p><p>凡是/vue-element-admin开头的请求跳转请求mock，其他请求都请求真实的后台数据</p><p>我在写的时候参考这篇文章：<a href="https://www.cnblogs.com/xiayuscc/p/11063590.html" target="_blank" rel="noopener">https://www.cnblogs.com/xiayuscc/p/11063590.html</a></p><p>但由于自己是新手，没有理解清晰，还是浪费了不少时间，</p><p>毕竟不同的后台，地址不同，照搬代码并不能保证成功，在此特别指出帮助理解。</p><h2 id="开始配置"><a href="#开始配置" class="headerlink" title="开始配置"></a>开始配置</h2><p>vue-cli 3的项目配置使用vue.config.js文件</p><pre class=" language-js"><code class="language-js">  devServer<span class="token punctuation">:</span> <span class="token punctuation">{</span>    port<span class="token punctuation">:</span> port<span class="token punctuation">,</span>    open<span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>  <span class="token comment" spellcheck="true">//默认true会自动打开页面</span>    overlay<span class="token punctuation">:</span> <span class="token punctuation">{</span>      warnings<span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>      errors<span class="token punctuation">:</span> <span class="token boolean">true</span>    <span class="token punctuation">}</span><span class="token punctuation">,</span>    <span class="token comment" spellcheck="true">// proxy配置参考：</span>    <span class="token comment" spellcheck="true">//https://webpack.docschina.org/configuration/dev-server/#devserver-proxy</span>    proxy<span class="token punctuation">:</span> <span class="token punctuation">{</span>      <span class="token punctuation">[</span>process<span class="token punctuation">.</span>env<span class="token punctuation">.</span>VUE_APP_BASE_API<span class="token operator">+</span><span class="token string">'/vue-element-admin'</span><span class="token punctuation">]</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>        target<span class="token punctuation">:</span> <span class="token template-string"><span class="token string">`http://localhost:</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>port<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">/mock`</span></span>              <span class="token punctuation">}</span><span class="token punctuation">,</span>     <span class="token comment" spellcheck="true">//注意1：</span>    <span class="token comment" spellcheck="true">//因为这里并没有重写路径，因此VUE_APP_BASE_API(即/dev-api)会被传递</span>    <span class="token comment" spellcheck="true">//请求到 /vue-element-admin 现在会被代理到请求 http://localhost:${port}/mock/dev-api </span>      <span class="token punctuation">[</span>process<span class="token punctuation">.</span>env<span class="token punctuation">.</span>VUE_APP_BASE_API<span class="token punctuation">]</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>        target<span class="token punctuation">:</span> process<span class="token punctuation">.</span>env<span class="token punctuation">.</span>BACKGROUND_APPLICATION_URL<span class="token punctuation">,</span>         pathRewrite<span class="token punctuation">:</span> <span class="token punctuation">{</span>          <span class="token punctuation">[</span><span class="token string">'^'</span> <span class="token operator">+</span> process<span class="token punctuation">.</span>env<span class="token punctuation">.</span>VUE_APP_BASE_API<span class="token punctuation">]</span><span class="token punctuation">:</span> <span class="token string">''</span>        <span class="token punctuation">}</span>      <span class="token punctuation">}</span>     <span class="token comment" spellcheck="true">//注意2：</span>     <span class="token comment" spellcheck="true">//这里pathRewrite重写路径，则VUE_APP_BASE_API(即/dev-api)不会被传递</span>     <span class="token comment" spellcheck="true">//其他的请求 现在会被代理到请求 BACKGROUND_APPLICATION_URL(即http://localhost:8081/) </span>    <span class="token punctuation">}</span><span class="token punctuation">,</span>    before<span class="token punctuation">:</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'./mock/mock-server.js'</span><span class="token punctuation">)</span>  <span class="token punctuation">}</span></code></pre><p>.env.developmen文件</p><pre class=" language-js"><code class="language-js"># just a flagENV <span class="token operator">=</span> <span class="token string">'development'</span># base apiVUE_APP_BASE_API <span class="token operator">=</span> <span class="token string">'/dev-api'</span>VUE_CLI_BABEL_TRANSPILE_MODULES <span class="token operator">=</span> <span class="token boolean">true</span>BACKGROUND_APPLICATION_URL <span class="token operator">=</span> <span class="token string">'http://localhost:8081/'</span></code></pre><p>到这里就已经是成功啦。</p><h2 id="连带问题"><a href="#连带问题" class="headerlink" title="连带问题"></a>连带问题</h2><p>接下来是连带的两个小问题。</p><ol><li><p>由于vue-element-admin封装的axios，返回状态码不是20000，就当做错误拦截下来</p><p>因此，如果你的真实后台成功的返回状态码是200，只要在判断中添加<code>&amp;&amp; res.code !== 200</code>即可。</p></li></ol><p>utils/request.js</p><pre class=" language-js"><code class="language-js">response <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>    <span class="token keyword">const</span> res <span class="token operator">=</span> response<span class="token punctuation">.</span>data    <span class="token comment" spellcheck="true">// if the custom code is not 20000, it is judged as an error</span>    <span class="token keyword">if</span> <span class="token punctuation">(</span>res<span class="token punctuation">.</span>code <span class="token operator">!==</span> <span class="token number">20000</span> <span class="token operator">&amp;&amp;</span> res<span class="token punctuation">.</span>code <span class="token operator">!==</span> <span class="token number">200</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>      <span class="token function">Message</span><span class="token punctuation">(</span><span class="token punctuation">{</span>        message<span class="token punctuation">:</span> res<span class="token punctuation">.</span>message <span class="token operator">||</span> <span class="token string">'Error'</span><span class="token punctuation">,</span>        type<span class="token punctuation">:</span> <span class="token string">'error'</span><span class="token punctuation">,</span>        duration<span class="token punctuation">:</span> <span class="token number">5</span> <span class="token operator">*</span> <span class="token number">1000</span>      <span class="token punctuation">}</span><span class="token punctuation">)</span>    <span class="token punctuation">}</span>  <span class="token punctuation">}</span><span class="token punctuation">,</span></code></pre><ol start="2"><li><p>为什么我在本地跑是正常的，我一部署到服务器上就报错呢？</p><p>因为webpack.devServer是DevDependencies，一旦打包上线，这个proxy代理就会失效。</p><p>解决方案nginx反向代理，nginx基本使用也不赘述，给一个配置的小案例</p></li></ol><pre class=" language-shell"><code class="language-shell">server {        # 监听9527端口        listen       9527;        server_name  localhost;        # 请求到 /dev-api/api 现在会被代理到请求 http://localhost:8081/api/        location /dev-api/api {            proxy_pass http://localhost:8081/api/;        }        error_page   500 502 503 504  /50x.html;        location = /50x.html {            root   html;        }    }</code></pre><p>记住<code>proxy_pass 地址的最后一个斜杠是关键</code></p><ul><li>访问 /dev-api/api时，如果代理地址最后有/，那么会转发到<a href="http://localhost:8081/api/" target="_blank" rel="noopener">http://localhost:8081/api/</a></li><li>访问/dev-api/api时，如果代理地址最后没有/，那么会转发到<a href="http://localhost:8081/api/dev-api/api" target="_blank" rel="noopener">http://localhost:8081/api/dev-api/api</a></li></ul><p>即有/，过滤掉 /dev-api/api</p><h2 id="拓展：跨域解决方案"><a href="#拓展：跨域解决方案" class="headerlink" title="拓展：跨域解决方案"></a>拓展：跨域解决方案</h2><p>前端方式：</p><ol><li><p>nginx反向代理</p></li><li><p>Webpack proxy(打包之后就失效了，只解决了开发环境下的跨域问题) </p></li><li><p>jsonp（相当于插入script标签，只能使用get请求）</p><p>   ​            </p></li></ol><p>后端方式： </p><p>cors，后端设置，前端不用管，设置响应头的<code>Access-Control-Allow-Methods</code>，<code>Access-Control-Allow-Headers</code>，Access-Control-Allow-Origin`</p><p>故推荐nginx反向代理和cors。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 前端 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Vue </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Git-撤回提交到github的代码</title>
+      <link href="/p/fd37.html"/>
+      <url>/p/fd37.html</url>
+      
+        <content type="html"><![CDATA[<pre class=" language-shell"><code class="language-shell"># 查看提交记录，找到上一次提交的版本号git log# 回退到某版本git reset  --hard  '版本号'git push origin HEAD --force</code></pre><p>详细请见：<a href="https://zhidao.baidu.com/question/2143411903971545108.html" target="_blank" rel="noopener">https://zhidao.baidu.com/question/2143411903971545108.html</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 软件工具 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Git </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Git-提交代码至github命令</title>
+      <link href="/p/ba68.html"/>
+      <url>/p/ba68.html</url>
+      
+        <content type="html"><![CDATA[<p>不知道你是否刚使用git，但命令行又记得不是很熟，</p><p>本文简单速记，方便遗忘再次操作。</p><ol><li>初始化仓库</li><li>关联仓库</li><li>拉取代码</li><li>上传代码</li></ol><pre class=" language-shell"><code class="language-shell">git initgit remote add origin https://.....git pull origin mastergit add .git commit -m "first commit"git push origin master</code></pre><p>详细请看：<a href="https://gitee.com/help/articles/4122" target="_blank" rel="noopener">https://gitee.com/help/articles/4122</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 软件工具 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Git </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Git-常用命令</title>
+      <link href="/p/f446.html"/>
+      <url>/p/f446.html</url>
+      
+        <content type="html"><![CDATA[<pre class=" language-shell"><code class="language-shell">1.创建文件夹（shell同）    mkdir test 2.创建文件，可用来创建.开头的文件    touch test.js    3.添加到暂存区    git add .    4. 提交到git仓库，引号内容是描述    git commit -m ‘add xxx’    5. 提交到远程仓库（github）   git push origin master   git push origin master -f (强制提交)6. 删除文件   rm  -rf   test.js   git  rm   test.js   git commit -m ‘delete  xxx’    7. 查看信息   git config --list8. 下载代码   git clone  https:.....9. 初始化git本地版本管理仓库   git init 10. 显示工作目录和暂存区的状态   git status11. 远程库同步到本地库   git pull --rebase origin master12. 查看不同   git diff   git diff --cached   git diff HEAD13. 查看更新描述   git log   git log --oneline（只显示一行）   git log reflog (包含回退的记录) 14. 回退操作   git reset --hard '(版本号)'   git reset --hard HEAD 回到没有add的状态   git reset --hard HEAD^ (上一版)   git reset --hard HEAD~2 (上两版)15. 最新的一次但不修改描述信息   git commit --amend --no-edit</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 软件工具 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Git </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+  
+  
+</search>
