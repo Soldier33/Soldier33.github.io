@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="算法题, Soldier33">
+    <meta name="keywords" content="面试-算法题, Soldier33">
     <meta name="description" content="1. 对应关系将str 转换成str1与str2的对应关系，大写对应大写，小写对应小写
 function foo(str) {
     var str1 = &#39;ABCDEFGHIJKLMNOPQRSTUVWXYZ&#39;
@@ -16,7 +16,7 @@ function foo(str) {
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>算法题 | Soldier33</title>
+    <title>面试-算法题 | Soldier33</title>
     <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/favicon.ico">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -262,12 +262,12 @@ function foo(str) {
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/16.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">算法题</h1>
+                    <h1 class="description center-align post-title">面试-算法题</h1>
                 </div>
             </div>
         </div>
@@ -392,6 +392,10 @@ function foo(str) {
                                 <span class="chip bg-color">算法</span>
                             </a>
                         
+                            <a href="/tags/%E9%9D%A2%E8%AF%95/">
+                                <span class="chip bg-color">面试</span>
+                            </a>
+                        
                     </div>
                     
                 </div>
@@ -420,21 +424,21 @@ function foo(str) {
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-03-22
+                    2020-03-23
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    166
+                    424
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
 				
@@ -488,6 +492,44 @@ function foo(str) {
 <span class="token punctuation">}</span>
 <span class="token function">foo</span><span class="token punctuation">(</span><span class="token number">64</span><span class="token punctuation">,</span><span class="token number">40</span><span class="token punctuation">)</span>
 </code></pre>
+<h2 id="3-数组反转"><a href="#3-数组反转" class="headerlink" title="3. 数组反转"></a>3. 数组反转</h2><p>实现⼀个函数 reverse(a, n) ，反转⼀个含有 n 个整数的数组 a（直接在数组a上操作，元素交换次数 </p>
+<p>尽可能少，不能使⽤js Array 类内置属性和⽅法）。</p>
+<pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">//样例</span>
+<span class="token keyword">var</span> x <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span>
+<span class="token function">reverse</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// x = [3, 2, 1, 0]</span>
+<span class="token keyword">var</span> y <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span>
+<span class="token function">reverse</span><span class="token punctuation">(</span>y<span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// y = [1, 4, 3, 2, 1]</span></code></pre>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">let</span> x <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span>
+<span class="token keyword">function</span> <span class="token function">reverse</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> n<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> n<span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        a<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">^</span><span class="token operator">=</span> a<span class="token punctuation">[</span>n<span class="token number">-1</span><span class="token operator">-</span>i<span class="token punctuation">]</span>
+        a<span class="token punctuation">[</span>n<span class="token number">-1</span><span class="token operator">-</span>i<span class="token punctuation">]</span> <span class="token operator">^</span><span class="token operator">=</span> a<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
+        a<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">^</span><span class="token operator">=</span> a<span class="token punctuation">[</span>n<span class="token number">-1</span><span class="token operator">-</span>i<span class="token punctuation">]</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> a
+<span class="token punctuation">}</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">reverse</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
+<h2 id="4-不相邻之和"><a href="#4-不相邻之和" class="headerlink" title="4. 不相邻之和"></a>4. 不相邻之和</h2><p>给定⼀个整数数组 a，实现⼀个函数 countMax(a) ，计算出从 a 中选择出多个不相邻元素组成最⼤的 </p>
+<p>和是多少。 </p>
+<pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">//样例</span>
+<span class="token keyword">var</span> x <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span> 
+<span class="token function">countMax</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 7 </span>
+<span class="token keyword">var</span> y <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">12</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">]</span> 
+<span class="token function">countMax</span><span class="token punctuation">(</span>y<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 16</span></code></pre>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">let</span> x <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span>
+<span class="token keyword">function</span> <span class="token function">countMax</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> len <span class="token operator">=</span> x<span class="token punctuation">.</span>length
+    <span class="token keyword">if</span><span class="token punctuation">(</span>len <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> <span class="token number">0</span>
+    <span class="token keyword">const</span> dp <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Array</span><span class="token punctuation">(</span>len <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span>
+    dp<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">0</span>
+    dp<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> x<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> len<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span>dp<span class="token punctuation">[</span>i<span class="token number">-1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> dp<span class="token punctuation">[</span>i<span class="token number">-2</span><span class="token punctuation">]</span> <span class="token operator">+</span> x<span class="token punctuation">[</span>i<span class="token number">-1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> dp<span class="token punctuation">[</span>len<span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">countMax</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
 
             </div>
             <hr/>
@@ -557,6 +599,10 @@ function foo(str) {
                             
                                 <a href="/tags/%E7%AE%97%E6%B3%95/">
                                     <span class="chip bg-color">算法</span>
+                                </a>
+                            
+                                <a href="/tags/%E9%9D%A2%E8%AF%95/">
+                                    <span class="chip bg-color">面试</span>
                                 </a>
                             
                         </div>
@@ -976,7 +1022,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">3.1k</span>&nbsp;字
+                class="white-color">8.6k</span>&nbsp;字
             
             
             

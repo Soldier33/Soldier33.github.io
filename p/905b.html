@@ -4,14 +4,12 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Git-撤回提交到github的代码, Soldier33">
-    <meta name="description" content="# 查看提交记录，找到上一次提交的版本号
-git log
-
-# 回退到某版本
-git reset  --hard  &#39;版本号&#39;
-git push origin HEAD --force
-详细请见：https://zhidao.baidu.c">
+    <meta name="keywords" content="面试-手撕代码, Soldier33">
+    <meta name="description" content="1. instanceof的的实现原理while (x.__proto__) {
+  if (x.__proto__ === y.prototype) {
+    return true
+  }
+  x.__proto__ = x.__pr">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -19,7 +17,7 @@ git push origin HEAD --force
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Git-撤回提交到github的代码 | Soldier33</title>
+    <title>面试-手撕代码 | Soldier33</title>
     <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/favicon.ico">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -265,12 +263,12 @@ git push origin HEAD --force
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Git-撤回提交到github的代码</h1>
+                    <h1 class="description center-align post-title">面试-手撕代码</h1>
                 </div>
             </div>
         </div>
@@ -387,8 +385,12 @@ git push origin HEAD --force
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Git/">
-                                <span class="chip bg-color">Git</span>
+                            <a href="/tags/Js/">
+                                <span class="chip bg-color">Js</span>
+                            </a>
+                        
+                            <a href="/tags/%E9%9D%A2%E8%AF%95/">
+                                <span class="chip bg-color">面试</span>
                             </a>
                         
                     </div>
@@ -399,8 +401,8 @@ git push origin HEAD --force
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/" class="post-category">
-                                软件工具
+                            <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category">
+                                前端
                             </a>
                         
                     </div>
@@ -412,21 +414,21 @@ git push origin HEAD --force
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-12-03
+                    2020-03-20
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-03-22
+                    2020-03-23
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    47
+                    370
                 </div>
                 
 
@@ -449,13 +451,83 @@ git push origin HEAD --force
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <pre class=" language-shell"><code class="language-shell"># 查看提交记录，找到上一次提交的版本号
-git log
+                <h2 id=""><a href="#" class="headerlink" title=""></a></h2><h2 id="1-instanceof的的实现原理"><a href="#1-instanceof的的实现原理" class="headerlink" title="1. instanceof的的实现原理"></a>1. instanceof的的实现原理</h2><pre><code>while (x.__proto__) {
+  if (x.__proto__ === y.prototype) {
+    return true
+  }
+  x.__proto__ = x.__proto__.__proto__
+}
+if(x.__proto__ === null){
+  return false
+}</code></pre><p>判断x对象是否为y的一个实例，会在原型链上一直找，找到则返回true</p>
+<pre class=" language-js"><code class="language-js"># 原理：<span class="token number">1</span><span class="token punctuation">.</span>对象的隐式原型 等于 其构造函数的显式原型的值 
+<span class="token keyword">function</span> <span class="token function">Fn</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token operator">...</span> <span class="token punctuation">}</span>
+<span class="token keyword">var</span> fn <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Fn</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+Fn<span class="token punctuation">.</span>prototype <span class="token operator">===</span> fn<span class="token punctuation">.</span>__proto__
 
-# 回退到某版本
-git reset  --hard  '版本号'
-git push origin HEAD --force</code></pre>
-<p>详细请见：<a href="https://zhidao.baidu.com/question/2143411903971545108.html" target="_blank" rel="noopener">https://zhidao.baidu.com/question/2143411903971545108.html</a></p>
+# <span class="token number">2</span><span class="token punctuation">.</span> 最后Object原型对象的隐式原型指向<span class="token keyword">null</span>
+Object<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>__proto__ <span class="token operator">===</span> <span class="token keyword">null</span>   <span class="token comment" spellcheck="true">// true</span></code></pre>
+<h2 id="2-CSS中如何实现垂直水平居中（Flex）"><a href="#2-CSS中如何实现垂直水平居中（Flex）" class="headerlink" title="2. CSS中如何实现垂直水平居中（Flex）"></a>2. CSS中如何实现垂直水平居中（Flex）</h2><p><a href="http://ife.baidu.com/note/detail/id/1549" target="_blank" rel="noopener">参考文章</a></p>
+<pre class=" language-css"><code class="language-css"><span class="token selector"># 水平居中
+<span class="token class">.parent</span> </span><span class="token punctuation">{</span>
+    <span class="token property">display</span><span class="token punctuation">:</span> flex<span class="token punctuation">;</span>
+    <span class="token property">justify-content</span><span class="token punctuation">:</span> centent<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector"># 垂直居中
+<span class="token class">.parent</span> </span><span class="token punctuation">{</span>
+    <span class="token property">display</span><span class="token punctuation">:</span> flex<span class="token punctuation">;</span>
+    <span class="token property">align-item</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector"># 水平垂直居中
+<span class="token class">.parent</span> </span><span class="token punctuation">{</span>
+    <span class="token property">display</span><span class="token punctuation">:</span> flex<span class="token punctuation">;</span>
+    <span class="token property">justify-content</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span>
+    <span class="token property">align-items</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<h2 id="3-防抖和节流"><a href="#3-防抖和节流" class="headerlink" title="3. 防抖和节流"></a>3. 防抖和节流</h2><p><a href="https://juejin.im/post/5c6bab91f265da2dd94c9f9e" target="_blank" rel="noopener">参考文章</a></p>
+<h3 id="防抖"><a href="#防抖" class="headerlink" title="防抖"></a>防抖</h3><p>规定时间还没走完，你又触发，我就重新算时间，<strong>只关心”最后一次”操作</strong></p>
+<p>案例：输入搜索联想，用户在不断输入值时，用防抖来节约请求资源。</p>
+<h3 id="节流"><a href="#节流" class="headerlink" title="节流"></a>节流</h3><p>规定时间还没走完，你又触发，我不重新算时间，<strong>在规定时间内只触发一次</strong></p>
+<p>案例： 滑到底部自动加载更多</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">//防抖</span>
+<span class="token keyword">function</span> <span class="token function">debounce</span><span class="token punctuation">(</span>func<span class="token punctuation">,</span> delay<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> timer <span class="token operator">=</span> <span class="token keyword">null</span>
+  <span class="token keyword">return</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token operator">...</span>args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>timer<span class="token punctuation">)</span> <span class="token function">clearTimeout</span><span class="token punctuation">(</span>timer<span class="token punctuation">)</span>
+    timer <span class="token operator">=</span> <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+      func<span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span> args<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span> delay<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">// 节流</span>
+<span class="token keyword">function</span>  <span class="token function">throttle</span><span class="token punctuation">(</span>fn<span class="token punctuation">,</span> delay <span class="token operator">=</span> <span class="token number">1000</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> timer <span class="token operator">=</span> <span class="token keyword">null</span>
+  <span class="token keyword">return</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token operator">...</span>args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>time<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      timer <span class="token operator">=</span> <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+        timer <span class="token operator">=</span> <span class="token keyword">null</span>
+        fn<span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span> args<span class="token punctuation">)</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span> delay<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<h2 id="4-数组去重"><a href="#4-数组去重" class="headerlink" title="4. 数组去重"></a>4. 数组去重</h2><p><code>const arr = [1, 1, 1, 2, 3, 4, 5, 5, 3, 2, 1, 1]</code><br>简单版</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token punctuation">[</span><span class="token operator">...</span><span class="token keyword">new</span> <span class="token class-name">Set</span><span class="token punctuation">(</span>arr<span class="token punctuation">)</span><span class="token punctuation">]</span></code></pre>
+<p>循环版</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">const</span> removeDrop <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> result <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+  <span class="token keyword">const</span> map <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+  arr<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>map<span class="token punctuation">[</span>item<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      map<span class="token punctuation">[</span>item<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">true</span>
+      result<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token keyword">return</span> result
+<span class="token punctuation">}</span></code></pre>
 
             </div>
             <hr/>
@@ -481,7 +553,7 @@ git push origin HEAD --force</code></pre>
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://yoursite.com/p/fd37.html">http://yoursite.com/p/fd37.html</a>
+                    <a href="http://yoursite.com/p/905b.html">http://yoursite.com/p/905b.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -519,8 +591,12 @@ git push origin HEAD --force</code></pre>
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Git/">
-                                    <span class="chip bg-color">Git</span>
+                                <a href="/tags/Js/">
+                                    <span class="chip bg-color">Js</span>
+                                </a>
+                            
+                                <a href="/tags/%E9%9D%A2%E8%AF%95/">
+                                    <span class="chip bg-color">面试</span>
                                 </a>
                             
                         </div>
@@ -690,26 +766,32 @@ git push origin HEAD --force</code></pre>
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/p/6074.html">
+                <a href="/p/cc22.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="Vue-配置proxy,实现同时使用mock数据和后台接口的数据">
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="面试-重要知识点">
                         
-                        <span class="card-title">Vue-配置proxy,实现同时使用mock数据和后台接口的数据</span>
+                        <span class="card-title">面试-重要知识点</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            前端使用vue-element-admin，但遇到后台接口还没完成的情况下，
-需要同时使用mock数据和后台接口的数据，我们可以通过配置webpack的proxy，
-凡是/vue-element-admin开头的请求跳转请求mock，其他请
+                            1. get和post的区别参考文章1
+参考文章2
+
+
+GET请求会被浏览器主动cache，而POST不会，除非手动设置。
+
+GET参数通过URL传递，POST放在Request body中。
+
+使用 XMLHttpRequest 时，浏览
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2019-12-26
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-03-20
                         </span>
                         <span class="publish-author">
                             
@@ -726,8 +808,12 @@ git push origin HEAD --force</code></pre>
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Vue/">
-                        <span class="chip bg-color">Vue</span>
+                    <a href="/tags/Js/">
+                        <span class="chip bg-color">Js</span>
+                    </a>
+                    
+                    <a href="/tags/%E9%9D%A2%E8%AF%95/">
+                        <span class="chip bg-color">面试</span>
                     </a>
                     
                 </div>
@@ -741,43 +827,34 @@ git push origin HEAD --force</code></pre>
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/p/ba68.html">
+                <a href="/p/e0a0.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="Git-提交代码至github命令">
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="Node-自动生成express项目">
                         
-                        <span class="card-title">Git-提交代码至github命令</span>
+                        <span class="card-title">Node-自动生成express项目</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            不知道你是否刚使用git，但命令行又记得不是很熟，
-本文简单速记，方便遗忘再次操作。
-
-初始化仓库
-关联仓库
-拉取代码
-上传代码
-
-git init
-
-git remote add origin https://.....
-
-git pul
+                            参考文章
+npm install express --save -g
+npm install express-generator --save -g
+express-generator是express应用生成器，相当于express 的骨架
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-12-01
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-02-24
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/" class="post-category">
-                                    软件工具
+                            <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category">
+                                    前端
                                 </a>
                             
                             
@@ -787,8 +864,8 @@ git pul
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Git/">
-                        <span class="chip bg-color">Git</span>
+                    <a href="/tags/Node/">
+                        <span class="chip bg-color">Node</span>
                     </a>
                     
                 </div>
