@@ -425,21 +425,21 @@ GET参数通过URL传递，POST放在Request body中。
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-03-24
+                    2020-03-27
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    4.8k
+                    5.6k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    17 分
+                    20 分
                 </div>
                 
 				
@@ -468,7 +468,7 @@ GET参数通过URL传递，POST放在Request body中。
 </li>
 </ul>
 <h2 id="2-this的指向"><a href="#2-this的指向" class="headerlink" title="2. this的指向"></a>2. this的指向</h2><p><a href="https://juejin.im/post/59bfe84351882531b730bac2" target="_blank" rel="noopener">参考文章</a></p>
-<p>this 永远指向最后调用它的那个对象**</p>
+<p><strong>this 永远指向最后调用它的那个对象</strong></p>
 <p><strong>箭头函数的 this 始终指向函数定义时的 this，而非执行时。</strong></p>
 <h2 id="3-前端性能优化"><a href="#3-前端性能优化" class="headerlink" title="3. 前端性能优化"></a>3. 前端性能优化</h2><p><a href="https://learnku.com/docs/f2e-performance-rules" target="_blank" rel="noopener">雅虎35条前端性能优化</a></p>
 <p><img src="https://user-gold-cdn.xitu.io/2018/8/15/1653cde6a580cb29?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="1584704984878"></p>
@@ -620,6 +620,7 @@ GET参数通过URL传递，POST放在Request body中。
 <h3 id="500-服务器内部错误"><a href="#500-服务器内部错误" class="headerlink" title="500 服务器内部错误"></a>500 服务器内部错误</h3><p>服务器遇到错误，无法完成请求。</p>
 <h2 id="14-闭包"><a href="#14-闭包" class="headerlink" title="14.  闭包"></a>14.  闭包</h2><p><a href="http://www.ruanyifeng.com/blog/2009/08/learning_javascript_closures.html" target="_blank" rel="noopener">参考文章</a></p>
 <p>闭包就是能够读取其他函数内部变量的函数。</p>
+<p>闭包允许从内部函数访问外部函数的作用域。</p>
 <p>用途：</p>
 <ol>
 <li>可以读取函数内部的变量</li>
@@ -688,7 +689,73 @@ GET参数通过URL传递，POST放在Request body中。
 <li>如何确保一个变量是可信任的Promise（Promise.resolve方法传入不同值的不同处理有哪些）</li>
 <li>Promise是如何捕获异常的？与传统的try/catch相比有什么优势？</li>
 </ul>
-<h2 id="19-订阅发布和观察者"><a href="#19-订阅发布和观察者" class="headerlink" title="19. 订阅发布和观察者"></a>19. 订阅发布和观察者</h2><p><a href="https://github.com/xianshannan/blog/issues/19" target="_blank" rel="noopener">参考文章</a></p>
+<p><a href="https://juejin.im/post/5e53192cf265da572017e9e3" target="_blank" rel="noopener">参考文章</a></p>
+<h3 id="什么是Promise"><a href="#什么是Promise" class="headerlink" title="什么是Promise?"></a>什么是Promise?</h3><ol>
+<li>抽象表达:Promise是js中运行<strong>异步编程</strong>的<strong>新</strong>的解决<strong>方案</strong>( 旧的是啥?–&gt;<strong>纯</strong>回调形式)</li>
+<li>具体表达:<ol>
+<li>从语法上来说:Promise是一个构造函数</li>
+<li>从功能上来说:Promise对象用来封装一个异步操作并可以获得其结果</li>
+</ol>
+</li>
+</ol>
+<h3 id="为什么使用Promise"><a href="#为什么使用Promise" class="headerlink" title="为什么使用Promise?"></a>为什么使用Promise?</h3><h4 id="指定回调方式更加灵活"><a href="#指定回调方式更加灵活" class="headerlink" title="指定回调方式更加灵活"></a>指定回调方式更加灵活</h4><ul>
+<li>旧的:必须在启动异步任务<strong>前</strong>指定回调函数</li>
+<li>Promise:启动异步任务=&gt;返回promise对象=&gt;给promise对象绑定回调函数(甚至可以在异步任务结束后指定)</li>
+</ul>
+<h4 id="链式调用-解决回调地狱"><a href="#链式调用-解决回调地狱" class="headerlink" title="链式调用,解决回调地狱"></a>链式调用,解决回调地狱</h4><p><a href="https://juejin.im/post/5e7419c96fb9a07cae1383b5" target="_blank" rel="noopener">参考文章</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/37527178" target="_blank" rel="noopener">参考文章</a></p>
+<h3 id="all-race的场景"><a href="#all-race的场景" class="headerlink" title="all,race的场景"></a>all,race的场景</h3><p>有了all，你就可以并行执行多个异步操作，并且在一个回调中处理所有的返回数据。有一个场景是很适合用这个，一些游戏类的素材比较多的应用，打开网页时，预先加载需要用到的各种资源如图片、flash以及各种静态文件。所有的都加载完后，我们再进行页面的初始化。</p>
+<p>用race给某个异步请求设置超时时间，并且在超时后执行相应的操作，代码如下：</p>
+<p><img src="https://pic1.zhimg.com/80/v2-0f08fb0070cf5d2c2da5a8c92846c454_1440w.jpg" alt=""></p>
+<h2 id="19-回调函数"><a href="#19-回调函数" class="headerlink" title="19. 回调函数"></a>19. 回调函数</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p> 函数A作为参数(函数引用)传递到另一个函数B中，并且这个函数B执行函数A。我们就说函数A叫做回调函数。</p>
+<p> 你到一个商店买东西，刚好你要的东西没有货，于是你在店员那里留下了你的电话，过了几天店里有货了，店员就打了你的电话，然后你接到电话后就到店里去取了货。在这个例子里，你的电话号码就叫回调函数，你把电话留给店员就叫登记回调函数，店里后来有货了叫做触发了回调关联的事件，店员给你打电话叫做调用回调函数，你到店里去取货叫做响应回调事件。回答完毕。</p>
+<h3 id="回调函数是闭包的"><a href="#回调函数是闭包的" class="headerlink" title="回调函数是闭包的"></a>回调函数是闭包的</h3><p>当作为参数传递一个回调函数给另一个函数时，回调函数将在包含函数函数体内的某个位置被执行，就像回调函数在包含函数的函数体内定义一样。这意味着回调函数是闭包的。从所周知，闭包函数可以访问包含函数的作用域，所以，回调函数可以访问包含函数的变量，甚至是全局变量。</p>
+<p>回调只是一种实现方式，既可以有同步回调，也可以有异步回调，还可以有事件处理回调和延迟函数回调</p>
+<h3 id="回调函数被使用的方式"><a href="#回调函数被使用的方式" class="headerlink" title="回调函数被使用的方式"></a>回调函数被使用的方式</h3><ul>
+<li>异步调用（例如读取文件，进行HTTP请求，动态加载js文件，加载iframe资源后，图片加载完成执行回调等等）</li>
+<li>事件监听器/处理器</li>
+<li>setTimeout和setInterval方法</li>
+<li>一般情况：精简代码</li>
+</ul>
+<h2 id="20-事件委托"><a href="#20-事件委托" class="headerlink" title="20. 事件委托"></a>20. 事件委托</h2><p><a href="https://juejin.im/post/5acb1bcf6fb9a028dc414fc6" target="_blank" rel="noopener">参考文章</a></p>
+<p>将事件添加在父级元素，不去遍历元素的子节点，大大减少dom操作</p>
+<h2 id="21-Event-Loop"><a href="#21-Event-Loop" class="headerlink" title="21. Event Loop"></a>21. Event Loop</h2><ul>
+<li>macro-task：script(整体代码)、setTimeout/setInterval、I/O、UI rendering等。</li>
+<li>micro-task：Promise。</li>
+</ul>
+<pre class=" language-js"><code class="language-js">Promise<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'1'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'2'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'3'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    Promise<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'4'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'5'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//执行结果是：5 1 3 4 2</span>
+<span class="token comment" spellcheck="true">//同步任务先于异步任务，微任务先于宏任务</span>
+<span class="token comment" spellcheck="true">//微任务和宏任务皆为异步任务</span></code></pre>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">const</span> promise <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token punctuation">(</span>resolve<span class="token punctuation">,</span> reject<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>    <span class="token comment" spellcheck="true">//同步回调</span>
+    <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+  promise<span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">//执行结果是：1 2 4 3</span>
+<span class="token comment" spellcheck="true">//promise构造函数是同步执行的，then方法是异步执行的</span></code></pre>
+<h2 id="22-订阅发布和观察者"><a href="#22-订阅发布和观察者" class="headerlink" title="22. 订阅发布和观察者"></a>22. 订阅发布和观察者</h2><p><a href="https://github.com/xianshannan/blog/issues/19" target="_blank" rel="noopener">参考文章</a></p>
 <p>角色角度来看，订阅发布模式需要三种角色，发布者、事件中心和订阅者。二观察者模式需要两种角色，目标和观察者，无事件中心负责通信。</p>
 <p>从耦合度上来看，订阅发布模式是一个事件中心调度模式，订阅者和发布者是没有直接关联的，通过事件中心进行关联，两者是<strong>解耦</strong>的。而观察者模式中目标和观察者是直接关联的，<strong>耦合在一起</strong>（有些观念说观察者是解耦，解耦的是业务代码，不是目标和观察者本身）。</p>
 <h3 id="订阅发布"><a href="#订阅发布" class="headerlink" title="订阅发布"></a>订阅发布</h3><pre class=" language-js"><code class="language-js"><span class="token keyword">class</span> <span class="token class-name">Event</span> <span class="token punctuation">{</span>
@@ -751,60 +818,28 @@ event<span class="token punctuation">.</span><span class="token function">emit</
     callback <span class="token operator">&amp;&amp;</span> <span class="token function">callback</span><span class="token punctuation">(</span>obj<span class="token punctuation">.</span>data<span class="token punctuation">[</span>targetVariable<span class="token punctuation">]</span><span class="token punctuation">)</span>
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span></code></pre>
-<h2 id="20-事件委托"><a href="#20-事件委托" class="headerlink" title="20. 事件委托"></a>20. 事件委托</h2><p><a href="https://juejin.im/post/5acb1bcf6fb9a028dc414fc6" target="_blank" rel="noopener">参考文章</a></p>
-<p>将事件添加在父级元素，不去遍历元素的子节点，大大减少dom操作</p>
-<h2 id="21-事件循环（题目）"><a href="#21-事件循环（题目）" class="headerlink" title="21. 事件循环（题目）"></a>21. 事件循环（题目）</h2><pre class=" language-js"><code class="language-js">Promise<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'1'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'2'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-    <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span>
-
-<span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'3'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    Promise<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'4'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span><span class="token punctuation">)</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span>
-
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'5'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token comment" spellcheck="true">//执行结果是：5 1 3 4 2</span>
-<span class="token comment" spellcheck="true">//同步任务先于异步任务，微任务先于宏任务</span></code></pre>
-<pre class=" language-js"><code class="language-js"><span class="token keyword">const</span> promise <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token punctuation">(</span>resolve<span class="token punctuation">,</span> reject<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
-    <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span>
-  <span class="token punctuation">}</span><span class="token punctuation">)</span>
-
-  promise<span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span>
-  <span class="token punctuation">}</span><span class="token punctuation">)</span>
-
-  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span>
-<span class="token comment" spellcheck="true">//执行结果是：1 2 4 3</span>
-<span class="token comment" spellcheck="true">//promise构造函数是同步执行的，then方法是异步执行的</span></code></pre>
-<h2 id="22-立即执行函数，局部变量，全局变量（题目）"><a href="#22-立即执行函数，局部变量，全局变量（题目）" class="headerlink" title="22. 立即执行函数，局部变量，全局变量（题目）"></a>22. 立即执行函数，局部变量，全局变量（题目）</h2><p><a href="https://www.nowcoder.com/questionTerminal/1abc96ab343f49368cb9564dfc69dd6a" target="_blank" rel="noopener">参考文章</a></p>
-<pre class=" language-js"><code class="language-js"><span class="token keyword">var</span> foo <span class="token operator">=</span> <span class="token punctuation">{</span>n<span class="token punctuation">:</span><span class="token number">1</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
-<span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>foo<span class="token punctuation">)</span><span class="token punctuation">{</span>          <span class="token comment" spellcheck="true">// 形参实参对齐，此时foo指向外部变量</span>
-    <span class="token keyword">var</span> foo<span class="token punctuation">;</span>             <span class="token comment" spellcheck="true">// 变量提升,外部变量已声明，不做改变</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>foo<span class="token punctuation">.</span>n<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">// 1</span>
-    foo<span class="token punctuation">.</span>n <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">;</span>           <span class="token comment" spellcheck="true">// 外部变量改变，n=3</span>
-    foo <span class="token operator">=</span> <span class="token punctuation">{</span>n<span class="token punctuation">:</span><span class="token number">2</span><span class="token punctuation">}</span><span class="token punctuation">;</span>         <span class="token comment" spellcheck="true">// foo是内部参数，内部变量，指向了新地址</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>foo<span class="token punctuation">.</span>n<span class="token punctuation">)</span>   <span class="token comment" spellcheck="true">// 内部变量，2</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">(</span>foo<span class="token punctuation">)</span><span class="token punctuation">;</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>foo<span class="token punctuation">.</span>n<span class="token punctuation">)</span>       <span class="token comment" spellcheck="true">// 内部变量已销毁，外部变量，3</span></code></pre>
-<p>如果还不理解，以下图片再帮助理解</p>
-<p><img src="https://uploadfiles.nowcoder.com/images/20170912/9009821_1505180362387_97D21DE44FABA3B5DD5EBF8FB345130E" alt=""></p>
-<pre class=" language-js"><code class="language-js"><span class="token keyword">var</span> foo <span class="token operator">=</span> <span class="token punctuation">{</span>n<span class="token punctuation">:</span><span class="token number">1</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
-<span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>foo1<span class="token punctuation">)</span><span class="token punctuation">{</span>          
-    <span class="token keyword">var</span> foo1<span class="token punctuation">;</span>             
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>foo1<span class="token punctuation">.</span>n<span class="token punctuation">)</span><span class="token punctuation">;</span> 
-    foo1<span class="token punctuation">.</span>n <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">;</span>          
-    foo1 <span class="token operator">=</span> <span class="token punctuation">{</span>n<span class="token punctuation">:</span><span class="token number">2</span><span class="token punctuation">}</span><span class="token punctuation">;</span>         
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>foo1<span class="token punctuation">.</span>n<span class="token punctuation">)</span>   
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">(</span>foo<span class="token punctuation">)</span><span class="token punctuation">;</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>foo<span class="token punctuation">.</span>n<span class="token punctuation">)</span>       </code></pre>
+<h2 id="23-立即执行函数"><a href="#23-立即执行函数" class="headerlink" title="23. 立即执行函数"></a>23. 立即执行函数</h2><p><a href="https://zhuanlan.zhihu.com/p/22465092" target="_blank" rel="noopener">参考文章</a></p>
+<h3 id="1-立即执行函数是什么"><a href="#1-立即执行函数是什么" class="headerlink" title="1. 立即执行函数是什么"></a>1. 立即执行函数是什么</h3><p>立即执行函数就是</p>
+<ol>
+<li>声明一个匿名函数</li>
+<li>马上调用这个匿名函数</li>
+</ol>
+<h3 id="2-立即执行函数有什么用？"><a href="#2-立即执行函数有什么用？" class="headerlink" title="2. 立即执行函数有什么用？"></a>2. 立即执行函数有什么用？</h3><p>只有一个作用：创建一个独立的作用域。</p>
+<p>这个作用域里面的变量，外面访问不到（即避免「变量污染」）。</p>
+<pre class=" language-text"><code class="language-text">var liList = ul.getElementsByTagName('li')
+for(var i=0; i<6; i++){
+  !function(ii){
+    liList[ii].onclick = function(){
+      alert(ii) // 0、1、2、3、4、5
+    }
+  }(i)
+}</code></pre>
+<p>在立即执行函数执行的时候，i 的值被赋值给 ii，此后 ii 的值一直不变。</p>
+<h2 id="24-为什么JavaScript是单线程？"><a href="#24-为什么JavaScript是单线程？" class="headerlink" title="24. 为什么JavaScript是单线程？"></a>24. 为什么JavaScript是单线程？</h2><p><a href="https://www.ruanyifeng.com/blog/2014/10/event-loop.html" target="_blank" rel="noopener">参考文章</a></p>
+<p>JavaScript语言的一大特点就是单线程，也就是说，同一个时间只能做一件事。那么，为什么JavaScript不能有多个线程呢？这样能提高效率啊。</p>
+<p>JavaScript的单线程，与它的用途有关。作为浏览器脚本语言，JavaScript的主要用途是与用户互动，以及操作DOM。这决定了它只能是单线程，否则会带来很复杂的同步问题。比如，假定JavaScript同时有两个线程，一个线程在某个DOM节点上添加内容，另一个线程删除了这个节点，这时浏览器应该以哪个线程为准？</p>
+<p>所以，为了避免复杂性，从一诞生，JavaScript就是单线程，这已经成了这门语言的核心特征，将来也不会改变。</p>
+<p>为了利用多核CPU的计算能力，HTML5提出Web Worker标准，允许JavaScript脚本创建多个线程，但是子线程完全受主线程控制，且不得操作DOM。所以，这个新标准并没有改变JavaScript单线程的本质。</p>
 
             </div>
             <hr/>
@@ -1289,7 +1324,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">8.6k</span>&nbsp;字
+                class="white-color">10.5k</span>&nbsp;字
             
             
             
