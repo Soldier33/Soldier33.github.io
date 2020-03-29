@@ -425,21 +425,21 @@ GET参数通过URL传递，POST放在Request body中。
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-03-27
+                    2020-03-29
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    5.6k
+                    6.4k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    20 分
+                    23 分
                 </div>
                 
 				
@@ -470,7 +470,16 @@ GET参数通过URL传递，POST放在Request body中。
 <h2 id="2-this的指向"><a href="#2-this的指向" class="headerlink" title="2. this的指向"></a>2. this的指向</h2><p><a href="https://juejin.im/post/59bfe84351882531b730bac2" target="_blank" rel="noopener">参考文章</a></p>
 <p><strong>this 永远指向最后调用它的那个对象</strong></p>
 <p><strong>箭头函数的 this 始终指向函数定义时的 this，而非执行时。</strong></p>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">var</span> obj <span class="token operator">=</span> <span class="token punctuation">{</span>
+    age<span class="token punctuation">:</span> <span class="token number">20</span><span class="token punctuation">,</span>
+    say<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>age<span class="token punctuation">)</span>
+      <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+obj<span class="token punctuation">.</span><span class="token function">say</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//undefined</span></code></pre>
+<p>对象没有作用域，这里的this指向全局</p>
 <h2 id="3-前端性能优化"><a href="#3-前端性能优化" class="headerlink" title="3. 前端性能优化"></a>3. 前端性能优化</h2><p><a href="https://learnku.com/docs/f2e-performance-rules" target="_blank" rel="noopener">雅虎35条前端性能优化</a></p>
+<p><a href="https://juejin.im/book/5b936540f265da0a9624b04b" target="_blank" rel="noopener">前端性能优化原理与实践</a></p>
 <p><img src="https://user-gold-cdn.xitu.io/2018/8/15/1653cde6a580cb29?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="1584704984878"></p>
 <h2 id="4-缓存"><a href="#4-缓存" class="headerlink" title="4. 缓存"></a>4. 缓存</h2><p><a href="https://www.imooc.com/article/22841" target="_blank" rel="noopener">参考文章</a></p>
 <h3 id="强缓存"><a href="#强缓存" class="headerlink" title="强缓存"></a>强缓存</h3><p>只要请求了一次，在有效时间内，不会再请求服务器</p>
@@ -579,21 +588,38 @@ GET参数通过URL传递，POST放在Request body中。
 </ol>
 <p>Content-Length字段必须真实反映响应体长度。</p>
 <p><code>Transfer-Encoding: chunked</code>表示响应体内容用的是分块传输，此时服务器可以将数据一块一块地分块响应给浏览器而不必一次性全部响应，待浏览器接收到全部分块后就表示响应结束。</p>
-<h2 id="11-HTTP1-0、HTTP1-1-和-HTTP2-0-的区别"><a href="#11-HTTP1-0、HTTP1-1-和-HTTP2-0-的区别" class="headerlink" title="11. HTTP1.0、HTTP1.1 和 HTTP2.0 的区别"></a>11. HTTP1.0、HTTP1.1 和 HTTP2.0 的区别</h2><p><a href="https://juejin.im/entry/5981c5df518825359a2b9476" target="_blank" rel="noopener">参考文章</a></p>
-<h3 id="HTTP基本优化"><a href="#HTTP基本优化" class="headerlink" title="HTTP基本优化"></a>HTTP基本优化</h3><p>影响一个 HTTP 网络请求的因素主要有两个：<strong>带宽和延迟。</strong></p>
-<h3 id="HTTP1-0和HTTP1-1的一些区别"><a href="#HTTP1-0和HTTP1-1的一些区别" class="headerlink" title="HTTP1.0和HTTP1.1的一些区别"></a><strong>HTTP1.0和HTTP1.1的一些区别</strong></h3><ol>
+<h2 id="11-HTTP1-0、HTTP1-1-HTTP2-0-HTTP3-0-的区别"><a href="#11-HTTP1-0、HTTP1-1-HTTP2-0-HTTP3-0-的区别" class="headerlink" title="11. HTTP1.0、HTTP1.1 ,HTTP2.0 ,HTTP3.0 的区别"></a>11. HTTP1.0、HTTP1.1 ,HTTP2.0 ,HTTP3.0 的区别</h2><p><a href="https://juejin.im/entry/5981c5df518825359a2b9476" target="_blank" rel="noopener">参考文章</a></p>
+<p><a href="https://juejin.im/post/5dc37277f265da4d57771f87#heading-11" target="_blank" rel="noopener">参考文章</a></p>
+<h3 id="1-HTTP基本优化"><a href="#1-HTTP基本优化" class="headerlink" title="1. HTTP基本优化"></a>1. HTTP基本优化</h3><p>影响一个 HTTP 网络请求的因素主要有两个：<strong>带宽和延迟。</strong></p>
+<h3 id="2-HTTP1-0和HTTP1-1的一些区别"><a href="#2-HTTP1-0和HTTP1-1的一些区别" class="headerlink" title="2. HTTP1.0和HTTP1.1的一些区别"></a><strong>2. HTTP1.0和HTTP1.1的一些区别</strong></h3><ol>
 <li><strong>缓存处理</strong>，在HTTP1.0中主要使用header里的If-Modified-Since,Expires来做为缓存判断的标准，HTTP1.1则引入了更多的缓存控制策略例如Entity tag，If-Unmodified-Since, If-Match, If-None-Match等更多可供选择的缓存头来控制缓存策略。</li>
 <li><strong>带宽优化及网络连接的使用</strong>，HTTP1.0中，存在一些浪费带宽的现象，例如客户端只是需要某个对象的一部分，而服务器却将整个对象送过来了，并且不支持断点续传功能，HTTP1.1则在请求头引入了range头域，它允许只请求资源的某个部分，即返回码是206（Partial Content），这样就方便了开发者自由的选择以便于充分利用带宽和连接。</li>
 <li><strong>错误通知的管理</strong>，在HTTP1.1中新增了24个错误状态响应码，如409（Conflict）表示请求的资源与资源的当前状态发生冲突；410（Gone）表示服务器上的某个资源被永久性的删除。</li>
 <li><strong>Host头处理</strong>，在HTTP1.0中认为每台服务器都绑定一个唯一的IP地址，因此，请求消息中的URL并没有传递主机名（hostname）。但随着虚拟主机技术的发展，在一台物理服务器上可以存在多个虚拟主机（Multi-homed Web Servers），并且它们共享一个IP地址。HTTP1.1的请求消息和响应消息都应支持Host头域，且请求消息中如果没有Host头域会报告一个错误（400 Bad Request）。</li>
 <li><strong>长连接</strong>，HTTP 1.1支持长连接（PersistentConnection）和请求的流水线（Pipelining）处理，在一个TCP连接上可以传送多个HTTP请求和响应，减少了建立和关闭连接的消耗和延迟，在HTTP1.1中默认开启Connection： keep-alive，一定程度上弥补了HTTP1.0每次请求都要创建连接的缺点。</li>
 </ol>
-<h3 id="HTTP2-0和HTTP1-X相比的新特性"><a href="#HTTP2-0和HTTP1-X相比的新特性" class="headerlink" title="HTTP2.0和HTTP1.X相比的新特性"></a><strong>HTTP2.0和HTTP1.X相比的新特性</strong></h3><ul>
+<h3 id="3-HTTP2-0和HTTP1-X相比的新特性"><a href="#3-HTTP2-0和HTTP1-X相比的新特性" class="headerlink" title="3. HTTP2.0和HTTP1.X相比的新特性"></a><strong>3. HTTP2.0和HTTP1.X相比的新特性</strong></h3><ul>
 <li><strong>新的二进制格式</strong>（Binary Format），HTTP1.x的解析是基于文本。基于文本协议的格式解析存在天然缺陷，文本的表现形式有多样性，要做到健壮性考虑的场景必然很多，二进制则不同，只认0和1的组合。基于这种考虑HTTP2.0的协议解析决定采用二进制格式，实现方便且健壮。</li>
 <li><strong>多路复用</strong>（MultiPlexing），即连接共享，即每一个request都是是用作连接共享机制的。一个request对应一个id，这样一个连接上可以有多个request，每个连接的request可以随机的混杂在一起，接收方可以根据request的 id将request再归属到各自不同的服务端请求里面。</li>
 <li><strong>header压缩</strong>，如上文中所言，对前面提到过HTTP1.x的header带有大量信息，而且每次都要重复发送，HTTP2.0使用encoder来减少需要传输的header大小，通讯双方各自cache一份header fields表，既避免了重复header的传输，又减小了需要传输的大小。</li>
 <li><strong>服务端推送</strong>（server push），同SPDY一样，HTTP2.0也具有server push功能。</li>
 </ul>
+<h3 id="4-http2-的多路复用"><a href="#4-http2-的多路复用" class="headerlink" title="4. http2 的多路复用"></a>4. http2 的多路复用</h3><p><a href="https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/14#" target="_blank" rel="noopener">参考文章</a></p>
+<p>简单来说， 就是在同一个TCP连接，同一时刻可以传输多个HTTP请求。</p>
+<blockquote>
+<p>之前是同一个连接只能用一次， 如果开启了keep-alive，虽然可以用多次，但是同一时刻只能有一个HTTP请求</p>
+</blockquote>
+<p>在 HTTP/1 中，每次请求都会建立一次HTTP连接，也就是我们常说的3次握手4次挥手，这个过程在一次请求过程中占用了相当长的时间，即使开启了 Keep-Alive ，解决了多次连接的问题，但是依然有两个效率上的问题：</p>
+<ul>
+<li>第一个：串行的文件传输。当请求a文件时，b文件只能等待，等待a连接到服务器、服务器处理文件、服务器返回文件，这三个步骤。我们假设这三步用时都是1秒，那么a文件用时为3秒，b文件传输完成用时为6秒，依此类推。（注：此项计算有一个前提条件，就是浏览器和服务器是单通道传输）</li>
+<li>第二个：连接数过多。我们假设Apache设置了最大并发数为300，因为浏览器限制，浏览器发起的最大请求数为6，也就是服务器能承载的最高并发为50，当第51个人访问时，就需要等待前面某个请求处理完成。</li>
+</ul>
+<p>HTTP/2的多路复用就是为了解决上述的两个性能问题。<br>在 HTTP/2 中，有两个非常重要的概念，分别是帧（frame）和流（stream）。<br>帧代表着最小的数据单位，每个帧会标识出该帧属于哪个流，流也就是多个帧组成的数据流。<br>多路复用，就是在一个 TCP 连接中可以存在多条流。换句话说，也就是可以发送多个请求，对端可以通过帧中的标识知道属于哪个请求。通过这个技术，可以避免 HTTP 旧版本中的队头阻塞问题，极大的提高传输性能。</p>
+<h3 id="5-HTTP3-0是什么？"><a href="#5-HTTP3-0是什么？" class="headerlink" title="5.  HTTP3.0是什么？"></a>5.  HTTP3.0是什么？</h3><p>HTTP3.0基于UDP的安全可靠的HTTP2.0协议。</p>
+<p><strong>减少了TCP三次握手及TLS握手时间</strong></p>
+<p><strong>多路复用丢包时的线头阻塞问题</strong></p>
+<p><strong>化重传策略</strong></p>
+<p><strong>流量控制</strong></p>
 <h2 id="12-Http与Https"><a href="#12-Http与Https" class="headerlink" title="12. Http与Https"></a>12. Http与Https</h2><p><a href="https://blog.csdn.net/qq_38289815/article/details/80969419?depth_1-utm_source=distribute.pc_relevant.none-task&utm_source=distribute.pc_relevant.none-task" target="_blank" rel="noopener">参考文章</a></p>
 <h3 id="Http与Https的区别"><a href="#Http与Https的区别" class="headerlink" title="Http与Https的区别"></a><strong>Http与Https的区别</strong></h3><p>1、https协议需要到CA  （Certificate Authority，证书颁发机构）申请证书，一般免费证书较少，因而需要一定费用。(原来网易官网是http，而网易邮箱是https。)</p>
 <p>2、http是超文本传输协议，信息是明文传输，https则是具有安全性的ssl加密传输协议。</p>
@@ -618,6 +644,17 @@ GET参数通过URL传递，POST放在Request body中。
 <h3 id="404-未找到"><a href="#404-未找到" class="headerlink" title="404 未找到"></a>404 未找到</h3><p>服务器找不到请求的网页。</p>
 <h3 id="422-无法处理"><a href="#422-无法处理" class="headerlink" title="422 无法处理"></a>422 无法处理</h3><p>请求格式正确，但是由于含有语义错误，无法响应</p>
 <h3 id="500-服务器内部错误"><a href="#500-服务器内部错误" class="headerlink" title="500 服务器内部错误"></a>500 服务器内部错误</h3><p>服务器遇到错误，无法完成请求。</p>
+<h3 id="更多"><a href="#更多" class="headerlink" title="更多"></a>更多</h3><p><a href="https://www.cnblogs.com/testyao/p/6548261.html" target="_blank" rel="noopener">参考文章</a></p>
+<p>1XX（信息类）</p>
+<p>​    表示接收到请求并且继续处理</p>
+<p>2XX（响应成功）</p>
+<p>​    表示动作被成功接收、理解和接受</p>
+<p>3XX（重定向类）</p>
+<p>​    表示为了完成指定的动作，必须接收进一步处理</p>
+<p>4XX（客户端错误）</p>
+<p>​    表示包含错误语法或不能正确执行</p>
+<p>5XX（服务器错误）</p>
+<p>​    表示服务器或网关错误</p>
 <h2 id="14-闭包"><a href="#14-闭包" class="headerlink" title="14.  闭包"></a>14.  闭包</h2><p><a href="http://www.ruanyifeng.com/blog/2009/08/learning_javascript_closures.html" target="_blank" rel="noopener">参考文章</a></p>
 <p>闭包就是能够读取其他函数内部变量的函数。</p>
 <p>闭包允许从内部函数访问外部函数的作用域。</p>
@@ -629,7 +666,20 @@ GET参数通过URL传递，POST放在Request body中。
 <p>注意：</p>
 <p>1）由于闭包会使得函数中的变量都被保存在内存中，内存消耗很大，所以不能滥用闭包，否则会造成网页的性能问题，在IE中可能导致内存泄露。解决方法是，在退出函数之前，将不使用的局部变量全部删除。</p>
 <p>2）闭包会在父函数外部，改变父函数内部变量的值。所以，如果你把父函数当作对象（object）使用，把闭包当作它的公用方法（Public Method），把内部变量当作它的私有属性（private value），这时一定要小心，不要随便改变父函数内部变量的值。</p>
-<h2 id="15-内存泄漏"><a href="#15-内存泄漏" class="headerlink" title="15. 内存泄漏"></a>15. 内存泄漏</h2><p><a href="https://juejin.im/post/5c72019551882562811d5cf5" target="_blank" rel="noopener">参考文章</a></p>
+<p><a href="https://www.liaoxuefeng.com/wiki/1022910821149312/1023021250770016" target="_blank" rel="noopener">参考文章</a></p>
+<p>函数作为返回值</p>
+<p>在对象内部封装一个私有变量,在没有<code>class</code>机制，只有函数的语言里，借助闭包，同样可以封装一个私有变量。我们用JavaScript创建一个计数器：</p>
+<pre><code>&#39;use strict&#39;;
+
+function create_counter(initial) {
+    var x = initial || 0;
+    return {
+        inc: function () {
+            x += 1;
+            return x;
+        }
+    }
+}</code></pre><h2 id="15-内存泄漏"><a href="#15-内存泄漏" class="headerlink" title="15. 内存泄漏"></a>15. 内存泄漏</h2><p><a href="https://juejin.im/post/5c72019551882562811d5cf5" target="_blank" rel="noopener">参考文章</a></p>
 <p><strong>不再用到的内存，没有及时释放，就叫做内存泄漏（memory leak）。</strong></p>
 <h3 id="常见原因："><a href="#常见原因：" class="headerlink" title="常见原因："></a>常见原因：</h3><h4 id="1-意外的全局变量"><a href="#1-意外的全局变量" class="headerlink" title="1.  意外的全局变量"></a>1.  意外的全局变量</h4><p>变量在函数内,但是并没有声明.JS就会默认将它变为全局变量,这样在页面关闭之前都不会被释放</p>
 <p>可使用严格模式可以避免.</p>
@@ -840,6 +890,237 @@ for(var i=0; i<6; i++){
 <p>JavaScript的单线程，与它的用途有关。作为浏览器脚本语言，JavaScript的主要用途是与用户互动，以及操作DOM。这决定了它只能是单线程，否则会带来很复杂的同步问题。比如，假定JavaScript同时有两个线程，一个线程在某个DOM节点上添加内容，另一个线程删除了这个节点，这时浏览器应该以哪个线程为准？</p>
 <p>所以，为了避免复杂性，从一诞生，JavaScript就是单线程，这已经成了这门语言的核心特征，将来也不会改变。</p>
 <p>为了利用多核CPU的计算能力，HTML5提出Web Worker标准，允许JavaScript脚本创建多个线程，但是子线程完全受主线程控制，且不得操作DOM。所以，这个新标准并没有改变JavaScript单线程的本质。</p>
+<h2 id="25-CSS-篇"><a href="#25-CSS-篇" class="headerlink" title="25. CSS 篇"></a>25. CSS 篇</h2><h3 id="1-CSS隐藏页面的八种方法"><a href="#1-CSS隐藏页面的八种方法" class="headerlink" title="1. CSS隐藏页面的八种方法"></a>1. CSS隐藏页面的八种方法</h3><p><a href="https://juejin.im/post/584b645a128fe10058a0d625" target="_blank" rel="noopener">参考文章1</a></p>
+<p><a href="https://75.team/post/five-ways-to-hide-elements-in-css.html" target="_blank" rel="noopener">参考文章2</a></p>
+<p>藏元素的方法，总结如下：</p>
+<blockquote>
+<p>overflow:hidden<br>opacity:0；<br>visibility:hidden<br>display:none<br>position:absolute<br>clip(clip-path):rect()/inset()/polygon()<br>z-index:-1000<br>transform:scaleY(0)</p>
+</blockquote>
+<h4 id="1-overflow"><a href="#1-overflow" class="headerlink" title="1. overflow"></a>1. overflow</h4><p><strong>overflow的hidden用来隐藏元素溢出部分，占据空间，无法响应点击事件。</strong></p>
+<h4 id="2-opacity"><a href="#2-opacity" class="headerlink" title="2. opacity"></a>2. opacity</h4><p><strong>因此，元素依然存在原来的位置，占据空间也可响应事件。</strong></p>
+<h4 id="3-visibility"><a href="#3-visibility" class="headerlink" title="3. visibility"></a>3. visibility</h4><p><strong>被隐藏的元素依然会对我们的网页布局起作用。与 opacity 唯一不同的是它不会响应任何用户交互。</strong></p>
+<h4 id="4-display"><a href="#4-display" class="headerlink" title="4. display"></a>4. display</h4><p><strong>经典的display隐藏元素,这个是彻底的隐藏了元素，不占据空间，也就不影响布局，当然也无法响应事件。</strong></p>
+<h4 id="5-position"><a href="#5-position" class="headerlink" title="5. position"></a>5. position</h4><pre><code>.hide{
+    position：absolute;
+    left:-99999px;
+    top:-90999px;/* 不占据空间，无法点击 */
+}
+.hide-2{
+    position：relative;
+    left:-99999px;
+    top:-90999px;/* 占据空间，无法点击 */
+}</code></pre><p>假设有一个元素你想要与它交互，但是你又不想让它影响你的网页布局，没有合适的属性可以处理这种情况（opacity 和 visibility 影响布局， display 不影响布局但又无法直接交互）。</p>
+<h4 id="6-clip-clip-path"><a href="#6-clip-clip-path" class="headerlink" title="6. clip/clip-path"></a>6. clip/clip-path</h4><pre><code>.hide{
+    position:absolute;/*fixed*/
+    clip:rect(top,right,bottom,left);/* 占据空间，无法点击 */
+}
+.hide_2 {
+  clip-path: polygon(0px 0px,0px 0px,0px 0px,0px 0px);
+}</code></pre><h4 id="7-z-index"><a href="#7-z-index" class="headerlink" title="7. z-index"></a>7. z-index</h4><pre><code>.hide{
+    position:absolute;
+    z-index:-1000;/* 不占据空间，无法点击 */
+}</code></pre><h4 id="8-transform"><a href="#8-transform" class="headerlink" title="8. transform"></a>8. transform</h4><pre><code>.hide{
+    transform: scale(0,0)/* 占据空间，无法点击 */
+}</code></pre><h3 id="2-CSS中如何实现垂直水平居中（Flex）"><a href="#2-CSS中如何实现垂直水平居中（Flex）" class="headerlink" title="2. CSS中如何实现垂直水平居中（Flex）"></a>2. CSS中如何实现垂直水平居中（Flex）</h3><p><a href="http://ife.baidu.com/note/detail/id/1549" target="_blank" rel="noopener">参考文章</a></p>
+<pre class=" language-css"><code class="language-css"><span class="token selector"><span class="token class">.parent</span> </span><span class="token punctuation">{</span>
+    <span class="token property">display</span><span class="token punctuation">:</span> flex<span class="token punctuation">;</span>
+    <span class="token property">justify-content</span><span class="token punctuation">:</span> centent<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector"># 垂直居中
+<span class="token class">.parent</span> </span><span class="token punctuation">{</span>
+    <span class="token property">display</span><span class="token punctuation">:</span> flex<span class="token punctuation">;</span>
+    <span class="token property">align-item</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector"># 水平垂直居中
+<span class="token class">.parent</span> </span><span class="token punctuation">{</span>
+    <span class="token property">display</span><span class="token punctuation">:</span> flex<span class="token punctuation">;</span>
+    <span class="token property">justify-content</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span>
+    <span class="token property">align-items</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<h3 id="3-float"><a href="#3-float" class="headerlink" title="3. float"></a>3. float</h3><p><a href="https://www.cnblogs.com/chaixiaozhi/p/8481778.html" target="_blank" rel="noopener">参考文章</a></p>
+<p>float被设计出来的初衷是用于——文字环绕效果</p>
+<p>破坏性：被设置了float的元素会脱离文档流</p>
+<p>包裹性：例如包裹文字</p>
+<p>清空格：根本原因是由于float会导致节点脱离文档流结构</p>
+<p>清除浮动：为父元素添加overflow:hidden</p>
+<p>或增加一个伪类清除浮动</p>
+<pre class=" language-css"><code class="language-css"><span class="token selector"><span class="token class">.clearfix</span><span class="token pseudo-element">:after</span> </span><span class="token punctuation">{</span>
+    <span class="token property">content</span><span class="token punctuation">:</span> <span class="token string">''</span><span class="token punctuation">;</span>
+    <span class="token property">display</span><span class="token punctuation">:</span> table<span class="token punctuation">;</span>
+    <span class="token property">clear</span><span class="token punctuation">:</span> both<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector"><span class="token class">.clearfix</span> </span><span class="token punctuation">{</span>
+    *<span class="token property">zomm</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<h3 id="4-什么是BFC？什么条件下会触发？应用场景有哪些？"><a href="#4-什么是BFC？什么条件下会触发？应用场景有哪些？" class="headerlink" title="4. 什么是BFC？什么条件下会触发？应用场景有哪些？"></a>4. 什么是BFC？什么条件下会触发？应用场景有哪些？</h3><h6 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a><a href="http://47.98.159.95/my_blog/css/008.html" target="_blank" rel="noopener">参考文章</a></h6><h4 id="1-什么是BFC？"><a href="#1-什么是BFC？" class="headerlink" title="1. 什么是BFC？"></a>1. 什么是BFC？</h4><p>定义很难懂，在我理解BFC就是隔离了的独立容器，容器内元素布局不受外部影响</p>
+<p>BFC 特性(功能)</p>
+<ol>
+<li>使 BFC 内部浮动元素不会到处乱跑；</li>
+<li>和浮动元素产生边界。</li>
+</ol>
+<h4 id="2-触发条件"><a href="#2-触发条件" class="headerlink" title="2. 触发条件"></a>2. 触发条件</h4><p>一个HTML元素要创建BFC，则满足下列的任意一个或多个条件即可： 下列方式会创建块格式化上下文：</p>
+<ul>
+<li>根元素()</li>
+<li>浮动元素（元素的 float 不是 none）</li>
+<li>绝对定位元素（元素的 position 为 absolute 或 fixed）</li>
+<li>行内块元素（元素的 display 为 inline-block）</li>
+<li>表格单元格（元素的 display为 table-cell，HTML表格单元格默认为该值）</li>
+<li>表格标题（元素的 display 为 table-caption，HTML表格标题默认为该值）</li>
+<li>匿名表格单元格元素（元素的 display为 table、table-row、 table-row-group、table-header-group、table-footer-group（分别是HTML table、row、tbody、thead、tfoot的默认属性）或 inline-table）</li>
+<li>overflow 值不为 visible 的块元素 -弹性元素（display为 flex 或 inline-flex元素的直接子元素）</li>
+<li>网格元素（display为 grid 或 inline-grid 元素的直接子元素） 等等。</li>
+</ul>
+<h4 id="3-应用场景"><a href="#3-应用场景" class="headerlink" title="3.应用场景"></a>3.应用场景</h4><h5 id="1-防止浮动导致父元素高度塌陷"><a href="#1-防止浮动导致父元素高度塌陷" class="headerlink" title="1. 防止浮动导致父元素高度塌陷"></a>1. 防止浮动导致父元素高度塌陷</h5><h5 id="2-避免外边距折叠"><a href="#2-避免外边距折叠" class="headerlink" title="2. 避免外边距折叠"></a>2. 避免外边距折叠</h5><h4 id="4-盒子模型"><a href="#4-盒子模型" class="headerlink" title="4. 盒子模型"></a>4. 盒子模型</h4><h5 id="1-W3C-标准盒模型："><a href="#1-W3C-标准盒模型：" class="headerlink" title="1. W3C 标准盒模型："></a>1. W3C 标准盒模型：</h5><p><em>属性width,height只包含内容content，不包含border和padding。</em></p>
+<h5 id="2-IE-盒模型："><a href="#2-IE-盒模型：" class="headerlink" title="2. IE 盒模型："></a>2. IE 盒模型：</h5><p><em>属性width,height包含border和padding，指的是content+padding+border</em></p>
+<p>因为若不声明DOCTYPE类型，IE浏览器会将盒子模型解释为IE盒子模型，FireFox等会将其解释为W3C盒子模型；<strong>若在页面中声明了DOCTYPE类型，所有的浏览器都会把盒模型解释为W3C盒模型。</strong></p>
+<h2 id="26-告别阻塞：CSS-与-JS-的加载顺序优化"><a href="#26-告别阻塞：CSS-与-JS-的加载顺序优化" class="headerlink" title="26. 告别阻塞：CSS 与 JS 的加载顺序优化"></a>26. 告别阻塞：CSS 与 JS 的加载顺序优化</h2><p><a href="https://juejin.im/book/5b936540f265da0a9624b04b" target="_blank" rel="noopener">前端性能优化原理与实践</a></p>
+<h3 id="CSS-的阻塞"><a href="#CSS-的阻塞" class="headerlink" title="CSS 的阻塞"></a>CSS 的阻塞</h3><p>浏览器在构建 CSSOM 的过程中，<strong>不会渲染任何已处理的内容</strong>。</p>
+<blockquote>
+<p>CSS 是阻塞渲染的资源。需要将它尽早、尽快地下载到客户端，以便缩短首次渲染的时间。</p>
+</blockquote>
+<p>尽早（将 CSS 放在 head 标签里）</p>
+<p>尽快（启用 CDN 实现静态资源加载速度的优化）。</p>
+<h3 id="JS-的阻塞"><a href="#JS-的阻塞" class="headerlink" title="JS 的阻塞"></a>JS 的阻塞</h3><p>JS 的作用在于<strong>修改</strong>，它帮助我们修改网页的方方面面：内容、样式以及它如何响应用户交互。这“方方面面”的修改，本质上都是对 DOM 和 CSSDOM 进行修改。因此 JS 的执行会阻止 CSSOM，在我们不作显式声明的情况下，它也会阻塞 DOM。</p>
+<p><strong>JS 引擎是独立于渲染引擎存在的</strong></p>
+<p>因此与其说是 JS 把 CSS 和 HTML 阻塞了，不如说是 JS 引擎抢走了渲染引擎的控制权。</p>
+<h3 id="JS的三种加载方式"><a href="#JS的三种加载方式" class="headerlink" title="JS的三种加载方式"></a>JS的三种加载方式</h3><ul>
+<li><p>正常模式：</p>
+<pre><code>&lt;script src=&quot;index.js&quot;&gt;&lt;/script&gt;</code></pre></li>
+</ul>
+<p>这种情况下 JS 会阻塞浏览器，浏览器必须等待 index.js 加载和执行完毕才能去做其它事情。</p>
+<ul>
+<li><p>async 模式：</p>
+<pre><code>&lt;script async src=&quot;index.js&quot;&gt;&lt;/script&gt;</code></pre></li>
+</ul>
+<p>async 模式下，JS 不会阻塞浏览器做任何其它的事情。它的加载是异步的，当它加载结束，JS 脚本会<strong>立即执行</strong>。</p>
+<ul>
+<li><p>defer 模式：</p>
+<pre><code>&lt;script defer src=&quot;index.js&quot;&gt;&lt;/script&gt;</code></pre></li>
+</ul>
+<p>defer 模式下，JS 的加载是异步的，执行是<strong>被推迟的</strong>。等整个文档解析完成、DOMContentLoaded 事件即将被触发时，被标记了 defer 的 JS 文件才会开始依次执行。</p>
+<p>从应用的角度来说，一般当我们的脚本与 DOM 元素和其它脚本之间的依赖关系不强时，我们会选用 async；当脚本依赖于 DOM 元素和其它脚本的执行结果时，我们会选用 defer。</p>
+<h2 id="27-回流与重绘"><a href="#27-回流与重绘" class="headerlink" title="27. 回流与重绘"></a>27. 回流与重绘</h2><p><strong>重绘不一定导致回流，回流一定会导致重绘</strong></p>
+<h3 id="回流的“导火索”"><a href="#回流的“导火索”" class="headerlink" title="回流的“导火索”"></a>回流的“导火索”</h3><ol>
+<li><p>最“贵”的操作：改变 DOM 元素的几何属性（width、height、padding、margin、left、top、border）</p>
+</li>
+<li><p>“价格适中”的操作：改变 DOM 树的结构（增减、移动）</p>
+</li>
+<li><p>最容易被忽略的操作：获取一些特定属性的值</p>
+</li>
+</ol>
+<p>（offsetTop、offsetLeft、 offsetWidth、offsetHeight、scrollTop、scrollLeft、scrollWidth、scrollHeight、clientTop、clientLeft、clientWidth、clientHeight ）</p>
+<h3 id="如何规避回流与重绘"><a href="#如何规避回流与重绘" class="headerlink" title="如何规避回流与重绘"></a>如何规避回流与重绘</h3><h4 id="将“导火索”缓存起来，避免频繁改动"><a href="#将“导火索”缓存起来，避免频繁改动" class="headerlink" title="将“导火索”缓存起来，避免频繁改动"></a>将“导火索”缓存起来，避免频繁改动</h4><h4 id="避免逐条改变样式，使用类名去合并样式"><a href="#避免逐条改变样式，使用类名去合并样式" class="headerlink" title="避免逐条改变样式，使用类名去合并样式"></a>避免逐条改变样式，使用类名去合并样式</h4><h4 id="将-DOM-“离线”"><a href="#将-DOM-“离线”" class="headerlink" title="将 DOM “离线”"></a>将 DOM “离线”</h4><pre class=" language-js"><code class="language-js"><span class="token keyword">let</span> container <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'container'</span><span class="token punctuation">)</span>
+container<span class="token punctuation">.</span>style<span class="token punctuation">.</span>display <span class="token operator">=</span> <span class="token string">'none'</span>
+container<span class="token punctuation">.</span>style<span class="token punctuation">.</span>width <span class="token operator">=</span> <span class="token string">'100px'</span>
+container<span class="token punctuation">.</span>style<span class="token punctuation">.</span>height <span class="token operator">=</span> <span class="token string">'200px'</span>
+container<span class="token punctuation">.</span>style<span class="token punctuation">.</span>border <span class="token operator">=</span> <span class="token string">'10px solid red'</span>
+container<span class="token punctuation">.</span>style<span class="token punctuation">.</span>color <span class="token operator">=</span> <span class="token string">'red'</span>
+<span class="token operator">...</span>（省略了许多类似的后续操作）
+container<span class="token punctuation">.</span>style<span class="token punctuation">.</span>display <span class="token operator">=</span> <span class="token string">'block'</span></code></pre>
+<h3 id="Flush-队列：浏览器并没有那么简单"><a href="#Flush-队列：浏览器并没有那么简单" class="headerlink" title="Flush 队列：浏览器并没有那么简单"></a>Flush 队列：浏览器并没有那么简单</h3><h2 id="28-Webpack"><a href="#28-Webpack" class="headerlink" title="28. Webpack"></a>28. Webpack</h2><h3 id="核心概念"><a href="#核心概念" class="headerlink" title="核心概念"></a>核心概念</h3><ul>
+<li><strong>Entry</strong>：入口，Webpack 执行构建的第一步将从 Entry 开始，可抽象成输入。</li>
+<li><strong>Module</strong>：模块，在 Webpack 里一切皆模块，一个模块对应着一个文件。Webpack 会从配置的 Entry 开始递归找出所有依赖的模块。</li>
+<li><strong>Chunk</strong>：代码块，一个 Chunk 由多个模块组合而成，用于代码合并与分割。</li>
+<li><strong>Loader</strong>：模块转换器，用于把模块原内容按照需求转换成新内容。</li>
+<li><strong>Plugin</strong>：扩展插件，在 Webpack 构建流程中的特定时机注入扩展逻辑来改变构建结果或做你想要的事情。</li>
+<li><strong>Output</strong>：输出结果，在 Webpack 经过一系列处理并得出最终想要的代码后输出结果。</li>
+</ul>
+<h3 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h3><ul>
+<li><a href="http://www.xbhub.com/wiki/webpack/4优化/4-1缩小文件搜索范围.html" target="_blank" rel="noopener">4-1 缩小文件搜索范围</a></li>
+<li><a href="http://www.xbhub.com/wiki/webpack/4优化/4-2使用DllPlugin.html" target="_blank" rel="noopener">4-2 使用 DllPlugin</a></li>
+<li><a href="http://www.xbhub.com/wiki/webpack/4优化/4-3使用HappyPack.html" target="_blank" rel="noopener">4-3 使用 HappyPack</a></li>
+<li><a href="http://www.xbhub.com/wiki/webpack/4优化/4-4使用ParallelUglifyPlugin.html" target="_blank" rel="noopener">4-4 使用 ParallelUglifyPlugin</a></li>
+<li><a href="http://www.xbhub.com/wiki/webpack/4优化/4-5使用自动刷新.html" target="_blank" rel="noopener">4-5 使用自动刷新</a></li>
+<li><a href="http://www.xbhub.com/wiki/webpack/4优化/4-6开启模块热替换.html" target="_blank" rel="noopener">4-6 开启模块热替换</a></li>
+<li><a href="http://www.xbhub.com/wiki/webpack/4优化/4-7区分环境.html" target="_blank" rel="noopener">4-7 区分环境</a></li>
+<li><a href="http://www.xbhub.com/wiki/webpack/4优化/4-8压缩代码.html" target="_blank" rel="noopener">4-8 压缩代码</a></li>
+<li><a href="http://www.xbhub.com/wiki/webpack/4优化/4-9CDN加速.html" target="_blank" rel="noopener">4-9 CDN 加速</a></li>
+<li><a href="http://www.xbhub.com/wiki/webpack/4优化/4-10使用TreeShaking.html" target="_blank" rel="noopener">4-10 使用 Tree Shaking</a></li>
+<li><a href="http://www.xbhub.com/wiki/webpack/4优化/4-11提取公共代码.html" target="_blank" rel="noopener">4-11 提取公共代码</a></li>
+<li><a href="http://www.xbhub.com/wiki/webpack/4优化/4-12按需加载.html" target="_blank" rel="noopener">4-12 按需加载</a></li>
+<li><a href="http://www.xbhub.com/wiki/webpack/4优化/4-13使用Prepack.html" target="_blank" rel="noopener">4-13 使用 Prepack</a></li>
+<li><a href="http://www.xbhub.com/wiki/webpack/4优化/4-14开启ScopeHoisting.html" target="_blank" rel="noopener">4-14 开启 Scope Hoisting</a></li>
+<li><a href="http://www.xbhub.com/wiki/webpack/4优化/4-15输出分析.html" target="_blank" rel="noopener">4-15 输出分析</a></li>
+</ul>
+<p>热更新原理：</p>
+<p>内部实现主要使用了<code>webpack</code>、<code>express</code>、<code>websocket</code>。</p>
+<ul>
+<li><p>使用<code>express</code>启动本地服务，当浏览器访问资源时对此做响应。</p>
+</li>
+<li><p>服务端和客户端使用<code>websocket</code>实现长连接</p>
+</li>
+<li><pre><code>webpack</code></pre><p>监听源文件的变化，即当开发者保存文件时触发</p>
+<pre><code>webpack</code></pre><p>的重新编译。 </p>
+<ul>
+<li>每次编译都会生成<code>hash值</code>、<code>已改动模块的json文件</code>、<code>已改动模块代码的js文件</code></li>
+<li>编译完成后通过<code>socket</code>向客户端推送当前编译的<code>hash戳</code></li>
+</ul>
+</li>
+<li><p>客户端的</p>
+<pre><code>websocket</code></pre><p>监听到有文件改动推送过来的</p>
+<pre><code>hash戳</code></pre><p>，会和上一次对比 </p>
+<ul>
+<li>一致则走缓存</li>
+<li>不一致则通过<code>ajax</code>和<code>jsonp</code>向服务端获取最新资源</li>
+</ul>
+</li>
+<li><p>使用<code>内存文件系统</code>去替换有修改的内容实现局部刷新</p>
+</li>
+</ul>
+<h3 id="29-继承"><a href="#29-继承" class="headerlink" title="29. 继承"></a>29. 继承</h3><p><a href="https://blog.csdn.net/lqlqlq007/article/details/96113594" target="_blank" rel="noopener">原文链接</a></p>
+<p>原型链继承方式：</p>
+<p>Son.prototype = new Father();</p>
+<p>原型链继承的几个特点：</p>
+<p>父类构造函数中的属性和方法都可以被子类继承；<br>父类原型上的属性和方法可以被继承；<br>父类实例上的属性和方法无法被继承；<br>父类构造函数中的属性和方法在所有子类实例中是共享的；<br>父类原型上的属性和方法在所有子类实例中是共享的；<br>创建子类实例时无法向父类构造函数传参（如果父类构造函数允许传参）。</p>
+<p><a href="https://blog.csdn.net/lqlqlq007/article/details/96117093" target="_blank" rel="noopener">原文链接</a></p>
+<p>构造函数继承方式：</p>
+<p>Father.call(this, args);</p>
+<p>构造函数继承的几个特点：</p>
+<p>父类构造函数中的属性和方法都可以被子类继承；<br>父类原型上的属性和方法无法被继承；<br>父类实例上的属性和方法无法被继承；<br>父类构造函数中的属性和方法在所有子类实例中是不共享的；<br>创建子类实例时可以向父类构造函数传参；<br>允许多重继承（同时继承多个不同的父类）。</p>
+<p><a href="https://blog.csdn.net/lqlqlq007/article/details/96309530" target="_blank" rel="noopener">原文链接</a></p>
+<p>组合函数继承方式：</p>
+<p>父类构造函数中的属性和方法都可以被子类继承；<br>父类原型上的属性和方法都可以被子类继承；<br>父类实例上的属性和方法无法被继承；<br>父类构造函数中的属性和方法在所有子类实例中是不共享的；<br>父类原型上的属性和方法在所有子类实例中是共享的；<br>创建子类实例时可以向父类构造函数传参；<br>允许多重继承（同时继承多个不同的父类）。</p>
+<p><a href="https://juejin.im/post/5bcb2e295188255c55472db0#heading-3" target="_blank" rel="noopener">参考文章</a></p>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">SuperType</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">{</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> name<span class="token punctuation">;</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>colors <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"red"</span><span class="token punctuation">,</span> <span class="token string">"blue"</span><span class="token punctuation">,</span> <span class="token string">"green"</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+SuperType<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>sayName <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+  <span class="token function">alert</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">function</span> <span class="token function">SubType</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span> age<span class="token punctuation">)</span><span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">// 继承属性</span>
+  <span class="token comment" spellcheck="true">// 第二次调用SuperType()</span>
+  SuperType<span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span> name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>age <span class="token operator">=</span> age<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">// 继承方法</span>
+<span class="token comment" spellcheck="true">// 构建原型链</span>
+<span class="token comment" spellcheck="true">// 第一次调用SuperType()</span>
+SubType<span class="token punctuation">.</span>prototype <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">SuperType</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+<span class="token comment" spellcheck="true">//先继承了SuperType的属性和方法，但是我还再拷贝这些属性再加上我自己的</span>
+<span class="token comment" spellcheck="true">// 重写SubType.prototype的constructor属性，指向自己的构造函数SubType</span>
+SubType<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>constructor <span class="token operator">=</span> SubType<span class="token punctuation">;</span> 
+SubType<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>sayAge <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token function">alert</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>age<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">var</span> instance1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">SubType</span><span class="token punctuation">(</span><span class="token string">"Nicholas"</span><span class="token punctuation">,</span> <span class="token number">29</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+instance1<span class="token punctuation">.</span>colors<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token string">"black"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">alert</span><span class="token punctuation">(</span>instance1<span class="token punctuation">.</span>colors<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//"red,blue,green,black"</span>
+instance1<span class="token punctuation">.</span><span class="token function">sayName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//"Nicholas";</span>
+instance1<span class="token punctuation">.</span><span class="token function">sayAge</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//29</span>
+
+<span class="token keyword">var</span> instance2 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">SubType</span><span class="token punctuation">(</span><span class="token string">"Greg"</span><span class="token punctuation">,</span> <span class="token number">27</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">alert</span><span class="token punctuation">(</span>instance2<span class="token punctuation">.</span>colors<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//"red,blue,green"</span>
+instance2<span class="token punctuation">.</span><span class="token function">sayName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//"Greg";</span>
+instance2<span class="token punctuation">.</span><span class="token function">sayAge</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//27</span>
+</code></pre>
+<h2 id="更多-1"><a href="#更多-1" class="headerlink" title="更多"></a>更多</h2><p><a href="http://www.xbhub.com/wiki/webpack/" target="_blank" rel="noopener">深入浅出Webpack</a></p>
 
             </div>
             <hr/>
@@ -1324,7 +1605,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">10.5k</span>&nbsp;字
+                class="white-color">12.8k</span>&nbsp;字
             
             
             

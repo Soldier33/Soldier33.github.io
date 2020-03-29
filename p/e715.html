@@ -424,21 +424,21 @@ function foo(str) {
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-03-23
+                    2020-03-28
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    424
+                    619
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    3 分
                 </div>
                 
 				
@@ -530,7 +530,72 @@ console<span class="token punctuation">.</span><span class="token function">log<
     <span class="token keyword">return</span> dp<span class="token punctuation">[</span>len<span class="token punctuation">]</span>
 <span class="token punctuation">}</span>
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">countMax</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
+<h2 id="5-有效括号"><a href="#5-有效括号" class="headerlink" title="5. 有效括号"></a>5. 有效括号</h2><pre class=" language-js"><code class="language-js"><span class="token keyword">var</span> isValid <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> obj  <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token string">'('</span><span class="token punctuation">:</span> <span class="token string">')'</span><span class="token punctuation">,</span>
+    <span class="token string">'{'</span>： <span class="token string">'}'</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">let</span> stack <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">let</span> ch <span class="token keyword">of</span> s<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>ch <span class="token keyword">in</span> obj<span class="token punctuation">)</span>
+            stack<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>ch<span class="token punctuation">)</span>
+        <span class="token keyword">else</span> <span class="token punctuation">{</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>ch <span class="token operator">!=</span> map<span class="token punctuation">[</span>stack<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+                <span class="token keyword">return</span> <span class="token boolean">false</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> <span class="token operator">!</span>stack<span class="token punctuation">.</span>length
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h2 id="6-最长有效括号"><a href="#6-最长有效括号" class="headerlink" title="6. 最长有效括号"></a>6. 最长有效括号</h2><p>暴力法</p>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">longV</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">var</span> max <span class="token operator">=</span> <span class="token number">0</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>s<span class="token punctuation">.</span>length <span class="token operator">==</span> <span class="token number">0</span> <span class="token operator">||</span> s<span class="token punctuation">.</span>length <span class="token operator">==</span><span class="token number">1</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> max
+    <span class="token keyword">var</span> stack <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">var</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> s<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">var</span> tmpMax <span class="token operator">=</span> <span class="token number">0</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">var</span> j <span class="token operator">=</span> i<span class="token punctuation">;</span> j <span class="token operator">&lt;</span> s<span class="token punctuation">.</span>length<span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>s<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">'('</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                stack<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token string">'('</span><span class="token punctuation">)</span>
+                tmpMax<span class="token operator">++</span>
+            <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>s<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">')'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">if</span><span class="token punctuation">(</span>stack<span class="token punctuation">.</span>length <span class="token operator">&lt;</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    max <span class="token operator">=</span> max <span class="token operator">&lt;</span> tmpMax<span class="token operator">?</span> tmpMax<span class="token punctuation">:</span>max
+                    <span class="token keyword">break</span>
+                <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+                    stack<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+                    tmpMax<span class="token operator">++</span>
+                <span class="token punctuation">}</span>     
+            <span class="token punctuation">}</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>stack<span class="token punctuation">.</span>length <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span>
+                max <span class="token operator">=</span> max<span class="token operator">&lt;</span>tmpMax<span class="token operator">?</span>tmpMax<span class="token punctuation">:</span>max
+        <span class="token punctuation">}</span>
+        stack <span class="token operator">=</span><span class="token punctuation">[</span><span class="token punctuation">]</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> max
+<span class="token punctuation">}</span></code></pre>
+<p>再优化,时间复杂度降为O(n)</p>
+<pre><code>function longV(s) {
+    var max = 0  
+    if(s.length == 0 || s.length ==1)    
+        return max   
+    var stack = [-1]    
+    for(var i = 0; i &lt; s.length; i++) {       
+        if(s[i] == &#39;(&#39;) {
+            stack.push(&#39;i&#39;)
+        } else {
+            stack.pop()
+            if(stack.length &lt; 1) {
+                stack.push(i)
+            } else {
+                max = Math.max(max, i-stack[stack.length-1])
+            }
+        }
+    }       
 
+    return max
+}</code></pre>
             </div>
             <hr/>
 
@@ -1022,7 +1087,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">10.5k</span>&nbsp;字
+                class="white-color">12.8k</span>&nbsp;字
             
             
             
