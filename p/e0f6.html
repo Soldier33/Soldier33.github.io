@@ -397,6 +397,10 @@
                                 <span class="chip bg-color">Element</span>
                             </a>
                         
+                            <a href="/tags/%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/">
+                                <span class="chip bg-color">权限管理</span>
+                            </a>
+                        
                     </div>
                     
                 </div>
@@ -432,14 +436,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    994
+                    1.3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    4 分
+                    5 分
                 </div>
                 
 				
@@ -494,7 +498,8 @@
     <span class="token operator">-</span> 没有token
       ↓
       <span class="token operator">-</span> 跳转登录页面</code></pre>
-<h2 id="2-详细代码分析"><a href="#2-详细代码分析" class="headerlink" title="2. 详细代码分析"></a>2. 详细代码分析</h2><h3 id="（1）-登录页中的点击提交触发事件"><a href="#（1）-登录页中的点击提交触发事件" class="headerlink" title="（1） 登录页中的点击提交触发事件"></a>（1） 登录页中的点击提交触发事件</h3><p>具体代码：@/views/login/index.vue</p>
+<h2 id="2-详细代码分析"><a href="#2-详细代码分析" class="headerlink" title="2. 详细代码分析"></a>2. 详细代码分析</h2><h3 id="（1）点击提交"><a href="#（1）点击提交" class="headerlink" title="（1）点击提交"></a>（1）点击提交</h3><p> 登录页中的点击提交触发事件</p>
+<p>具体代码：@/views/login/index.vue</p>
 <pre class=" language-js"><code class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> validUsername <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@/utils/validate'</span>
 
 <span class="token function">handleLogin</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -527,7 +532,8 @@
 <span class="token keyword">export</span> <span class="token keyword">function</span> <span class="token function">validUsername</span><span class="token punctuation">(</span>str<span class="token punctuation">)</span> <span class="token punctuation">{</span>
   <span class="token keyword">return</span> str<span class="token punctuation">.</span><span class="token function">trim</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>length <span class="token operator">></span> <span class="token number">0</span>
 <span class="token punctuation">}</span></code></pre>
-<h3 id="（2）触发vuex的action中的login事件"><a href="#（2）触发vuex的action中的login事件" class="headerlink" title="（2）触发vuex的action中的login事件"></a>（2）触发vuex的action中的login事件</h3><p>具体代码：@/store/modules/user.js</p>
+<h3 id="（2）设置token"><a href="#（2）设置token" class="headerlink" title="（2）设置token"></a>（2）设置token</h3><p>触发vuex的action中的login事件</p>
+<p>具体代码：@/store/modules/user.js</p>
 <p>在这个文件中还有其他和登录相关的代码，由于在这一步中还没有用到，故先省略</p>
 <pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">// 引入login 接口是通过用户名和密码，获取token</span>
 <span class="token comment" spellcheck="true">// 引入工具类中写好的方法：1.将token存入cookies， 2.在cookies取出token,3.把cookies中的token移除</span>
@@ -605,10 +611,12 @@
   <span class="token keyword">return</span> Cookies<span class="token punctuation">.</span><span class="token function">remove</span><span class="token punctuation">(</span>TokenKey<span class="token punctuation">)</span>
 <span class="token punctuation">}</span>
 </code></pre>
-<h3 id="（3）触发vuex的action中的getInfo事件"><a href="#（3）触发vuex的action中的getInfo事件" class="headerlink" title="（3）触发vuex的action中的getInfo事件"></a>（3）触发vuex的action中的getInfo事件</h3><ol>
+<h3 id="（3）设置用户信息"><a href="#（3）设置用户信息" class="headerlink" title="（3）设置用户信息"></a>（3）设置用户信息</h3><p>触发vuex的action中的getInfo事件</p>
+<ol>
 <li>什么时候触发vuex的action中的getInfo事件？</li>
 </ol>
-<p>触发该事件，是写在拦截路由的文件中，即@/permission.js</p>
+<p>触发该事件，是写在拦截路由的文件中，</p>
+<p>具体代码：@/permission.js</p>
 <p>该文件代码的思路可参考上文提到的    流程思路中的拦截路由变化</p>
 <pre class=" language-js"><code class="language-js"><span class="token keyword">const</span> <span class="token punctuation">{</span> roles <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token keyword">await</span> store<span class="token punctuation">.</span><span class="token function">dispatch</span><span class="token punctuation">(</span><span class="token string">'user/getInfo'</span><span class="token punctuation">)</span>
 <span class="token keyword">const</span> accessRoutes <span class="token operator">=</span> <span class="token keyword">await</span> store<span class="token punctuation">.</span><span class="token function">dispatch</span><span class="token punctuation">(</span><span class="token string">'permission/generateRoutes'</span><span class="token punctuation">,</span> roles<span class="token punctuation">)</span>
@@ -690,6 +698,80 @@ router<span class="token punctuation">.</span><span class="token function">addRo
     params<span class="token punctuation">:</span> <span class="token punctuation">{</span> token <span class="token punctuation">}</span>
   <span class="token punctuation">}</span><span class="token punctuation">)</span>
 <span class="token punctuation">}</span></code></pre>
+<h3 id="（4）设置路由"><a href="#（4）设置路由" class="headerlink" title="（4）设置路由"></a>（4）设置路由</h3><p>触发vuex的action中的generateRoutes事件</p>
+<p>触发的时机也已在第三点中提到</p>
+<p>具体代码：@/store/modules/permission.js</p>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> asyncRoutes<span class="token punctuation">,</span> constantRoutes <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@/router'</span>
+
+<span class="token comment" spellcheck="true">// 判断是否有权限，如果没有设置roles，则此页默认没有权限，像以下这种就是设置权限为admin</span>
+<span class="token comment" spellcheck="true">/* meta: {
+          title: 'Role Permission',
+          roles: ['admin']
+  }
+*/</span> 
+<span class="token keyword">function</span> <span class="token function">hasPermission</span><span class="token punctuation">(</span>roles<span class="token punctuation">,</span> route<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>route<span class="token punctuation">.</span>meta <span class="token operator">&amp;&amp;</span> route<span class="token punctuation">.</span>meta<span class="token punctuation">.</span>roles<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> roles<span class="token punctuation">.</span><span class="token function">some</span><span class="token punctuation">(</span>role <span class="token operator">=</span><span class="token operator">></span> route<span class="token punctuation">.</span>meta<span class="token punctuation">.</span>roles<span class="token punctuation">.</span><span class="token function">includes</span><span class="token punctuation">(</span>role<span class="token punctuation">)</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token boolean">true</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">// 过滤掉权限不一致的路由，采用递归的方式，即可探索子节点是否权限不一致</span>
+<span class="token keyword">export</span> <span class="token keyword">function</span> <span class="token function">filterAsyncRoutes</span><span class="token punctuation">(</span>routes<span class="token punctuation">,</span> roles<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> res <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+
+  routes<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span>route <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> tmp <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token operator">...</span>route <span class="token punctuation">}</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">hasPermission</span><span class="token punctuation">(</span>roles<span class="token punctuation">,</span> tmp<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>tmp<span class="token punctuation">.</span>children<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        tmp<span class="token punctuation">.</span>children <span class="token operator">=</span> <span class="token function">filterAsyncRoutes</span><span class="token punctuation">(</span>tmp<span class="token punctuation">.</span>children<span class="token punctuation">,</span> roles<span class="token punctuation">)</span>
+      <span class="token punctuation">}</span>
+      res<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>tmp<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+  <span class="token keyword">return</span> res
+<span class="token punctuation">}</span>
+
+<span class="token keyword">const</span> state <span class="token operator">=</span> <span class="token punctuation">{</span>
+  routes<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+  addRoutes<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">const</span> mutations <span class="token operator">=</span> <span class="token punctuation">{</span>
+  SET_ROUTES<span class="token punctuation">:</span> <span class="token punctuation">(</span>state<span class="token punctuation">,</span> routes<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+    state<span class="token punctuation">.</span>addRoutes <span class="token operator">=</span> routes
+    state<span class="token punctuation">.</span>routes <span class="token operator">=</span> constantRoutes<span class="token punctuation">.</span><span class="token function">concat</span><span class="token punctuation">(</span>routes<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+
+<span class="token keyword">const</span> actions <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token function">generateRoutes</span><span class="token punctuation">(</span><span class="token punctuation">{</span> commit <span class="token punctuation">}</span><span class="token punctuation">,</span> roles<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span>resolve <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+      <span class="token keyword">let</span> accessedRoutes
+      <span class="token comment" spellcheck="true">// 如果是admin，则不过滤，直接将动态路由都添加，不是admin则过滤</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>roles<span class="token punctuation">.</span><span class="token function">includes</span><span class="token punctuation">(</span><span class="token string">'admin'</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        accessedRoutes <span class="token operator">=</span> asyncRoutes <span class="token operator">||</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+      <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+        accessedRoutes <span class="token operator">=</span> <span class="token function">filterAsyncRoutes</span><span class="token punctuation">(</span>asyncRoutes<span class="token punctuation">,</span> roles<span class="token punctuation">)</span>
+      <span class="token punctuation">}</span>
+      <span class="token function">commit</span><span class="token punctuation">(</span><span class="token string">'SET_ROUTES'</span><span class="token punctuation">,</span> accessedRoutes<span class="token punctuation">)</span>
+      <span class="token function">resolve</span><span class="token punctuation">(</span>accessedRoutes<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+  namespaced<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  state<span class="token punctuation">,</span>
+  mutations<span class="token punctuation">,</span>
+  actions
+<span class="token punctuation">}</span>
+</code></pre>
+<h3 id="（5）添加路由"><a href="#（5）添加路由" class="headerlink" title="（5）添加路由"></a>（5）添加路由</h3><p>具体代码：@/permission.js</p>
+<pre class=" language-js"><code class="language-js">router<span class="token punctuation">.</span><span class="token function">addRoutes</span><span class="token punctuation">(</span>accessRoutes<span class="token punctuation">)</span></code></pre>
 
             </div>
             <hr/>
@@ -759,6 +841,10 @@ router<span class="token punctuation">.</span><span class="token function">addRo
                             
                                 <a href="/tags/Element/">
                                     <span class="chip bg-color">Element</span>
+                                </a>
+                            
+                                <a href="/tags/%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/">
+                                    <span class="chip bg-color">权限管理</span>
                                 </a>
                             
                         </div>
@@ -1176,7 +1262,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">14.7k</span>&nbsp;字
+                class="white-color">15k</span>&nbsp;字
             
             
             
