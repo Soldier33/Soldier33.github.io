@@ -5,13 +5,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="Js-简要笔记, Soldier33">
-    <meta name="description" content="
-不改变原数组方法
-concat() ，join()，slice()  ，toString()
-
-改变原数组方法
-pop()，push()，reverse() ，shift()，sort()，splice() ，unshift() ，
-co">
+    <meta name="description" content="1. 不改变原数组方法concat() ，join()，slice()  ，toString()
+2. 改变原数组方法pop()，push()，reverse() ，shift()，sort()，splice() ，unshift() ，
+">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -419,14 +415,14 @@ co">
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-03-22
+                    2020-04-05
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    77
+                    113
                 </div>
                 
 
@@ -449,16 +445,10 @@ co">
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <ol>
-<li><p>不改变原数组方法</p>
-<p>concat() ，join()，slice()  ，toString()</p>
-</li>
-<li><p>改变原数组方法</p>
-<p>pop()，push()，reverse() ，shift()，sort()，splice() ，unshift() ，</p>
+                <h2 id="1-不改变原数组方法"><a href="#1-不改变原数组方法" class="headerlink" title="1. 不改变原数组方法"></a>1. 不改变原数组方法</h2><p>concat() ，join()，slice()  ，toString()</p>
+<h2 id="2-改变原数组方法"><a href="#2-改变原数组方法" class="headerlink" title="2. 改变原数组方法"></a>2. 改变原数组方法</h2><p>pop()，push()，reverse() ，shift()，sort()，splice() ，unshift() ，</p>
 <p>copyWith(), fill()</p>
 <p>面试题：</p>
-</li>
-</ol>
 <pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">let</span> a <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'a'</span><span class="token punctuation">,</span><span class="token string">'b'</span><span class="token punctuation">,</span> <span class="token string">'c'</span><span class="token punctuation">]</span>
 
 <span class="token keyword">delete</span> a<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token comment" spellcheck="true">////不会改变数组的长度</span>
@@ -468,6 +458,16 @@ console<span class="token punctuation">.</span><span class="token function">log<
 
 a<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">//会改变数组的长度</span>
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>a<span class="token punctuation">.</span>length<span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">//2</span></code></pre>
+<h2 id="3-Object-keys-获取对象的length"><a href="#3-Object-keys-获取对象的length" class="headerlink" title="3. Object.keys() 获取对象的length"></a>3. Object.keys() 获取对象的length</h2><pre class=" language-js"><code class="language-js"><span class="token keyword">var</span> person <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token string">"name"</span> <span class="token punctuation">:</span> <span class="token string">"zhangshan"</span><span class="token punctuation">,</span>
+    <span class="token string">"sex"</span> <span class="token punctuation">:</span> <span class="token string">"man"</span><span class="token punctuation">,</span>
+    <span class="token string">"age"</span> <span class="token punctuation">:</span> <span class="token string">"50"</span><span class="token punctuation">,</span>
+    <span class="token string">"height"</span> <span class="token punctuation">:</span> <span class="token string">"180"</span><span class="token punctuation">,</span>
+    <span class="token string">"phone"</span> <span class="token punctuation">:</span> <span class="token string">"1xxxxxxxxxx"</span><span class="token punctuation">,</span>
+    <span class="token string">"email"</span> <span class="token punctuation">:</span> <span class="token string">"xxxxxxxxx@xxx.com"</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> arr <span class="token operator">=</span> Object<span class="token punctuation">.</span><span class="token function">keys</span><span class="token punctuation">(</span>person<span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>arr<span class="token punctuation">.</span>length<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//6</span></code></pre>
 
             </div>
             <hr/>
@@ -946,7 +946,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">12.8k</span>&nbsp;字
+                class="white-color">13.7k</span>&nbsp;字
             
             
             
