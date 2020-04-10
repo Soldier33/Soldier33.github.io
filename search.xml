@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>Js-运算符骚操作</title>
+      <link href="/p/cb22.html"/>
+      <url>/p/cb22.html</url>
+      
+        <content type="html"><![CDATA[<h2 id="1-最快互换"><a href="#1-最快互换" class="headerlink" title="1. 最快互换"></a>1. 最快互换</h2><pre class=" language-js"><code class="language-js">a <span class="token operator">^</span><span class="token operator">=</span> bb <span class="token operator">^</span><span class="token operator">=</span> aa <span class="token operator">^</span><span class="token operator">=</span> b</code></pre><h2 id="2-最快取整"><a href="#2-最快取整" class="headerlink" title="2. 最快取整"></a>2. 最快取整</h2><pre class=" language-js"><code class="language-js"><span class="token number">13.5</span><span class="token operator">&lt;</span><span class="token operator">&lt;</span><span class="token number">0</span></code></pre><h2 id="3-最快查看负整数在计算机内部的存储形式"><a href="#3-最快查看负整数在计算机内部的存储形式" class="headerlink" title="3. 最快查看负整数在计算机内部的存储形式"></a>3. 最快查看负整数在计算机内部的存储形式</h2><pre class=" language-js"><code class="language-js"><span class="token operator">-</span><span class="token number">1</span> <span class="token operator">></span><span class="token operator">></span><span class="token operator">></span> <span class="token number">0</span><span class="token comment" spellcheck="true">//4294967295</span></code></pre><h2 id="4-将任意值转为布尔值"><a href="#4-将任意值转为布尔值" class="headerlink" title="4. 将任意值转为布尔值"></a>4. 将任意值转为布尔值</h2><pre class=" language-js"><code class="language-js">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token operator">!</span><span class="token operator">!</span><span class="token string">'dsada'</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">// true</span></code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 前端 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Js </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Vue-element小技巧</title>
       <link href="/p/7e26.html"/>
       <url>/p/7e26.html</url>
