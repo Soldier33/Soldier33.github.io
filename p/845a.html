@@ -5,9 +5,10 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="Vue-常见问题简单概括, Soldier33">
-    <meta name="description" content="1. 为什么组件中的data必需是函数因为组件是要重复使用的，当data是函数并且在多次调用的时候，所占的内存块不一样，所以data中的数据互不影响。
+    <meta name="description" content="
+1. 为什么组件中的data必需是函数因为组件是要重复使用的，当data是函数并且在多次调用的时候，所占的内存块不一样，所以data中的数据互不影响。
 2. v-for中key的作用 加上key之后，能够更好的复用，减少资源的消耗。
-&amp;lt">
+&amp;l">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -415,21 +416,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-03-22
+                    2020-04-20
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    255
+                    699
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
 				
@@ -445,13 +446,45 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="1-为什么组件中的data必需是函数"><a href="#1-为什么组件中的data必需是函数" class="headerlink" title="1. 为什么组件中的data必需是函数"></a>1. 为什么组件中的data必需是函数</h2><p>因为组件是要重复使用的，当data是函数并且在多次调用的时候，<br>所占的内存块不一样，所以data中的数据互不影响。</p>
+                <p><img src="https://camo.githubusercontent.com/aca0fe0429308bd17a8404207cc73cf158938d58/68747470733a2f2f75706c6f61642d696d616765732e6a69616e7368752e696f2f75706c6f61645f696d616765732f333137343730312d333262306432313161623837616338372e706e673f696d6167654d6f6772322f6175746f2d6f7269656e742f7374726970253743696d61676556696577322f322f772f31323430" alt=""></p>
+<h2 id="1-为什么组件中的data必需是函数"><a href="#1-为什么组件中的data必需是函数" class="headerlink" title="1. 为什么组件中的data必需是函数"></a>1. 为什么组件中的data必需是函数</h2><p>因为组件是要重复使用的，当data是函数并且在多次调用的时候，<br>所占的内存块不一样，所以data中的数据互不影响。</p>
 <h2 id="2-v-for中key的作用"><a href="#2-v-for中key的作用" class="headerlink" title="2. v-for中key的作用"></a>2. v-for中key的作用</h2><p> 加上key之后，能够更好的复用，减少资源的消耗。</p>
 <pre><code>&lt;li v-for=&quot;item in list&quot; :key=&quot;item&quot;&gt;{{item}}&lt;/li&gt;</code></pre><p><strong>没加key之前，如果向数组中间添加一个元素，要依次替换数组元素，</strong></p>
 <p><strong>加上key之后，可以直接在数组中间插入这个元素。</strong></p>
 <h2 id="3-过滤器filters获取不到data数据"><a href="#3-过滤器filters获取不到data数据" class="headerlink" title="3.过滤器filters获取不到data数据"></a>3.过滤器filters获取不到data数据</h2><p>因为获取不到this对象</p>
 <p>尤雨溪解释：这是2.x中故意的。 过滤器应该是纯函数，不应该依赖于这个上下文。 如果您需要这个，您应该使用一个计算属性或只是一个方法。</p>
 <p>filters一般做只处理HTML页面的数据的事；<br>computed一般做只处理data中的数据的事。</p>
+<h2 id="4-使用Proxy实现Vue数据劫持"><a href="#4-使用Proxy实现Vue数据劫持" class="headerlink" title="4. 使用Proxy实现Vue数据劫持"></a>4. 使用Proxy实现Vue数据劫持</h2><p><a href="https://zhuanlan.zhihu.com/p/50547367" target="_blank" rel="noopener">参考文章</a></p>
+<p>为什么说Proxy的性能比Object.defineProperty更好？</p>
+<p><strong>1. Object.defineProperty只能监听属性，而Proxy能监听整个对象，省去对非对象或数组类型的劫持，也能做到监听。</strong></p>
+<p><strong>2. Object.defineProperty不能监测到数组变化</strong></p>
+<h2 id="5-computed和watch区别"><a href="#5-computed和watch区别" class="headerlink" title="5. computed和watch区别"></a>5. computed和watch区别</h2><p><img src="https://camo.githubusercontent.com/473de2ac8b14386327b5f68037ba226df832ea0d/68747470733a2f2f75706c6f61642d696d616765732e6a69616e7368752e696f2f75706c6f61645f696d616765732f333137343730312d303730376261653338333230333062622e706e673f696d6167654d6f6772322f6175746f2d6f7269656e742f7374726970253743696d61676556696577322f322f772f31323430" alt=""></p>
+<ul>
+<li>watch：监测的是属性值， 只要属性值发生变化，其都会触发执行回调函数来执行一系列操作。</li>
+<li>computed：监测的是依赖值，依赖值不变的情况下其会直接读取缓存进行复用，变化的情况下才会重新计算。</li>
+</ul>
+<p><strong>计算属性不能执行异步任务，计算属性必须同步执行</strong>。</p>
+<p><strong>watch中可以执行任何逻辑，如函数节流，Ajax异步获取数据，甚至操作 DOM（不建议）。</strong></p>
+<p>使用 watch 的深度遍历和立即调用功能</p>
+<pre><code>watch: {
+        obj: {
+            handler: function(newVal, oldVal) {
+                console.log(newVal); 
+            },
+            deep: true,
+            immediate: true 
+        }
+    }</code></pre><h2 id="6-父子组件如何双向绑定"><a href="#6-父子组件如何双向绑定" class="headerlink" title="6. 父子组件如何双向绑定"></a>6. 父子组件如何双向绑定</h2><p><a href="https://github.com/ljianshu/Blog/issues/67" target="_blank" rel="noopener">参考文章</a></p>
+<ul>
+<li><p>方法1：使用.sync</p>
+<p>不过.sync 虽好，但也有限制，比如：</p>
+</li>
+</ul>
+<p>1）<strong>不能和表达式一起使用</strong>（如<code>v-bind:title.sync=&quot;doc.title + &#39;!&#39;&quot;</code>是无效的）；<br>2）<strong>不能用在字面量对象上</strong>（如<code>v-bind.sync=&quot;{ title: doc.title }&quot;</code>是无法正常工作的）。</p>
+<ul>
+<li>方法2：将父组件中的数据包装成对象传递给子组件</li>
+</ul>
+<p>这是因为在 JavaScript 中对象和数组是通过引用传入的，所以对于一个数组或对象类型的 prop 来说，在子组件中改变这个对象或数组本身将会影响到父组件的状态。比如上例中在子组件中修改父组件传递过来的数组arr,从而改变父组件的状态。</p>
 
             </div>
             <hr/>
@@ -939,7 +972,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">15k</span>&nbsp;字
+                class="white-color">16.5k</span>&nbsp;字
             
             
             
