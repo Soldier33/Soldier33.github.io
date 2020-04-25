@@ -418,14 +418,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-04-12
+                    2020-04-23
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    104
+                    200
                 </div>
                 
 
@@ -455,6 +455,20 @@
     reserve-selection
     width=&quot;55&quot;&gt;
   &lt;/el-table-column&gt;</code></pre><h2 id="3-表格列超出部分省略加悬浮提示"><a href="#3-表格列超出部分省略加悬浮提示" class="headerlink" title="3. 表格列超出部分省略加悬浮提示"></a>3. 表格列超出部分省略加悬浮提示</h2><pre class=" language-js"><code class="language-js"><span class="token operator">&lt;</span>el<span class="token operator">-</span>table<span class="token operator">-</span>column <span class="token punctuation">:</span>show<span class="token operator">-</span>overflow<span class="token operator">-</span>tooltip<span class="token operator">=</span><span class="token string">"true"</span><span class="token operator">></span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>el<span class="token operator">-</span>table<span class="token operator">-</span>column<span class="token operator">></span></code></pre>
+<h3 id="4-嵌套弹框问题"><a href="#4-嵌套弹框问题" class="headerlink" title="4. 嵌套弹框问题"></a>4. 嵌套弹框问题</h3><pre class=" language-js"><code class="language-js"> <span class="token operator">&lt;</span>el<span class="token operator">-</span>dialog <span class="token punctuation">:</span>visible<span class="token punctuation">.</span>sync<span class="token operator">=</span><span class="token string">"dialogVisible"</span> <span class="token punctuation">:</span>append<span class="token operator">-</span>to<span class="token operator">-</span>body<span class="token operator">=</span><span class="token string">"true"</span><span class="token operator">></span>
+     <span class="token operator">&lt;</span>img width<span class="token operator">=</span><span class="token string">"100%"</span> <span class="token punctuation">:</span>src<span class="token operator">=</span><span class="token string">"dialogImageUrl"</span> alt<span class="token operator">=</span><span class="token string">""</span><span class="token operator">></span>
+ <span class="token operator">&lt;</span><span class="token operator">/</span>el<span class="token operator">-</span>dialog<span class="token operator">></span></code></pre>
+<h3 id="5-表格中放缩略图"><a href="#5-表格中放缩略图" class="headerlink" title="5. 表格中放缩略图"></a>5. 表格中放缩略图</h3><pre class=" language-js"><code class="language-js"><span class="token operator">&lt;</span>el<span class="token operator">-</span>table<span class="token operator">-</span>column label<span class="token operator">=</span><span class="token string">"标题图"</span> prop<span class="token operator">=</span><span class="token string">"title"</span> align<span class="token operator">=</span><span class="token string">"center"</span> width<span class="token operator">=</span><span class="token string">"180"</span><span class="token operator">></span>
+    <span class="token operator">&lt;</span>template slot<span class="token operator">-</span>scope<span class="token operator">=</span><span class="token string">"{row}"</span><span class="token operator">></span>
+        <span class="token operator">&lt;</span>el<span class="token operator">-</span>popover placement<span class="token operator">=</span><span class="token string">"right"</span> title<span class="token operator">=</span><span class="token string">""</span> trigger<span class="token operator">=</span><span class="token string">"hover"</span><span class="token operator">></span>
+            <span class="token operator">&lt;</span>img <span class="token punctuation">:</span>src<span class="token operator">=</span><span class="token string">"row.image1"</span> style<span class="token operator">=</span><span class="token string">"height: 500px;width: 500px"</span><span class="token operator">></span>
+            <span class="token operator">&lt;</span>img slot<span class="token operator">=</span><span class="token string">"reference"</span>
+                <span class="token punctuation">:</span>src<span class="token operator">=</span><span class="token string">"row.image1"</span>
+                <span class="token punctuation">:</span>alt<span class="token operator">=</span><span class="token string">"row.image1"</span>
+                style<span class="token operator">=</span><span class="token string">"height:100%;width: 100%"</span><span class="token operator">></span>
+        <span class="token operator">&lt;</span><span class="token operator">/</span>el<span class="token operator">-</span>popover<span class="token operator">></span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>template<span class="token operator">></span>
 <span class="token operator">&lt;</span><span class="token operator">/</span>el<span class="token operator">-</span>table<span class="token operator">-</span>column<span class="token operator">></span></code></pre>
 
             </div>
@@ -943,7 +957,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">16.5k</span>&nbsp;字
+                class="white-color">17.2k</span>&nbsp;字
             
             
             
