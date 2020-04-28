@@ -4,9 +4,15 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Vue-element小技巧, Soldier33">
-    <meta name="description" content="1. el-checkbox多选框竖排列el-checkbox 中加入样式：style=”display:block;”
-2. 表格多选框分页保留数据&amp;lt;!-- 在type=&amp;quot;selection的列里添加reserve-sel">
+    <meta name="keywords" content="优秀文章地址, Soldier33">
+    <meta name="description" content="
+运算符基础
+44 道 JavaScript 难题
+
+
+待看：
+有意思javaScript问题
+">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -14,7 +20,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Vue-element小技巧 | Soldier33</title>
+    <title>优秀文章地址 | Soldier33</title>
     <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/favicon.ico">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -260,12 +266,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/9.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/7.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Vue-element小技巧</h1>
+                    <h1 class="description center-align post-title">优秀文章地址</h1>
                 </div>
             </div>
         </div>
@@ -382,12 +388,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Vue/">
-                                <span class="chip bg-color">Vue</span>
-                            </a>
-                        
-                            <a href="/tags/Element/">
-                                <span class="chip bg-color">Element</span>
+                            <a href="/tags/Js/">
+                                <span class="chip bg-color">Js</span>
                             </a>
                         
                     </div>
@@ -411,21 +413,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-04-02
+                    2020-04-07
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-04-23
+                    2020-04-28
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    200
+                    18
                 </div>
                 
 
@@ -448,28 +450,13 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="1-el-checkbox多选框竖排列"><a href="#1-el-checkbox多选框竖排列" class="headerlink" title="1. el-checkbox多选框竖排列"></a>1. el-checkbox多选框竖排列</h2><p>el-checkbox 中加入样式：style=”display:block;”</p>
-<h2 id="2-表格多选框分页保留数据"><a href="#2-表格多选框分页保留数据" class="headerlink" title="2. 表格多选框分页保留数据"></a>2. 表格多选框分页保留数据</h2><pre><code>&lt;!-- 在type=&quot;selection的列里添加reserve-selection参数,true为保留数据,默认为false不保留 --&gt;
-  &lt;el-table-column
-    type=&quot;selection&quot;
-    reserve-selection
-    width=&quot;55&quot;&gt;
-  &lt;/el-table-column&gt;</code></pre><h2 id="3-表格列超出部分省略加悬浮提示"><a href="#3-表格列超出部分省略加悬浮提示" class="headerlink" title="3. 表格列超出部分省略加悬浮提示"></a>3. 表格列超出部分省略加悬浮提示</h2><pre class=" language-js"><code class="language-js"><span class="token operator">&lt;</span>el<span class="token operator">-</span>table<span class="token operator">-</span>column <span class="token punctuation">:</span>show<span class="token operator">-</span>overflow<span class="token operator">-</span>tooltip<span class="token operator">=</span><span class="token string">"true"</span><span class="token operator">></span>
-<span class="token operator">&lt;</span><span class="token operator">/</span>el<span class="token operator">-</span>table<span class="token operator">-</span>column<span class="token operator">></span></code></pre>
-<h3 id="4-嵌套弹框问题"><a href="#4-嵌套弹框问题" class="headerlink" title="4. 嵌套弹框问题"></a>4. 嵌套弹框问题</h3><pre class=" language-js"><code class="language-js"> <span class="token operator">&lt;</span>el<span class="token operator">-</span>dialog <span class="token punctuation">:</span>visible<span class="token punctuation">.</span>sync<span class="token operator">=</span><span class="token string">"dialogVisible"</span> <span class="token punctuation">:</span>append<span class="token operator">-</span>to<span class="token operator">-</span>body<span class="token operator">=</span><span class="token string">"true"</span><span class="token operator">></span>
-     <span class="token operator">&lt;</span>img width<span class="token operator">=</span><span class="token string">"100%"</span> <span class="token punctuation">:</span>src<span class="token operator">=</span><span class="token string">"dialogImageUrl"</span> alt<span class="token operator">=</span><span class="token string">""</span><span class="token operator">></span>
- <span class="token operator">&lt;</span><span class="token operator">/</span>el<span class="token operator">-</span>dialog<span class="token operator">></span></code></pre>
-<h3 id="5-表格中放缩略图"><a href="#5-表格中放缩略图" class="headerlink" title="5. 表格中放缩略图"></a>5. 表格中放缩略图</h3><pre class=" language-js"><code class="language-js"><span class="token operator">&lt;</span>el<span class="token operator">-</span>table<span class="token operator">-</span>column label<span class="token operator">=</span><span class="token string">"标题图"</span> prop<span class="token operator">=</span><span class="token string">"title"</span> align<span class="token operator">=</span><span class="token string">"center"</span> width<span class="token operator">=</span><span class="token string">"180"</span><span class="token operator">></span>
-    <span class="token operator">&lt;</span>template slot<span class="token operator">-</span>scope<span class="token operator">=</span><span class="token string">"{row}"</span><span class="token operator">></span>
-        <span class="token operator">&lt;</span>el<span class="token operator">-</span>popover placement<span class="token operator">=</span><span class="token string">"right"</span> title<span class="token operator">=</span><span class="token string">""</span> trigger<span class="token operator">=</span><span class="token string">"hover"</span><span class="token operator">></span>
-            <span class="token operator">&lt;</span>img <span class="token punctuation">:</span>src<span class="token operator">=</span><span class="token string">"row.image1"</span> style<span class="token operator">=</span><span class="token string">"height: 500px;width: 500px"</span><span class="token operator">></span>
-            <span class="token operator">&lt;</span>img slot<span class="token operator">=</span><span class="token string">"reference"</span>
-                <span class="token punctuation">:</span>src<span class="token operator">=</span><span class="token string">"row.image1"</span>
-                <span class="token punctuation">:</span>alt<span class="token operator">=</span><span class="token string">"row.image1"</span>
-                style<span class="token operator">=</span><span class="token string">"height:100%;width: 100%"</span><span class="token operator">></span>
-        <span class="token operator">&lt;</span><span class="token operator">/</span>el<span class="token operator">-</span>popover<span class="token operator">></span>
-    <span class="token operator">&lt;</span><span class="token operator">/</span>template<span class="token operator">></span>
-<span class="token operator">&lt;</span><span class="token operator">/</span>el<span class="token operator">-</span>table<span class="token operator">-</span>column<span class="token operator">></span></code></pre>
+                <ol>
+<li><a href="https://juejin.im/post/5b22a5a36fb9a00e43465e2c/" target="_blank" rel="noopener">运算符基础</a></li>
+<li><a href="https://juejin.im/post/5b1f899fe51d4506c60e46ee#heading-26" target="_blank" rel="noopener">44 道 JavaScript 难题</a></li>
+<li></li>
+</ol>
+<p>待看：</p>
+<p><a href="https://blog.csdn.net/u013165804/article/details/84544540" target="_blank" rel="noopener">有意思javaScript问题</a></p>
 
             </div>
             <hr/>
@@ -495,7 +482,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://yoursite.com/p/7e26.html">http://yoursite.com/p/7e26.html</a>
+                    <a href="http://yoursite.com/p/3010.html">http://yoursite.com/p/3010.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -533,12 +520,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Vue/">
-                                    <span class="chip bg-color">Vue</span>
-                                </a>
-                            
-                                <a href="/tags/Element/">
-                                    <span class="chip bg-color">Element</span>
+                                <a href="/tags/Js/">
+                                    <span class="chip bg-color">Js</span>
                                 </a>
                             
                         </div>
@@ -708,31 +691,30 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/p/3010.html">
+                <a href="/p/cb22.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="优秀文章地址">
+                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="Js-运算符骚操作">
                         
-                        <span class="card-title">优秀文章地址</span>
+                        <span class="card-title">Js-运算符骚操作</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
-运算符基础
-44 道 JavaScript 难题
-
-
-待看：
-有意思javaScript问题
-
+                            1. 最快互换a ^= b
+b ^= a
+a ^= b
+2. 最快取整13.5&lt;&lt;0
+3. 最快查看负整数在计算机内部的存储形式-1 >>> 0
+//4294967295
+4. 将任意值转为布尔值console.log(!!'d
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-04-07
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-04-10
                         </span>
                         <span class="publish-author">
                             
@@ -764,22 +746,20 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/p/4da6.html">
+                <a href="/p/7e26.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Vue-v-show和v-if区别与实战问题">
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="Vue-element小技巧">
                         
-                        <span class="card-title">Vue-v-show和v-if区别与实战问题</span>
+                        <span class="card-title">Vue-element小技巧</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            v-if和v-show的区别参考文章
-v-show和v-if都是用来显示隐藏元素，v-if还有一个v-else配合使用，两者达到的效果都一样，性能方面去有很大的区别。
-v-show
-v-show不管条件是真还是假，第一次渲染的时候都会编译出
+                            1. el-checkbox多选框竖排列el-checkbox 中加入样式：style=”display:block;”
+2. 表格多选框分页保留数据&lt;!-- 在type=&quot;selection的列里添加reserve-sel
                         
                     </div>
                     <div class="publish-info">
