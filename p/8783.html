@@ -4,13 +4,16 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Oracle-基础知识, Soldier33">
-    <meta name="description" content="第1章Oracle 11g数据库安装与配置 1-3
-第2章Oracle数据库管理与开发工具介绍 4-6
-第3章Oracle数据库系统结构 概念居多 7 
-第4章案例数据库的创建与客户端的连接 无
-第5章数据库存储设置与管理  8
-第6章数据">
+    <meta name="keywords" content="Docker-常用命令, Soldier33">
+    <meta name="description" content="
+查看容器：
+docker ps -a
+
+重启容器：
+docker restart
+
+重启docker-compose：
+docker-compose stopdocker-compose rm -fdocker-compose up -d">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -18,7 +21,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Oracle-基础知识 | Soldier33</title>
+    <title>Docker-常用命令 | Soldier33</title>
     <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/favicon.ico">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -264,12 +267,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/14.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Oracle-基础知识</h1>
+                    <h1 class="description center-align post-title">Docker-常用命令</h1>
                 </div>
             </div>
         </div>
@@ -386,8 +389,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Oracle/">
-                                <span class="chip bg-color">Oracle</span>
+                            <a href="/tags/Css/">
+                                <span class="chip bg-color">Css</span>
                             </a>
                         
                     </div>
@@ -398,8 +401,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" class="post-category">
-                                数据库
+                            <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category">
+                                前端
                             </a>
                         
                     </div>
@@ -411,28 +414,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-05-02
+                    2020-09-11
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-05-03
+                    2020-09-11
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3k
+                    47
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    10 分
+                    1 分
                 </div>
                 
 				
@@ -448,174 +451,21 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>第1章Oracle 11g数据库安装与配置 1-3</p>
-<p>第2章Oracle数据库管理与开发工具介绍 4-6</p>
-<p>第3章Oracle数据库系统结构 概念居多 7 </p>
-<p>第4章案例数据库的创建与客户端的连接 无</p>
-<p>第5章数据库存储设置与管理  8</p>
-<p>第6章数据库对象的创建与管理 9-21</p>
-<ol>
-<li><p>Oracle数据库服务器工作模式</p>
-<p>主要有两种：专用服务器操作模式和共享服务器模式。</p>
-<p>专用服务器模式是指Oracle为每个用户进程启动一个专门的服务器进程</p>
-<p>线程共享服务器模式是指一个服务器进程可以被多个用户进程共享（调度进程的帮助下）</p>
+                <ol>
+<li><p>查看容器：</p>
+<p>docker ps -a</p>
 </li>
-<li><p>Oracle应用结构</p>
-<p>1、多数据库的独立宿主结构</p>
-<p>在物理上只有一台服务器，服务器上有一个或多个硬盘。但是在功能上是多个逻辑数据库服务器和多个数据库</p>
+<li><p>重启容器：</p>
+<p>docker restart</p>
 </li>
-</ol>
-<p>​        2、客户/服务器结构</p>
-<p>​        数据库服务器的管理和应用分布在两台计算机上，客户机上安装应用程序和连接工具，通过Oracle专用的网        络协议SQL *Net建立和服务器的连接，发出数据请求。服务器上运行数据库，通过网络协议接收连接请求，        将执行结果回送给客户机。</p>
-<p>​        3、分布式结构</p>
-<p>​        在这种结构中，分布式数据库系统在逻辑上是一个整体，但在物理上分布在不同的计算机网络里，通过连接        网络连接在一起。</p>
-<ol start="3">
-<li><p>Oracle基本概念</p>
-<p>表空间（Tablespace）：是数据库的逻辑划分，每个数据库至少有一个表空间（system表空间）。</p>
-<p>数据文件（DataFile）：每个表空间由同一磁盘上的一个或多个文件组成，这些文件叫数据文件。建立新表空间需要建立新的数据文件。</p>
-<p>实例（Instance）：也称为服务器（server），是存取和控制数据库的软件机制，它由系统全局区SGA和后台进程组成。</p>
-<p>常用的数据库类型有<strong>事务处理类</strong>、<strong>数据仓库类</strong>。</p>
-<p>两种数据库类型的区别在于：事务处理类一般数据量小，DML频繁，而数据仓库类数据量大，DML少；且两种数据库类型适用与不同类型的应用。</p>
-<p><strong>事务处理类型：</strong>主要针对具有<strong>大量并发用户连接</strong>，并且用户主要执行   <strong>简单</strong>事务处理的应用常用数据库环境。事务处理数据库的典型应用有 <strong>银行系统数据库、Internet电子商务数据库、证券交易系统数据库</strong>等。</p>
-<p><strong>数据仓库类型：</strong>主要针对<strong>有大量的对某个主题进行复杂查询</strong>的应用环境。数据仓库的典型应用有<strong>客户订单研究、支持呼叫、销售预测、采购模式以及其他战略性业务问题的历史数据研究</strong>。</p>
+<li><p>重启docker-compose：</p>
+<p>docker-compose stop<br>docker-compose rm -f<br>docker-compose up -d</p>
 </li>
-</ol>
-<ol start="4">
-<li><p>必须启动的两个服务</p>
-<p>OracleServiceORCL：数据库服务（数据库实例），是Oracle核心服务，是数据库启动的基础，只有该服务启动，Oracle数据库才能正常启动。（必须启动）<br>OracleOraDb11g_home1TNSListener：监听器服务，该服务只有在远程访问数据库时才需要（无论远程计算机还是本地计算机，凡是通过Oracle Net网络协议连接数据库都属于远程访问）。（必须启动）</p>
-<p> OracleDBConsoleorcl：Oracle控制台服务，即企业管理器服务。只有该服务启动了，才可以使用Web方式的企业管理器管理数据库。（非必须启动）</p>
+<li><p>查看 生效的环境变量</p>
+<p>docker exec -it 容器ID env</p>
 </li>
-<li><p>OEM： <a href="https://localhost:1158/em" target="_blank" rel="noopener">https://localhost:1158/em</a></p>
-<p>登录：sys</p>
-<p>​             ….</p>
-<p>​            SYSDBA</p>
-<p>为了通过IE启动OEM，必须首先启动数据库服务器端的oracleservice服务、TNSlistener服务和oracleDBConsole服务。其中oracleDBConsole是OEM控制台服务，实际上是一个基于数据库的HTTP服务。</p>
-</li>
-<li><p>SQL Plus</p>
-<p>（1）连接数据库</p>
-<p>oracle目录下，</p>
-<p>sqlplus</p>
-<p>hr</p>
-<p>123</p>
-<p>（2）查询数据库</p>
-<p>select * from jobs</p>
-<p>/</p>
-<p>（3）保存操作</p>
-<p>save d:\ok</p>
-<p> get d:\ok</p>
-<p> @d:\ok</p>
-<p> spool d:\ab.txt</p>
-<p>spool off</p>
-<p> set time on</p>
-<p> set time off</p>
-</li>
-<li><p>oracle数据库体系结构的构成</p>
-<p>存储结构：物理存储结构和逻辑存储结构</p>
-<p>软件结构：内存结构和后台进程结构</p>
-<p><strong>物理存储结构的组成</strong>：</p>
-<p>1.数据文件 </p>
-<p>2.控制文件 </p>
-<p>3.重做日志文件 </p>
-<p>4.归档重做日志文件 </p>
-</li>
-</ol>
-<p>​       5.初始化参数文件 </p>
-<p>​       6.跟踪文件 </p>
-<p>​        7.告警文件 </p>
-<pre><code> **逻辑存储结构的组成**：结构由数据块、区、段、表空间和数据库构成</code></pre><p>​    表空间是Oracle数据库最大的逻辑存储单元</p>
-<p>​    表空间分类：系统表空间 ，非系统表空间，撤销表空间，临时表空间，用户表空间</p>
-<p>​    <strong>oracle数据库内存结构的组成</strong>：系统全局区（SGA）和程序全局区（PGA）。</p>
-<p>​    （1）数据库实例由各种高速缓冲池以及后台进程组成。</p>
-<p>​    （2）SGA构成：数据高速缓冲区，共享池，重做日志缓冲区，大型池，Java池，流池，</p>
-<p>​    其它结构（如固定SGA、锁管理等）</p>
-<p>​    （3）数据高速缓冲区：脏缓存块，空闲缓存块，命中缓存块，干净缓存块</p>
-<p>​    （4）PGA构成：排序区，游标信息区，会话信息区，堆栈区</p>
-<p>​    <strong>后台进程的组成</strong>：</p>
-<p>​    DBWR   数据库写入进程<br>​    LGWR   日志写入进程<br>​    CKPT     检查点进程<br>​    SMON   系统监控进程<br>​    PMON    进程监控进程<br>​    ARCH    归档进程<br>​    RECO  恢复进程<br>​    LCKn 锁进程<br>​    Dnnn  度进程等</p>
-<p>（1）<strong>简述oracle数据库后台进程DBWR何时启动。</strong></p>
-<p>​    答：</p>
-<p>​    1.在执行INSERT、UPDATE等操作时 ，没有足够的空闲块时。</p>
-<p>​    2.当检查点发生时 。</p>
-<p>​    3.当数据缓存的LRU列表的长度达到初始化 DB_BLOCK_WRITE_BATCH指定值的一半时 。</p>
-<p>​    4.发生超时的时候 。</p>
-<p>（2）<strong>简述oracle数据库后台进程LGWR何时启动</strong></p>
-<p>​    答：</p>
-<p>​    1.当用户通过COMMIT语句提交当前事务时。</p>
-<p>​    2.当重做日志缓存被写满三分之一时。</p>
-<p>​    3.当DBWR进程开始将脏缓存块写入数据文件时。</p>
-<p>​    \4. 当发生一次超时，将启动LGWR 。</p>
-<ol start="8">
-<li><p><strong>1：说明数据库表空间的种类及不同类型表空间的作用。</strong> </p>
-<p><strong>2：说明数据库、表空间、数据文件及数据库对象之间的关系。</strong> </p>
-<p><strong>3:</strong> <strong>说明orcle数据库数据文件的作用。</strong></p>
-<p><strong>4</strong>：<strong>说明Oracle数据库控制文件的作用。</strong> </p>
-<p><strong>5</strong>：<strong>说明Oracle数据库重做日志文件的作用。</strong> </p>
-<p><strong>6</strong>：<strong>说明Oracle数据库归档的必要性。</strong> </p>
-<p><strong>7</strong>：<strong>说明Oracle数据库重做日志文件的工作方法。</strong> </p>
-<p><strong>8</strong>：<strong>说明采用多路复用控制文件的必要性及工作方式。</strong> </p>
-</li>
-<li><p>Oracle数据库对象概述<br>表的创建与管理<br>索引的创建与管理<br>视图的创建与管理<br>序列<br>分区表与分区索引</p>
-</li>
-<li><p>模式是指一系列逻辑数据结构或对象的集合。（如SYS模式）</p>
-<p>一个模式只能被一个数据库用户所拥有</p>
-<p>同一模式中数据库对象的名称必须惟一，而在不同模式中的数据库对象可以同名</p>
-</li>
-<li><p><strong>Oracle ** **数据库中创建表的方法有哪几种。</strong></p>
-<p><strong>sql语句：</strong></p>
-<p><strong>一、直接创建：create table tablename；</strong></p>
-<p><strong>二、 ** **创建与表A结构相同的空表：</strong></p>
-<p><strong>create table a_tmp as select * from A where 1=0；（即为假）</strong></p>
-<p><strong>三、  **  **复制表A全部（或部分）数据：</strong></p>
-<p><strong>create table a_tmp as select * from A (where a.xxx=xxx)</strong>；</p>
-</li>
-<li><p>约束作用<br><strong>保证数据的完整性</strong>，是在表中定义的用于维护数据库完整性的一些规则。通过对表中列定义约束，可以防止在执行DML操作时，将不符合要求的数据插入到表中。</p>
-</li>
-<li><p>约束类型<br>PRIMARY KEY<br>UNIQUE<br>CHECK<br>FOREIGN KEY<br>NULL/NOT NULL </p>
-</li>
-<li><p><strong>索引的作用</strong></p>
-<p>索引是为了加速对表中元组的检索而创建的一种分散存储结构；<br>是对表而建立的，由除存放表的数据页面以外的索引页面组成，独立于被索引的表；<br>通过使用索引加速行的检索，但减慢更新的速度；<br>快速定位数据，减少磁盘 I/O；<br>Oracle自动使用、维护索引</p>
-</li>
-<li><p>索引类型：</p>
-<p>B-树索引<br>位图索引<br>函数索引<br>唯一性索引与非唯一性索引<br>单列索引与复合索引</p>
-<p>在emp表的last_name列上创建一个非唯一性索引。<br>CREATE INDEX emp_lname_indx ON emp (last_name) ;<br>在emp表的email列上创建一个唯一性索引。<br>CREATE UNIQUE INDEX emp_email_indx ON emp(email);<br>在emp表的job_id列上创建一个位图索引。<br>CREATE BITMAP INDEX emp_job_indx ON emp(job_id) ;<br>基于emp表的first_name列创建一个函数索引。<br>CREATE INDEX emp_fname_indx ON emp (UPPER(first_name)) ;</p>
-</li>
-<li><p>索引使用原则</p>
-<p>导入数据后再创建索引<br>在适当的表和字段上创建索引<br>合理设置复合索引中列的顺序<br>限制表中索引的数目<br>选择存储索引的表空间</p>
-</li>
-<li><p>视图是从一个或多个表或视图中提取出来的数据的一种逻辑表现形式。</p>
-<p><strong>提供一定的数据范围成为视图给用户</strong></p>
-<p><a href="https://baike.baidu.com/item/视图" target="_blank" rel="noopener">视图</a>是一个<strong>虚拟表</strong>，视图并<strong>不在数据库中存储数据值</strong>，数据库中只在数据字典中存储对视图的定义。</p>
-</li>
-</ol>
-<pre><code>**视图分为简单视图和复杂视图两类。**</code></pre><ol start="18">
-<li><p>视图作用：</p>
-<p>1.可以限制对基表数据的访问，只允许用户通过视图看到表中的部分数据。 </p>
-<p>2.可以使复杂的查询简单化。 </p>
-<p>3.提供了数据的透明性，用户并不知道数据来自于何处。</p>
-<p>4.提供了对相同数据的不同显示。</p>
-</li>
-<li><p><strong>简述序列的作用及使用方法。</strong></p>
-<p><strong>序列: 是oacle提供的用于产生一系列唯一数字的数据库对象。</strong></p>
-<p><strong>作用：</strong></p>
-<p><strong>1．自动提供唯一的数值（可以为表中的记录自动产生唯一序号）</strong></p>
-<p><strong>2．共享对象（由用户创建并且可以被多个用户共享）</strong></p>
-<p><strong>3．主要用于提供主键值（典型应用是生成主键值，用于标识记录的唯一性）</strong></p>
-<p><strong>4. 将序列值装入内存可以提高访问效率（使用缓存可以加速序列的访问速度）</strong></p>
-<p><strong>5. 允许同时生成多个序列号（每一个序列号是唯一的）</strong> </p>
-<p>使用CREATE SEQUENCE语句创建序列</p>
-<p>START WITH：设置序列初始值，默认值为1。</p>
-<p>INCREMENT BY：设置相邻两个元素之间的差值，即步长，默认值为1。</p>
-<p>MAXVALUE：设置序列最大值。</p>
-<p>NOMAXVALUE：默认情况下，递增序列的最大值为1028-1，递减序列的最大值为-1。</p>
-<p>MINVALUE：设置序列最小值。</p>
-<p>NOMINVALUE：默认情况下，递增序列的最小值为1， 递减序列的最小值为-(1027 -1)。CYCLE：当序列达到其最大值或最小值后，开始新的循环。</p>
-<p>NOCYCLE：当序列达到其最大值或最小值后，序列不再生成值。默认选项。</p>
-<p>CACHE：设置Oracle服务器预先分配并保留在内存中的序列值的个数，默认为20。</p>
-<p>NOCACHE：不缓存序列值</p>
-</li>
-<li><p>对巨型表进行分区具有下列优点：<br>提高数据的安全性，一个分区的损坏不影响其他分区中数据的正常使用。<br>将表的各个分区存储在不同磁盘上，提高数据的并行操作能力。<br>简化数据的管理，可以将某些分区设置为不可用状态，某些分区设置为可用状态，某些分区设置为只读状态，某些分区设置为读写状态。<br>操作的透明性，对表进行分区并不影响对数据进行操作的SQL语句。</p>
-</li>
-<li><p>创建范围分区表<br>创建列表分区表<br>创建散列分区表<br>创建复合分区表</p>
+<li><p>更新</p>
+<p>apt-get update</p>
 </li>
 </ol>
 
@@ -643,7 +493,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://yoursite.com/p/b191.html">http://yoursite.com/p/b191.html</a>
+                    <a href="http://yoursite.com/p/8783.html">http://yoursite.com/p/8783.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -681,8 +531,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Oracle/">
-                                    <span class="chip bg-color">Oracle</span>
+                                <a href="/tags/Css/">
+                                    <span class="chip bg-color">Css</span>
                                 </a>
                             
                         </div>
@@ -848,9 +698,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/p/8783.html">
                     <div class="card-image">
@@ -876,9 +727,9 @@ docker-compose stopdocker-compose rm -fdocker-compose up -d
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-09-11
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-09-11
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -891,6 +742,7 @@ docker-compose stopdocker-compose rm -fdocker-compose up -d
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -909,28 +761,24 @@ docker-compose stopdocker-compose rm -fdocker-compose up -d
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/p/ec8a.html">
+                <a href="/p/b191.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="面试-问到的问题">
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="Oracle-基础知识">
                         
-                        <span class="card-title">面试-问到的问题</span>
+                        <span class="card-title">Oracle-基础知识</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            如何自己的资源放到cnd上
-如何封装axios，单例模式
-webpack怎么做
-登录，怎么加密，怎么存
-还有哪些优化方案
-介绍自已
-介绍项目，突出亮点
-promise all什么场景用，有哪些api
-如何解决css冲突 bem命名法
-视口计
+                            第1章Oracle 11g数据库安装与配置 1-3
+第2章Oracle数据库管理与开发工具介绍 4-6
+第3章Oracle数据库系统结构 概念居多 7 
+第4章案例数据库的创建与客户端的连接 无
+第5章数据库存储设置与管理  8
+第6章数据
                         
                     </div>
                     <div class="publish-info">
@@ -941,8 +789,8 @@ promise all什么场景用，有哪些api
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category">
-                                    前端
+                            <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" class="post-category">
+                                    数据库
                                 </a>
                             
                             
@@ -952,8 +800,8 @@ promise all什么场景用，有哪些api
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E9%9D%A2%E8%AF%95/">
-                        <span class="chip bg-color">面试</span>
+                    <a href="/tags/Oracle/">
+                        <span class="chip bg-color">Oracle</span>
                     </a>
                     
                 </div>
