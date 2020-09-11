@@ -422,21 +422,21 @@ let b = ">
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-05-02
+                    2020-05-04
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    701
+                    878
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    3 分
+                    4 分
                 </div>
                 
 				
@@ -645,7 +645,66 @@ arr<span class="token punctuation">.</span><span class="token function">contains
 <span class="token comment" spellcheck="true">// 删</span>
 dic<span class="token punctuation">.</span><span class="token function">removeValue</span><span class="token punctuation">(</span>forKey<span class="token punctuation">:</span><span class="token string">"ios"</span><span class="token punctuation">)</span></code></pre>
 </li>
+<li><p>函数</p>
+<pre class=" language-swift"><code class="language-swift"><span class="token comment" spellcheck="true">// 数组</span>
+<span class="token keyword">func</span> <span class="token function">test1</span><span class="token punctuation">(</span>name<span class="token punctuation">:</span><span class="token builtin">String</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">for</span> item <span class="token keyword">in</span> name <span class="token punctuation">{</span>
+        <span class="token function">print</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token function">test</span><span class="token punctuation">(</span>name<span class="token punctuation">:</span><span class="token string">"a"</span><span class="token punctuation">,</span><span class="token string">"b"</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">// 元组</span>
+<span class="token keyword">func</span> <span class="token function">test2</span><span class="token punctuation">(</span>name<span class="token punctuation">:</span><span class="token punctuation">(</span>n1<span class="token punctuation">:</span><span class="token builtin">String</span><span class="token punctuation">,</span>n2<span class="token punctuation">:</span><span class="token builtin">Int</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token punctuation">(</span><span class="token builtin">String</span><span class="token punctuation">,</span><span class="token builtin">Int</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">var</span> value<span class="token punctuation">:</span><span class="token punctuation">(</span>a<span class="token punctuation">:</span><span class="token builtin">String</span><span class="token punctuation">,</span>b<span class="token punctuation">:</span><span class="token builtin">Int</span><span class="token punctuation">)</span>
+    value<span class="token punctuation">.</span>a <span class="token operator">=</span> name<span class="token punctuation">.</span>n1 <span class="token operator">+</span> <span class="token string">" world"</span>
+    value<span class="token punctuation">.</span>b <span class="token operator">=</span> name<span class="token punctuation">.</span>n2 <span class="token operator">+</span> <span class="token number">10</span>
+    <span class="token keyword">return</span> vaule
+<span class="token punctuation">}</span>
+<span class="token keyword">var</span> value <span class="token operator">=</span> <span class="token function">test2</span><span class="token punctuation">(</span>name<span class="token punctuation">:</span><span class="token punctuation">(</span>n1<span class="token punctuation">:</span><span class="token string">"hello"</span><span class="token punctuation">,</span>n2<span class="token punctuation">:</span><span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token function">print</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">// 外部名称，内部名称</span>
+<span class="token keyword">func</span> <span class="token function">test3</span><span class="token punctuation">(</span>outname inname<span class="token punctuation">:</span><span class="token builtin">String</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">print</span><span class="token punctuation">(</span>inname<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+<span class="token function">test3</span><span class="token punctuation">(</span>outname<span class="token punctuation">:</span><span class="token string">"hello"</span><span class="token punctuation">)</span></code></pre>
+</li>
+<li><p>断言</p>
+<p>让程序停止运行</p>
+<p>assert(false,”停止继续运行”)</p>
+</li>
+<li><p>guard ， 不满足才执行</p>
+<pre class=" language-swift"><code class="language-swift"><span class="token keyword">func</span> <span class="token function">test</span><span class="token punctuation">(</span>param<span class="token punctuation">:</span><span class="token builtin">Int</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">guard</span> param <span class="token operator">&lt;</span> <span class="token number">10</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+        <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"进入guard"</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> 
+    <span class="token punctuation">}</span>
+    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"hello"</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+<span class="token function">test</span><span class="token punctuation">(</span>param<span class="token punctuation">:</span> <span class="token number">5</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// hello</span>
+</code></pre>
+</li>
+<li><p>inout关键字</p>
+<pre class=" language-swift"><code class="language-swift"><span class="token keyword">func</span> <span class="token function">test</span><span class="token punctuation">(</span>param<span class="token punctuation">:</span> <span class="token keyword">inout</span> <span class="token builtin">Int</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    param <span class="token operator">=</span> param <span class="token operator">*</span> <span class="token number">2</span>
+    <span class="token function">print</span><span class="token punctuation">(</span>param<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">var</span> a <span class="token operator">=</span> <span class="token number">10</span>
+<span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"传递前a="</span> <span class="token operator">+</span> <span class="token function">String</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token function">test</span><span class="token punctuation">(</span>param<span class="token punctuation">:</span> <span class="token operator">&amp;</span>a<span class="token punctuation">)</span>
+<span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"传递后a="</span> <span class="token operator">+</span> <span class="token function">String</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">// 10</span>
+<span class="token comment" spellcheck="true">// 20 </span>
+<span class="token comment" spellcheck="true">// 20</span></code></pre>
+</li>
+<li><p>匿名函数</p>
+<pre class=" language-swift"><code class="language-swift"><span class="token keyword">var</span> d<span class="token punctuation">:</span><span class="token punctuation">(</span><span class="token builtin">String</span><span class="token punctuation">,</span><span class="token builtin">Int</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">String</span> <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">(</span>param1<span class="token punctuation">:</span><span class="token builtin">String</span><span class="token punctuation">,</span>param2<span class="token punctuation">:</span><span class="token builtin">Int</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">String</span> <span class="token keyword">in</span>
+    <span class="token keyword">return</span> param1 <span class="token operator">=</span> <span class="token function">String</span><span class="token punctuation">(</span>param2<span class="token punctuation">)</span>
+<span class="token punctuation">}</span></code></pre>
+</li>
 </ol>
+<p>27. </p>
 
             </div>
             <hr/>
@@ -1137,7 +1196,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">21.8k</span>&nbsp;字
+                class="white-color">22k</span>&nbsp;字
             
             
             

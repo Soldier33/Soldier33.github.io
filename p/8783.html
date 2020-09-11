@@ -4,13 +4,16 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Node-初探koa, Soldier33">
-    <meta name="description" content="const koa = require(&#39;koa&#39;)
-//注意引入方式
-// 方式一
-const router = require(&#39;koa-router&#39;)() 
-// 方式二
-// const Router = require(&#39;koa">
+    <meta name="keywords" content="Docker-常用命令, Soldier33">
+    <meta name="description" content="
+查看容器：
+docker ps -a
+
+重启容器：
+docker restart
+
+重启docker-compose：
+docker-compose stopdocker-compose rm -fdocker-compose up -d">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -18,7 +21,7 @@ const router = require(&#39;koa-router&#39;)()
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Node-初探koa | Soldier33</title>
+    <title>Docker-常用命令 | Soldier33</title>
     <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/favicon.ico">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -264,12 +267,12 @@ const router = require(&#39;koa-router&#39;)()
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Node-初探koa</h1>
+                    <h1 class="description center-align post-title">Docker-常用命令</h1>
                 </div>
             </div>
         </div>
@@ -386,8 +389,8 @@ const router = require(&#39;koa-router&#39;)()
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Node/">
-                                <span class="chip bg-color">Node</span>
+                            <a href="/tags/docker/">
+                                <span class="chip bg-color">docker</span>
                             </a>
                         
                     </div>
@@ -398,8 +401,8 @@ const router = require(&#39;koa-router&#39;)()
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category">
-                                前端
+                            <a href="/categories/%E5%90%8E%E7%AB%AF/" class="post-category">
+                                后端
                             </a>
                         
                     </div>
@@ -411,28 +414,28 @@ const router = require(&#39;koa-router&#39;)()
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-02-13
+                    2020-09-11
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-03-22
+                    2020-09-11
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    533
+                    47
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    1 分
                 </div>
                 
 				
@@ -448,115 +451,23 @@ const router = require(&#39;koa-router&#39;)()
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">const</span> koa <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'koa'</span><span class="token punctuation">)</span>
-<span class="token comment" spellcheck="true">//注意引入方式</span>
-<span class="token comment" spellcheck="true">// 方式一</span>
-<span class="token keyword">const</span> router <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'koa-router'</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">)</span> 
-<span class="token comment" spellcheck="true">// 方式二</span>
-<span class="token comment" spellcheck="true">// const Router = require('koa-router')</span>
-<span class="token comment" spellcheck="true">// const router = new Router()</span>
-
-<span class="token keyword">const</span> render <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'koa-art-template'</span><span class="token punctuation">)</span>
-<span class="token keyword">const</span> path <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'path'</span><span class="token punctuation">)</span>
-<span class="token keyword">const</span> bodyParser <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'koa-bodyparser'</span><span class="token punctuation">)</span>
-<span class="token keyword">const</span> <span class="token keyword">static</span> <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'koa-static'</span><span class="token punctuation">)</span>
-<span class="token keyword">const</span> session <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'koa-session'</span><span class="token punctuation">)</span>
-
-<span class="token keyword">const</span> app <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">koa</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-
-<span class="token comment" spellcheck="true">// 路由级中间件</span>
-router<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span><span class="token string">'/test1'</span><span class="token punctuation">,</span><span class="token keyword">async</span> <span class="token punctuation">(</span>ctx<span class="token punctuation">,</span> next<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'mmmm'</span><span class="token punctuation">)</span>
-     <span class="token comment" spellcheck="true">//koa中cookies无法直接设置中文</span>
-    <span class="token comment" spellcheck="true">// ctx.cookies.set('cookieTest', '中文')  </span>
-    <span class="token keyword">var</span> cookieTest <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Buffer<span class="token punctuation">.</span>from</span><span class="token punctuation">(</span><span class="token string">'中文'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token string">'base64'</span><span class="token punctuation">)</span>
-    ctx<span class="token punctuation">.</span>cookies<span class="token punctuation">.</span><span class="token keyword">set</span><span class="token punctuation">(</span><span class="token string">'cookieTest'</span><span class="token punctuation">,</span> cookieTest<span class="token punctuation">)</span>  
-    ctx<span class="token punctuation">.</span>session<span class="token punctuation">.</span>sessionTest <span class="token operator">=</span> <span class="token string">"会话"</span> <span class="token comment" spellcheck="true">//没有中文问题</span>
-    <span class="token keyword">await</span> <span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span>
-
-router<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span><span class="token string">'/test1'</span><span class="token punctuation">,</span><span class="token keyword">async</span> <span class="token punctuation">(</span>ctx<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-    <span class="token keyword">let</span> content <span class="token operator">=</span> <span class="token string">"333"</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>ctx<span class="token punctuation">.</span>query<span class="token punctuation">)</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>ctx<span class="token punctuation">.</span>state<span class="token punctuation">.</span>userinfo<span class="token punctuation">)</span>
-
-    <span class="token keyword">await</span> ctx<span class="token punctuation">.</span><span class="token function">render</span><span class="token punctuation">(</span><span class="token string">'index'</span><span class="token punctuation">,</span><span class="token punctuation">{</span>
-        content<span class="token punctuation">,</span>
-    <span class="token punctuation">}</span><span class="token punctuation">)</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span>
-<span class="token comment" spellcheck="true">// 动态路由</span>
-router<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span><span class="token string">'/test2/:id'</span><span class="token punctuation">,</span><span class="token keyword">async</span> <span class="token punctuation">(</span>ctx<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>ctx<span class="token punctuation">.</span>params<span class="token punctuation">)</span>
-    <span class="token keyword">var</span> data1 <span class="token operator">=</span> ctx<span class="token punctuation">.</span>cookies<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span><span class="token string">'cookieTest'</span><span class="token punctuation">)</span>
-    <span class="token keyword">var</span> data2 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Buffer<span class="token punctuation">.</span>from</span><span class="token punctuation">(</span>data1<span class="token punctuation">,</span> <span class="token string">'base64'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>data2<span class="token punctuation">)</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>ctx<span class="token punctuation">.</span>session<span class="token punctuation">.</span>sessionTest<span class="token punctuation">)</span> 
-<span class="token punctuation">}</span><span class="token punctuation">)</span>
-
-<span class="token comment" spellcheck="true">// 登录，post请求</span>
-router<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span><span class="token string">'/test3'</span><span class="token punctuation">,</span> <span class="token keyword">async</span> <span class="token punctuation">(</span>ctx<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-    <span class="token keyword">await</span> ctx<span class="token punctuation">.</span><span class="token function">render</span><span class="token punctuation">(</span><span class="token string">'login'</span><span class="token punctuation">)</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span>
-router<span class="token punctuation">.</span><span class="token function">post</span><span class="token punctuation">(</span><span class="token string">'/login'</span><span class="token punctuation">,</span> <span class="token keyword">async</span> <span class="token punctuation">(</span>ctx<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>ctx<span class="token punctuation">.</span>request<span class="token punctuation">.</span>body<span class="token punctuation">)</span>
-    ctx<span class="token punctuation">.</span>body <span class="token operator">=</span> ctx<span class="token punctuation">.</span>request<span class="token punctuation">.</span>body
-<span class="token punctuation">}</span><span class="token punctuation">)</span>
-
-
-<span class="token comment" spellcheck="true">// 配置koa-art-template</span>
-<span class="token function">render</span><span class="token punctuation">(</span>app<span class="token punctuation">,</span> <span class="token punctuation">{</span>
-    root<span class="token punctuation">:</span> path<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span> <span class="token string">'views'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-    extname<span class="token punctuation">:</span> <span class="token string">'.html'</span><span class="token punctuation">,</span>
-    debug<span class="token punctuation">:</span> process<span class="token punctuation">.</span>env<span class="token punctuation">.</span>NODE_ENV <span class="token operator">!==</span> <span class="token string">'production'</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span>
-<span class="token comment" spellcheck="true">// 配置session的中间件</span>
-app<span class="token punctuation">.</span>keys <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'some secret hurr'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-
-<span class="token keyword">const</span> CONFIG <span class="token operator">=</span> <span class="token punctuation">{</span>
-  key<span class="token punctuation">:</span> <span class="token string">'koa:sess'</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">/** (string) cookie key (default is koa:sess) */</span>
-  <span class="token comment" spellcheck="true">/** (number || 'session') maxAge in ms (default is 1 days) */</span>
-  <span class="token comment" spellcheck="true">/** 'session' will result in a cookie that expires when session/browser is closed */</span>
-  <span class="token comment" spellcheck="true">/** Warning: If a session cookie is stolen, this cookie will never expire */</span>
-  maxAge<span class="token punctuation">:</span> <span class="token number">86400000</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">/** 需要修改 */</span>
-  autoCommit<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">/** (boolean) automatically commit headers (default true) */</span>
-  overwrite<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">/** (boolean) can overwrite or not (default true) */</span>
-  httpOnly<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">/** (boolean) 只有服务端能访问 (default true) */</span>
-  signed<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">/** (boolean) signed or not (default true) */</span>
-  rolling<span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">/** 重新发请求，重新设置session  (default is false) */</span>
-  renew<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">/** 需要修改false->true 用户有操作，重新设置session (default is false)*/</span>
-  sameSite<span class="token punctuation">:</span> <span class="token keyword">null</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">/** (string) session cookie sameSite options (default null, don't set it) */</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span>
-
-app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span><span class="token function">session</span><span class="token punctuation">(</span>CONFIG<span class="token punctuation">,</span> app<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-
-app
-    <span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span><span class="token keyword">static</span><span class="token punctuation">(</span><span class="token string">'./static'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>    <span class="token comment" spellcheck="true">//配置静态web服务的中间件</span>
-    <span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span><span class="token function">bodyParser</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>      <span class="token comment" spellcheck="true">//获取表单数据中间件,要写在路由前面，否则不生效</span>
-    <span class="token comment" spellcheck="true">// 写中间件配置公共的信息，要写在路由前面，否则不生效</span>
-    <span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span><span class="token keyword">async</span> <span class="token punctuation">(</span>ctx<span class="token punctuation">,</span> next<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>           
-        ctx<span class="token punctuation">.</span>state<span class="token punctuation">.</span>userinfo <span class="token operator">=</span> <span class="token string">'ed'</span>
-        <span class="token keyword">await</span> <span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span>          
-    <span class="token punctuation">}</span><span class="token punctuation">)</span>
-    <span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>router<span class="token punctuation">.</span><span class="token function">routes</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>       <span class="token comment" spellcheck="true">// 启动路由</span>
-    <span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>router<span class="token punctuation">.</span><span class="token function">allowedMethods</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>   <span class="token comment" spellcheck="true">//推荐写上此配置</span>
-
-    <span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span><span class="token keyword">async</span> <span class="token punctuation">(</span>ctx<span class="token punctuation">,</span> next<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>     <span class="token comment" spellcheck="true">//应用级中间件</span>
-        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>     <span class="token comment" spellcheck="true">//匹配路由之前打印日期</span>
-        <span class="token keyword">await</span> <span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span>    <span class="token comment" spellcheck="true">//當前路由匹配完成以后继续向后匹配</span>
-
-        <span class="token keyword">if</span><span class="token punctuation">(</span>ctx<span class="token punctuation">.</span>status <span class="token operator">===</span> <span class="token number">404</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>    <span class="token comment" spellcheck="true">//错误处理中间件</span>
-            ctx<span class="token punctuation">.</span>status <span class="token operator">=</span> <span class="token number">404</span>
-            ctx<span class="token punctuation">.</span>body <span class="token operator">=</span> <span class="token string">'404了'</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span><span class="token punctuation">)</span>
-
-
-app<span class="token punctuation">.</span><span class="token function">listen</span><span class="token punctuation">(</span><span class="token number">3000</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token number">3000</span><span class="token punctuation">)</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span>
-
-</code></pre>
+                <ol>
+<li><p>查看容器：</p>
+<p>docker ps -a</p>
+</li>
+<li><p>重启容器：</p>
+<p>docker restart</p>
+</li>
+<li><p>重启docker-compose：</p>
+<p>docker-compose stop<br>docker-compose rm -f<br>docker-compose up -d</p>
+</li>
+<li><p>查看 生效的环境变量</p>
+<p>docker exec -it 容器ID env</p>
+</li>
+<li><p>更新</p>
+<p>apt-get update</p>
+</li>
+</ol>
 
             </div>
             <hr/>
@@ -582,7 +493,7 @@ app<span class="token punctuation">.</span><span class="token function">listen</
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://yoursite.com/p/ed87.html">http://yoursite.com/p/ed87.html</a>
+                    <a href="http://yoursite.com/p/8783.html">http://yoursite.com/p/8783.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -620,8 +531,8 @@ app<span class="token punctuation">.</span><span class="token function">listen</
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Node/">
-                                    <span class="chip bg-color">Node</span>
+                                <a href="/tags/docker/">
+                                    <span class="chip bg-color">docker</span>
                                 </a>
                             
                         </div>
@@ -787,50 +698,56 @@ app<span class="token punctuation">.</span><span class="token function">listen</
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/p/662d.html">
+                <a href="/p/8783.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="Node-开启gzip配置">
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Docker-常用命令">
                         
-                        <span class="card-title">Node-开启gzip配置</span>
+                        <span class="card-title">Docker-常用命令</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            开启gzip配置
-压缩体积，传输更快
-npm i compression
-const compression = require(&#39;compression&#39;)
-app.use(compression())
+                            
+查看容器：
+docker ps -a
+
+重启容器：
+docker restart
+
+重启docker-compose：
+docker-compose stopdocker-compose rm -fdocker-compose up -d
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-02-24
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-09-11
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category">
-                                    前端
+                            <a href="/categories/%E5%90%8E%E7%AB%AF/" class="post-category">
+                                    后端
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Node/">
-                        <span class="chip bg-color">Node</span>
+                    <a href="/tags/docker/">
+                        <span class="chip bg-color">docker</span>
                     </a>
                     
                 </div>
@@ -844,33 +761,36 @@ app.use(compression())
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/p/6074.html">
+                <a href="/p/b191.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="Vue-配置proxy,实现同时使用mock数据和后台接口的数据">
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="Oracle-基础知识">
                         
-                        <span class="card-title">Vue-配置proxy,实现同时使用mock数据和后台接口的数据</span>
+                        <span class="card-title">Oracle-基础知识</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            前端使用vue-element-admin，但遇到后台接口还没完成的情况下，
-需要同时使用mock数据和后台接口的数据，我们可以通过配置webpack的proxy，
-凡是/vue-element-admin开头的请求跳转请求mock，其他请
+                            第1章Oracle 11g数据库安装与配置 1-3
+第2章Oracle数据库管理与开发工具介绍 4-6
+第3章Oracle数据库系统结构 概念居多 7 
+第4章案例数据库的创建与客户端的连接 无
+第5章数据库存储设置与管理  8
+第6章数据
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-12-26
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-02
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category">
-                                    前端
+                            <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" class="post-category">
+                                    数据库
                                 </a>
                             
                             
@@ -880,8 +800,8 @@ app.use(compression())
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Vue/">
-                        <span class="chip bg-color">Vue</span>
+                    <a href="/tags/Oracle/">
+                        <span class="chip bg-color">Oracle</span>
                     </a>
                     
                 </div>
