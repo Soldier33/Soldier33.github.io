@@ -4,31 +4,6 @@
   
     
     <entry>
-      <title>Docker-常用命令</title>
-      <link href="/p/8783.html"/>
-      <url>/p/8783.html</url>
-      
-        <content type="html"><![CDATA[<ol><li><p>查看容器：</p><p>docker ps -a</p></li><li><p>重启容器：</p><p>docker restart</p></li><li><p>重启docker-compose：</p><p>docker-compose stop<br>docker-compose rm -f<br>docker-compose up -d</p></li><li><p>查看 生效的环境变量</p><p>docker exec -it 容器ID env</p></li><li><p>更新</p><p>apt-get update</p></li></ol>]]></content>
-      
-      
-      <categories>
-          
-          <category> 前端 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Css </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>Oracle-基础知识</title>
       <link href="/p/b191.html"/>
       <url>/p/b191.html</url>
